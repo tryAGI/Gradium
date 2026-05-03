@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Nuget">
+    <Description>Generated C# SDK for Gradium -- text-to-speech, speech-to-text, voices, pronunciations, and metering.</Description>
+    <PackageTags>gradium;tts;text-to-speech;stt;speech-to-text;voice;pronunciation;api;sdk;dotnet;openapi;autosdk</PackageTags>
+  </PropertyGroup>
+
+</Project>
