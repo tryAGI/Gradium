@@ -45,7 +45,7 @@ namespace Gradium
         /// <summary>
         /// 
         /// </summary>
-        public MeteringClient Metering => new MeteringClient(HttpClient, authorizations: Authorizations, options: Options)
+        public MeteringClient Metering => new MeteringClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -54,7 +54,7 @@ namespace Gradium
         /// <summary>
         /// Manage pronunciation dictionaries for custom text rewriting.
         /// </summary>
-        public PronunciationsClient Pronunciations => new PronunciationsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public PronunciationsClient Pronunciations => new PronunciationsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -63,7 +63,7 @@ namespace Gradium
         /// <summary>
         /// Speech-to-Text endpoints for converting audio to text.
         /// </summary>
-        public SttClient Stt => new SttClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SttClient Stt => new SttClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -72,7 +72,7 @@ namespace Gradium
         /// <summary>
         /// Text-to-Speech endpoints for converting text to audio.
         /// </summary>
-        public TtsClient Tts => new TtsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public TtsClient Tts => new TtsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -81,7 +81,7 @@ namespace Gradium
         /// <summary>
         /// Manage custom voice clones.
         /// </summary>
-        public VoicesClient Voices => new VoicesClient(HttpClient, authorizations: Authorizations, options: Options)
+        public VoicesClient Voices => new VoicesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -110,6 +110,27 @@ namespace Gradium
         }
 
         /// <summary>
+        /// Creates a new instance of the GradiumClient with explicit options but no base URL override.
+        /// Skips passing <c>baseUri</c> so the default base URL from the OpenAPI spec applies.
+        /// </summary>
+        /// <param name="httpClient">The HttpClient instance. If not provided, a new one will be created.</param>
+        /// <param name="authorizations">The authorizations to use for the requests.</param>
+        /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
+        /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
+        public GradiumClient(
+            global::System.Net.Http.HttpClient? httpClient,
+            global::System.Collections.Generic.List<global::Gradium.EndPointAuthorization>? authorizations,
+            global::Gradium.AutoSDKClientOptions? options,
+            bool disposeHttpClient = true) : this(
+                httpClient,
+                baseUri: null,
+                authorizations,
+                options,
+                disposeHttpClient: disposeHttpClient)
+        {
+        }
+
+        /// <summary>
         /// Creates a new instance of the GradiumClient.
         /// If no httpClient is provided, a new one will be created.
         /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
@@ -120,10 +141,10 @@ namespace Gradium
         /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
         public GradiumClient(
-            global::System.Net.Http.HttpClient? httpClient = null,
-            global::System.Uri? baseUri = null,
-            global::System.Collections.Generic.List<global::Gradium.EndPointAuthorization>? authorizations = null,
-            global::Gradium.AutoSDKClientOptions? options = null,
+            global::System.Net.Http.HttpClient? httpClient,
+            global::System.Uri? baseUri,
+            global::System.Collections.Generic.List<global::Gradium.EndPointAuthorization>? authorizations,
+            global::Gradium.AutoSDKClientOptions? options,
             bool disposeHttpClient = true)
         {
 
