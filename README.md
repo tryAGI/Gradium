@@ -40,6 +40,13 @@ using Gradium;
 using var client = new GradiumClient(apiKey);
 ```
 
+### CLI
+
+```bash
+dotnet tool install --global Gradium.CLI --prerelease
+gradium api --help
+```
+
 <!-- EXAMPLES:START -->
 ### Generate
 Basic example showing how to create a client and make a request.
