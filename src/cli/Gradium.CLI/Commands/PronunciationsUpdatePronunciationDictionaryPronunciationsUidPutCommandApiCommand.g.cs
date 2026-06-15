@@ -108,10 +108,10 @@ Update a pronunciation dictionary by its UID.");
                             global::Gradium.SourceGenerationContext.Default,
                             cancellationToken).ConfigureAwait(false);
                         var uid = parseResult.GetRequiredValue(Uid);
-                        var name = CliRuntime.WasSpecified(parseResult, NameOption) ? parseResult.GetValue(NameOption) : __requestBase is not null ? __requestBase.Name : default;
-                        var description = CliRuntime.WasSpecified(parseResult, DescriptionOption) ? parseResult.GetValue(DescriptionOption) : __requestBase is not null ? __requestBase.Description : default;
-                        var language = CliRuntime.WasSpecified(parseResult, Language) ? parseResult.GetValue(Language) : __requestBase is not null ? __requestBase.Language : default;
-                        var rules = CliRuntime.WasSpecified(parseResult, Rules) ? parseResult.GetValue(Rules) : __requestBase is not null ? __requestBase.Rules : default;
+                        var name = CliRuntime.WasSpecified(parseResult, NameOption) ? parseResult.GetValue(NameOption) : (__requestBase is { } __NameBaseValue ? __NameBaseValue.Name : default);
+                        var description = CliRuntime.WasSpecified(parseResult, DescriptionOption) ? parseResult.GetValue(DescriptionOption) : (__requestBase is { } __DescriptionBaseValue ? __DescriptionBaseValue.Description : default);
+                        var language = CliRuntime.WasSpecified(parseResult, Language) ? parseResult.GetValue(Language) : (__requestBase is { } __LanguageBaseValue ? __LanguageBaseValue.Language : default);
+                        var rules = CliRuntime.WasSpecified(parseResult, Rules) ? parseResult.GetValue(Rules) : (__requestBase is { } __RulesBaseValue ? __RulesBaseValue.Rules : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 

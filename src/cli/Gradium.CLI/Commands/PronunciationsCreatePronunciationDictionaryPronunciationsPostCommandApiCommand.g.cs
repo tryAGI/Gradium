@@ -102,9 +102,9 @@ Create a pronunciation dictionary for the authenticated organization.");
                             global::Gradium.SourceGenerationContext.Default,
                             cancellationToken).ConfigureAwait(false);
                         var name = parseResult.GetRequiredValue(NameOption);
-                        var description = CliRuntime.WasSpecified(parseResult, DescriptionOption) ? parseResult.GetValue(DescriptionOption) : __requestBase is not null ? __requestBase.Description : default;
+                        var description = CliRuntime.WasSpecified(parseResult, DescriptionOption) ? parseResult.GetValue(DescriptionOption) : (__requestBase is { } __DescriptionBaseValue ? __DescriptionBaseValue.Description : default);
                         var language = parseResult.GetRequiredValue(Language);
-                        var rules = CliRuntime.WasSpecified(parseResult, Rules) ? parseResult.GetValue(Rules) : __requestBase is not null ? __requestBase.Rules : default;
+                        var rules = CliRuntime.WasSpecified(parseResult, Rules) ? parseResult.GetValue(Rules) : (__requestBase is { } __RulesBaseValue ? __RulesBaseValue.Rules : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 

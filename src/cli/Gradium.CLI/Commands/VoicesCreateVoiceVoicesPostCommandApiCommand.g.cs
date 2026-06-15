@@ -133,11 +133,11 @@ Create a new voice for an organization with audio file upload.");
                         var name = parseResult.GetRequiredValue(NameOption);
                         var audioFile = parseResult.GetRequiredValue(AudioFile);
                         var audioFilename = parseResult.GetRequiredValue(AudioFilename);
-                        var inputFormat = CliRuntime.WasSpecified(parseResult, InputFormat) ? parseResult.GetValue(InputFormat) : __requestBase is not null ? __requestBase.InputFormat : default;
-                        var description = CliRuntime.WasSpecified(parseResult, DescriptionOption) ? parseResult.GetValue(DescriptionOption) : __requestBase is not null ? __requestBase.Description : default;
-                        var language = CliRuntime.WasSpecified(parseResult, Language) ? parseResult.GetValue(Language) : __requestBase is not null ? __requestBase.Language : default;
-                        var startS = CliRuntime.WasSpecified(parseResult, StartS) ? parseResult.GetValue(StartS) : __requestBase is not null ? __requestBase.StartS : default;
-                        var timeoutS = CliRuntime.WasSpecified(parseResult, TimeoutS) ? parseResult.GetValue(TimeoutS) : __requestBase is not null ? __requestBase.TimeoutS : default;
+                        var inputFormat = CliRuntime.WasSpecified(parseResult, InputFormat) ? parseResult.GetValue(InputFormat) : (__requestBase is { } __InputFormatBaseValue ? __InputFormatBaseValue.InputFormat : default);
+                        var description = CliRuntime.WasSpecified(parseResult, DescriptionOption) ? parseResult.GetValue(DescriptionOption) : (__requestBase is { } __DescriptionBaseValue ? __DescriptionBaseValue.Description : default);
+                        var language = CliRuntime.WasSpecified(parseResult, Language) ? parseResult.GetValue(Language) : (__requestBase is { } __LanguageBaseValue ? __LanguageBaseValue.Language : default);
+                        var startS = CliRuntime.WasSpecified(parseResult, StartS) ? parseResult.GetValue(StartS) : (__requestBase is { } __StartSBaseValue ? __StartSBaseValue.StartS : default);
+                        var timeoutS = CliRuntime.WasSpecified(parseResult, TimeoutS) ? parseResult.GetValue(TimeoutS) : (__requestBase is { } __TimeoutSBaseValue ? __TimeoutSBaseValue.TimeoutS : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 

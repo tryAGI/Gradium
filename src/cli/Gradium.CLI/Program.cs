@@ -13,6 +13,7 @@ rootCommand.Options.Add(CliOptions.OutputDirectory);
 rootCommand.Subcommands.Add(AuthCommand.Create());
 rootCommand.Subcommands.Add(MeteringApiGroupCommand.Create());
 rootCommand.Subcommands.Add(PronunciationsApiGroupCommand.Create());
+rootCommand.Subcommands.Add(S2SApiGroupCommand.Create());
 rootCommand.Subcommands.Add(STTApiGroupCommand.Create());
 rootCommand.Subcommands.Add(TTSApiGroupCommand.Create());
 rootCommand.Subcommands.Add(VoicesApiGroupCommand.Create());
