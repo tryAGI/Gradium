@@ -200,7 +200,7 @@ is more suitable.
                         var text = parseResult.GetRequiredValue(Text);
                         var voiceId = parseResult.GetRequiredValue(VoiceId);
                         var outputFormat = parseResult.GetRequiredValue(OutputFormat);
-                        var onlyAudio = CliRuntime.WasSpecified(parseResult, OnlyAudio) ? parseResult.GetValue(OnlyAudio) : __requestBase is not null ? __requestBase.OnlyAudio : default;
+                        var onlyAudio = CliRuntime.WasSpecified(parseResult, OnlyAudio) ? parseResult.GetValue(OnlyAudio) : (__requestBase is { } __OnlyAudioBaseValue ? __OnlyAudioBaseValue.OnlyAudio : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 

@@ -122,12 +122,12 @@ Update a voice by its UID.");
                             global::Gradium.SourceGenerationContext.Default,
                             cancellationToken).ConfigureAwait(false);
                         var voiceUid = parseResult.GetRequiredValue(VoiceUid);
-                        var name = CliRuntime.WasSpecified(parseResult, NameOption) ? parseResult.GetValue(NameOption) : __requestBase is not null ? __requestBase.Name : default;
-                        var description = CliRuntime.WasSpecified(parseResult, DescriptionOption) ? parseResult.GetValue(DescriptionOption) : __requestBase is not null ? __requestBase.Description : default;
-                        var language = CliRuntime.WasSpecified(parseResult, Language) ? parseResult.GetValue(Language) : __requestBase is not null ? __requestBase.Language : default;
-                        var startS = CliRuntime.WasSpecified(parseResult, StartS) ? parseResult.GetValue(StartS) : __requestBase is not null ? __requestBase.StartS : default;
-                        var tags = CliRuntime.WasSpecified(parseResult, Tags) ? parseResult.GetValue(Tags) : __requestBase is not null ? __requestBase.Tags : default;
-                        var rank = CliRuntime.WasSpecified(parseResult, Rank) ? parseResult.GetValue(Rank) : __requestBase is not null ? __requestBase.Rank : default;
+                        var name = CliRuntime.WasSpecified(parseResult, NameOption) ? parseResult.GetValue(NameOption) : (__requestBase is { } __NameBaseValue ? __NameBaseValue.Name : default);
+                        var description = CliRuntime.WasSpecified(parseResult, DescriptionOption) ? parseResult.GetValue(DescriptionOption) : (__requestBase is { } __DescriptionBaseValue ? __DescriptionBaseValue.Description : default);
+                        var language = CliRuntime.WasSpecified(parseResult, Language) ? parseResult.GetValue(Language) : (__requestBase is { } __LanguageBaseValue ? __LanguageBaseValue.Language : default);
+                        var startS = CliRuntime.WasSpecified(parseResult, StartS) ? parseResult.GetValue(StartS) : (__requestBase is { } __StartSBaseValue ? __StartSBaseValue.StartS : default);
+                        var tags = CliRuntime.WasSpecified(parseResult, Tags) ? parseResult.GetValue(Tags) : (__requestBase is { } __TagsBaseValue ? __TagsBaseValue.Tags : default);
+                        var rank = CliRuntime.WasSpecified(parseResult, Rank) ? parseResult.GetValue(Rank) : (__requestBase is { } __RankBaseValue ? __RankBaseValue.Rank : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 

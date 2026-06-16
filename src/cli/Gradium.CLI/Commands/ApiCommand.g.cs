@@ -12,6 +12,7 @@ internal static class ApiCommand
 
                          command.Subcommands.Add(MeteringApiGroupCommand.Create());
                          command.Subcommands.Add(PronunciationsApiGroupCommand.Create());
+                         command.Subcommands.Add(S2SApiGroupCommand.Create());
                          command.Subcommands.Add(STTApiGroupCommand.Create());
                          command.Subcommands.Add(TTSApiGroupCommand.Create());
                          command.Subcommands.Add(VoicesApiGroupCommand.Create());
