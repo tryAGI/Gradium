@@ -24,14 +24,12 @@ internal static class CliRuntime
             ? new global::System.Collections.Generic.List<global::Gradium.EndPointAuthorization>()
             : new global::System.Collections.Generic.List<global::Gradium.EndPointAuthorization>
             {
-        new global::Gradium.EndPointAuthorization
-        {
-            Type = "ApiKey",
-            SchemeId = "ApikeyXApiKey",
-            Location = "Header",
-            Name = "x-api-key",
-            Value = apiKey,
-        },
+        CreateAuthorization(
+            type: "ApiKey",
+            schemeId: "ApikeyXApiKey",
+            location: "Header",
+            name: "x-api-key",
+            value: apiKey),
             };
         var baseUri = ResolveBaseUri(parseResult);
 
@@ -40,6 +38,30 @@ internal static class CliRuntime
             baseUri: baseUri,
             authorizations: authorizations,
             disposeHttpClient: true);
+    }
+
+    private static global::Gradium.EndPointAuthorization CreateAuthorization(
+        string type,
+        string schemeId,
+        string location,
+        string name,
+        string value)
+    {
+        var authorization = new global::Gradium.EndPointAuthorization
+        {
+            Type = type,
+            Location = location,
+            Name = name,
+            Value = value,
+        };
+
+        var schemeIdProperty = typeof(global::Gradium.EndPointAuthorization).GetProperty("SchemeId");
+        if (schemeIdProperty?.CanWrite == true)
+        {
+            schemeIdProperty.SetValue(authorization, schemeId);
+        }
+
+        return authorization;
     }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage(
