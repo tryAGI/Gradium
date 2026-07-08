@@ -18,7 +18,7 @@ namespace Gradium
         /// ## Quick Reference<br/>
         /// | Direction | Message Type | Example |<br/>
         /// |-----------|-------------|---------|<br/>
-        /// | 🔵⬆️ Client→Server | Setup (first) | `{"type": "setup", "model_name": "default", "input_format": "pcm"}` |<br/>
+        /// | 🔵⬆️ Client→Server | Setup (first) | `{"type": "setup", "model_name": "default", "input_format": "pcm", "json_config": {"language": "en", "delay_in_frames": 16}}` |<br/>
         /// | 🟢⬇️ Server→Client | Ready | `{"type": "ready", "request_id": "uuid", "model_name": "default", "sample_rate": 24000}` |<br/>
         /// | 🔵⬆️ Client→Server | Audio | `{"type": "audio", "audio": "base64..."}` |<br/>
         /// | 🟢⬇️ Server→Client | Text (result) | `{"type": "text", "text": "Hello world", "start_s": 0.5}` |<br/>
@@ -38,13 +38,18 @@ namespace Gradium
         /// {<br/>
         ///   "type": "setup",<br/>
         ///   "model_name": "default",<br/>
-        ///   "input_format": "pcm"<br/>
+        ///   "input_format": "pcm",<br/>
+        ///   "json_config": {<br/>
+        ///     "language": "en",<br/>
+        ///     "delay_in_frames": 16<br/>
+        ///   }<br/>
         /// }<br/>
         /// ```<br/>
         /// **Fields:**<br/>
         /// - `type` (string, required): Must be "setup"<br/>
         /// - `model_name` (string, optional): The Speech-To-Text model to use (default: "default")<br/>
         /// - `input_format` (string, optional): Audio format (default: "wav"). One of "pcm", "pcm_8000", "pcm_16000", "pcm_22050", "pcm_24000", "pcm_44100", "pcm_48000", "wav", "opus", "ulaw_8000", "mulaw_8000", "alaw_8000".<br/>
+        /// - `json_config` (object or string, optional): Advanced STT settings, for example `{"language":"en","delay_in_frames":16}`.<br/>
         /// **Important:** This must be the very first message sent after connection. The server will close the connection if any other message is sent first.<br/>
         /// ---<br/>
         /// ### 2. Ready Message<br/>
@@ -225,7 +230,7 @@ namespace Gradium
         /// wscat -c "wss://api.gradium.ai/api/speech/asr" \<br/>
         ///   -H "x-api-key: your_api_key"<br/>
         /// # After connection, paste:<br/>
-        /// # {"type":"setup","model_name":"default","input_format":"pcm"}
+        /// # {"type":"setup","model_name":"default","input_format":"pcm","json_config":{"language":"en","delay_in_frames":16}}
         /// </remarks>
         global::System.Threading.Tasks.Task GetSpeechAsrAsync(
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
@@ -244,7 +249,7 @@ namespace Gradium
         /// ## Quick Reference<br/>
         /// | Direction | Message Type | Example |<br/>
         /// |-----------|-------------|---------|<br/>
-        /// | 🔵⬆️ Client→Server | Setup (first) | `{"type": "setup", "model_name": "default", "input_format": "pcm"}` |<br/>
+        /// | 🔵⬆️ Client→Server | Setup (first) | `{"type": "setup", "model_name": "default", "input_format": "pcm", "json_config": {"language": "en", "delay_in_frames": 16}}` |<br/>
         /// | 🟢⬇️ Server→Client | Ready | `{"type": "ready", "request_id": "uuid", "model_name": "default", "sample_rate": 24000}` |<br/>
         /// | 🔵⬆️ Client→Server | Audio | `{"type": "audio", "audio": "base64..."}` |<br/>
         /// | 🟢⬇️ Server→Client | Text (result) | `{"type": "text", "text": "Hello world", "start_s": 0.5}` |<br/>
@@ -264,13 +269,18 @@ namespace Gradium
         /// {<br/>
         ///   "type": "setup",<br/>
         ///   "model_name": "default",<br/>
-        ///   "input_format": "pcm"<br/>
+        ///   "input_format": "pcm",<br/>
+        ///   "json_config": {<br/>
+        ///     "language": "en",<br/>
+        ///     "delay_in_frames": 16<br/>
+        ///   }<br/>
         /// }<br/>
         /// ```<br/>
         /// **Fields:**<br/>
         /// - `type` (string, required): Must be "setup"<br/>
         /// - `model_name` (string, optional): The Speech-To-Text model to use (default: "default")<br/>
         /// - `input_format` (string, optional): Audio format (default: "wav"). One of "pcm", "pcm_8000", "pcm_16000", "pcm_22050", "pcm_24000", "pcm_44100", "pcm_48000", "wav", "opus", "ulaw_8000", "mulaw_8000", "alaw_8000".<br/>
+        /// - `json_config` (object or string, optional): Advanced STT settings, for example `{"language":"en","delay_in_frames":16}`.<br/>
         /// **Important:** This must be the very first message sent after connection. The server will close the connection if any other message is sent first.<br/>
         /// ---<br/>
         /// ### 2. Ready Message<br/>
@@ -451,7 +461,7 @@ namespace Gradium
         /// wscat -c "wss://api.gradium.ai/api/speech/asr" \<br/>
         ///   -H "x-api-key: your_api_key"<br/>
         /// # After connection, paste:<br/>
-        /// # {"type":"setup","model_name":"default","input_format":"pcm"}
+        /// # {"type":"setup","model_name":"default","input_format":"pcm","json_config":{"language":"en","delay_in_frames":16}}
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Gradium.AutoSDKHttpResponse> GetSpeechAsrAsResponseAsync(
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,

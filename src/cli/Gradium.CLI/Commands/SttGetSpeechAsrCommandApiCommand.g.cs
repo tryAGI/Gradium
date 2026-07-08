@@ -30,7 +30,7 @@ Include your API key in the WebSocket connection header:
 
 | Direction | Message Type | Example |
 |-----------|-------------|---------|
-| 🔵⬆️ Client→Server | Setup (first) | `{""type"": ""setup"", ""model_name"": ""default"", ""input_format"": ""pcm""}` |
+| 🔵⬆️ Client→Server | Setup (first) | `{""type"": ""setup"", ""model_name"": ""default"", ""input_format"": ""pcm"", ""json_config"": {""language"": ""en"", ""delay_in_frames"": 16}}` |
 | 🟢⬇️ Server→Client | Ready | `{""type"": ""ready"", ""request_id"": ""uuid"", ""model_name"": ""default"", ""sample_rate"": 24000}` |
 | 🔵⬆️ Client→Server | Audio | `{""type"": ""audio"", ""audio"": ""base64...""}` |
 | 🟢⬇️ Server→Client | Text (result) | `{""type"": ""text"", ""text"": ""Hello world"", ""start_s"": 0.5}` |
@@ -55,7 +55,11 @@ Include your API key in the WebSocket connection header:
 {
   ""type"": ""setup"",
   ""model_name"": ""default"",
-  ""input_format"": ""pcm""
+  ""input_format"": ""pcm"",
+  ""json_config"": {
+    ""language"": ""en"",
+    ""delay_in_frames"": 16
+  }
 }
 ```
 
@@ -63,6 +67,7 @@ Include your API key in the WebSocket connection header:
 - `type` (string, required): Must be ""setup""
 - `model_name` (string, optional): The Speech-To-Text model to use (default: ""default"")
 - `input_format` (string, optional): Audio format (default: ""wav""). One of ""pcm"", ""pcm_8000"", ""pcm_16000"", ""pcm_22050"", ""pcm_24000"", ""pcm_44100"", ""pcm_48000"", ""wav"", ""opus"", ""ulaw_8000"", ""mulaw_8000"", ""alaw_8000"".
+- `json_config` (object or string, optional): Advanced STT settings, for example `{""language"":""en"",""delay_in_frames"":16}`.
 
 **Important:** This must be the very first message sent after connection. The server will close the connection if any other message is sent first.
 
