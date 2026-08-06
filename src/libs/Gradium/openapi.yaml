@@ -11,6 +11,11 @@
       "description": "Gradium API"
     }
   ],
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
   "paths": {
     "/voices/": {
       "post": {
@@ -825,6 +830,14 @@
     }
   },
   "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key",
+        "description": "API key for authentication. Passed via the `x-api-key` header."
+      }
+    },
     "schemas": {
       "APIVoiceResponse": {
         "properties": {
