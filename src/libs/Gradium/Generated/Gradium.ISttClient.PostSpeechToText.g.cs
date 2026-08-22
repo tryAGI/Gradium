@@ -153,12 +153,12 @@ namespace Gradium
         ///   -H "Content-Type: audio/wav" \<br/>
         ///   --data-binary @input.wav
         /// </remarks>
-        global::System.Collections.Generic.IAsyncEnumerable<string> CreatePostSpeechAsrAsync(
+        global::System.Collections.Generic.IAsyncEnumerable<string> PostSpeechToTextAsync(
 
             byte[] request,
-            global::Gradium.CreatePostSpeechAsrContentType? contentType = default,
+            global::Gradium.PostSpeechToTextContentType? contentType = default,
             string? model = default,
-            global::Gradium.CreatePostSpeechAsrInputFormat? inputFormat = default,
+            global::Gradium.PostSpeechToTextInputFormat? inputFormat = default,
             string? jsonConfig = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

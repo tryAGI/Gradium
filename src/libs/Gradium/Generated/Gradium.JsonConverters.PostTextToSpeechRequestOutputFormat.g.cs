@@ -3,10 +3,10 @@
 namespace Gradium.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class CreatePostSpeechAsrInputFormatJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Gradium.CreatePostSpeechAsrInputFormat>
+    public sealed class PostTextToSpeechRequestOutputFormatJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Gradium.PostTextToSpeechRequestOutputFormat>
     {
         /// <inheritdoc />
-        public override global::Gradium.CreatePostSpeechAsrInputFormat Read(
+        public override global::Gradium.PostTextToSpeechRequestOutputFormat Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace Gradium.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::Gradium.CreatePostSpeechAsrInputFormatExtensions.ToEnum(stringValue) ?? default;
+                        return global::Gradium.PostTextToSpeechRequestOutputFormatExtensions.ToEnum(stringValue) ?? default;
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace Gradium.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::Gradium.CreatePostSpeechAsrInputFormat)numValue;
+                    return (global::Gradium.PostTextToSpeechRequestOutputFormat)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::Gradium.CreatePostSpeechAsrInputFormat);
+                    return default(global::Gradium.PostTextToSpeechRequestOutputFormat);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,12 +42,12 @@ namespace Gradium.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::Gradium.CreatePostSpeechAsrInputFormat value,
+            global::Gradium.PostTextToSpeechRequestOutputFormat value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::Gradium.CreatePostSpeechAsrInputFormatExtensions.ToValueString(value));
+            writer.WriteStringValue(global::Gradium.PostTextToSpeechRequestOutputFormatExtensions.ToValueString(value));
         }
     }
 }

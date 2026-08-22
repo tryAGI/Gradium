@@ -160,7 +160,7 @@ namespace Gradium
         /// # After connection, paste:<br/>
         /// # {"type":"setup","model_name":"default","input_format":"pcm","output_format":"pcm","voice_id":"YTpq7expH9539ERJ","json_config":{"target_language":"en"}}
         /// </remarks>
-        global::System.Threading.Tasks.Task GetSpeechS2sAsync(
+        global::System.Threading.Tasks.Task StreamSpeechToSpeechAsync(
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -319,7 +319,7 @@ namespace Gradium
         /// # After connection, paste:<br/>
         /// # {"type":"setup","model_name":"default","input_format":"pcm","output_format":"pcm","voice_id":"YTpq7expH9539ERJ","json_config":{"target_language":"en"}}
         /// </remarks>
-        global::System.Threading.Tasks.Task<global::Gradium.AutoSDKHttpResponse> GetSpeechS2sAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::Gradium.AutoSDKHttpResponse> StreamSpeechToSpeechAsResponseAsync(
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

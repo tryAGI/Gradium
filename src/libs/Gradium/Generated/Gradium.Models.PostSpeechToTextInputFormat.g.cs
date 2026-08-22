@@ -6,7 +6,7 @@ namespace Gradium
     /// <summary>
     /// 
     /// </summary>
-    public enum CreatePostSpeechAsrInputFormat
+    public enum PostSpeechToTextInputFormat
     {
         /// <summary>
         /// 
@@ -25,31 +25,31 @@ namespace Gradium
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class CreatePostSpeechAsrInputFormatExtensions
+    public static class PostSpeechToTextInputFormatExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this CreatePostSpeechAsrInputFormat value)
+        public static string ToValueString(this PostSpeechToTextInputFormat value)
         {
             return value switch
             {
-                CreatePostSpeechAsrInputFormat.Opus => "opus",
-                CreatePostSpeechAsrInputFormat.Pcm => "pcm",
-                CreatePostSpeechAsrInputFormat.Wav => "wav",
+                PostSpeechToTextInputFormat.Opus => "opus",
+                PostSpeechToTextInputFormat.Pcm => "pcm",
+                PostSpeechToTextInputFormat.Wav => "wav",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static CreatePostSpeechAsrInputFormat? ToEnum(string value)
+        public static PostSpeechToTextInputFormat? ToEnum(string value)
         {
             return value switch
             {
-                "opus" => CreatePostSpeechAsrInputFormat.Opus,
-                "pcm" => CreatePostSpeechAsrInputFormat.Pcm,
-                "wav" => CreatePostSpeechAsrInputFormat.Wav,
+                "opus" => PostSpeechToTextInputFormat.Opus,
+                "pcm" => PostSpeechToTextInputFormat.Pcm,
+                "wav" => PostSpeechToTextInputFormat.Wav,
                 _ => null,
             };
         }

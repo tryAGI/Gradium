@@ -6,7 +6,7 @@ namespace Gradium
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class CreatePostSpeechTtsRequest
+    public sealed partial class PostTextToSpeechRequest
     {
         /// <summary>
         /// The text to convert to speech
@@ -26,9 +26,9 @@ namespace Gradium
         /// Audio output format
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Gradium.JsonConverters.CreatePostSpeechTtsRequestOutputFormatJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Gradium.JsonConverters.PostTextToSpeechRequestOutputFormatJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Gradium.CreatePostSpeechTtsRequestOutputFormat OutputFormat { get; set; }
+        public required global::Gradium.PostTextToSpeechRequestOutputFormat OutputFormat { get; set; }
 
         /// <summary>
         /// When true, returns raw audio bytes instead of JSON
@@ -43,7 +43,7 @@ namespace Gradium
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreatePostSpeechTtsRequest" /> class.
+        /// Initializes a new instance of the <see cref="PostTextToSpeechRequest" /> class.
         /// </summary>
         /// <param name="text">
         /// The text to convert to speech
@@ -60,10 +60,10 @@ namespace Gradium
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public CreatePostSpeechTtsRequest(
+        public PostTextToSpeechRequest(
             string text,
             string voiceId,
-            global::Gradium.CreatePostSpeechTtsRequestOutputFormat outputFormat,
+            global::Gradium.PostTextToSpeechRequestOutputFormat outputFormat,
             bool? onlyAudio)
         {
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
@@ -73,9 +73,9 @@ namespace Gradium
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreatePostSpeechTtsRequest" /> class.
+        /// Initializes a new instance of the <see cref="PostTextToSpeechRequest" /> class.
         /// </summary>
-        public CreatePostSpeechTtsRequest()
+        public PostTextToSpeechRequest()
         {
         }
 

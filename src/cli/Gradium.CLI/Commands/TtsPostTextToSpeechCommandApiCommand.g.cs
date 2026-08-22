@@ -5,7 +5,7 @@ using System.CommandLine;
 
 namespace Gradium.CLI.Commands;
 
-internal static partial class TtsCreatePostSpeechTtsCommandApiCommand
+internal static partial class TtsPostTextToSpeechCommandApiCommand
 {
     private static Option<string> Text { get; } = new(
         name: @"--text")
@@ -21,7 +21,7 @@ internal static partial class TtsCreatePostSpeechTtsCommandApiCommand
         Required = true,
     };
 
-    private static Option<global::Gradium.CreatePostSpeechTtsRequestOutputFormat> OutputFormat { get; } = new(
+    private static Option<global::Gradium.PostTextToSpeechRequestOutputFormat> OutputFormat { get; } = new(
         name: @"--output-format")
     {
         Description = @"Audio output format",
@@ -50,7 +50,7 @@ internal static partial class TtsCreatePostSpeechTtsCommandApiCommand
 
     public static Command Create()
     {
-        var command = new Command(@"create-post-speech-tts", @"TTS POST Endpoint
+        var command = new Command(@"post-text-to-speech", @"TTS POST Endpoint
 Use this HTTP POST endpoint for simple, text-to-speech conversion. The audio
 data is sent back in a streaming way.
 
@@ -190,7 +190,7 @@ is more suitable.
         command.SetAction(async (ParseResult parseResult, CancellationToken cancellationToken) =>
             await CliRuntime.RunAsync(async () =>
             {
-                        var __requestBase = await CliRuntime.ReadRequestOrDefaultAsync<global::Gradium.CreatePostSpeechTtsRequest>(
+                        var __requestBase = await CliRuntime.ReadRequestOrDefaultAsync<global::Gradium.PostTextToSpeechRequest>(
                             parseResult,
                             Input,
                             RequestJson,
@@ -204,7 +204,7 @@ is more suitable.
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
-                                await client.Tts.CreatePostSpeechTtsAsync(
+                                await client.Tts.PostTextToSpeechAsync(
                                     text: text,
                                     voiceId: voiceId,
                                     outputFormat: outputFormat,

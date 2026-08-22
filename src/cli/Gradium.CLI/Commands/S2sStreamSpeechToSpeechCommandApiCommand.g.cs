@@ -5,13 +5,13 @@ using System.CommandLine;
 
 namespace Gradium.CLI.Commands;
 
-internal static partial class S2sGetSpeechS2sCommandApiCommand
+internal static partial class S2sStreamSpeechToSpeechCommandApiCommand
 {
 
 
     public static Command Create()
     {
-        var command = new Command(@"get-speech-s2s", @"S2S WebSocket Stream
+        var command = new Command(@"stream-speech-to-speech", @"S2S WebSocket Stream
 Connect to this endpoint via WebSocket for real-time speech-to-speech: incoming audio is transcribed, optionally translated, and re-synthesized into speech.
 
 **Connection URL:**
@@ -214,7 +214,7 @@ When errors occur, the server sends an error message as JSON before closing the 
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
-                                await client.S2s.GetSpeechS2sAsync(
+                                await client.S2s.StreamSpeechToSpeechAsync(
 
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 

@@ -7,7 +7,7 @@ namespace Gradium
     {
 
 
-        private static readonly global::Gradium.EndPointSecurityRequirement s_CreatePostSpeechTtsSecurityRequirement0 =
+        private static readonly global::Gradium.EndPointSecurityRequirement s_PostTextToSpeechSecurityRequirement0 =
             new global::Gradium.EndPointSecurityRequirement
             {
                 Authorizations = new global::Gradium.EndPointAuthorizationRequirement[]
@@ -21,18 +21,18 @@ namespace Gradium
                     },
                 },
             };
-        private static readonly global::Gradium.EndPointSecurityRequirement[] s_CreatePostSpeechTtsSecurityRequirements =
+        private static readonly global::Gradium.EndPointSecurityRequirement[] s_PostTextToSpeechSecurityRequirements =
             new global::Gradium.EndPointSecurityRequirement[]
-            {                s_CreatePostSpeechTtsSecurityRequirement0,
+            {                s_PostTextToSpeechSecurityRequirement0,
             };
-        partial void PrepareCreatePostSpeechTtsArguments(
+        partial void PreparePostTextToSpeechArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Gradium.CreatePostSpeechTtsRequest request);
-        partial void PrepareCreatePostSpeechTtsRequest(
+            global::Gradium.PostTextToSpeechRequest request);
+        partial void PreparePostTextToSpeechRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Gradium.CreatePostSpeechTtsRequest request);
-        partial void ProcessCreatePostSpeechTtsResponse(
+            global::Gradium.PostTextToSpeechRequest request);
+        partial void ProcessPostTextToSpeechResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
@@ -136,13 +136,13 @@ namespace Gradium
         ///   -d '{"text": "Hello, world!", "voice_id": "YTpq7expH9539ERJ", "output_format": "wav", "only_audio": true}' \<br/>
         ///   &gt; output.wav
         /// </remarks>
-        public async global::System.Threading.Tasks.Task CreatePostSpeechTtsAsync(
+        public async global::System.Threading.Tasks.Task PostTextToSpeechAsync(
 
-            global::Gradium.CreatePostSpeechTtsRequest request,
+            global::Gradium.PostTextToSpeechRequest request,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            await CreatePostSpeechTtsAsResponseAsync(
+            await PostTextToSpeechAsResponseAsync(
 
                 request: request,
                 requestOptions: requestOptions,
@@ -249,9 +249,9 @@ namespace Gradium
         ///   -d '{"text": "Hello, world!", "voice_id": "YTpq7expH9539ERJ", "output_format": "wav", "only_audio": true}' \<br/>
         ///   &gt; output.wav
         /// </remarks>
-        public async global::System.Threading.Tasks.Task<global::Gradium.AutoSDKHttpResponse> CreatePostSpeechTtsAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::Gradium.AutoSDKHttpResponse> PostTextToSpeechAsResponseAsync(
 
-            global::Gradium.CreatePostSpeechTtsRequest request,
+            global::Gradium.PostTextToSpeechRequest request,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -259,15 +259,15 @@ namespace Gradium
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreatePostSpeechTtsArguments(
+            PreparePostTextToSpeechArguments(
                 httpClient: HttpClient,
                 request: request);
 
 
             var __authorizations = global::Gradium.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_CreatePostSpeechTtsSecurityRequirements,
-                operationName: "CreatePostSpeechTtsAsync");
+                securityRequirements: s_PostTextToSpeechSecurityRequirements,
+                operationName: "PostTextToSpeechAsync");
 
             using var __timeoutCancellationTokenSource = global::Gradium.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -332,7 +332,7 @@ namespace Gradium
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareCreatePostSpeechTtsRequest(
+                PreparePostTextToSpeechRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     request: request);
@@ -352,8 +352,8 @@ namespace Gradium
                     await global::Gradium.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createPostSpeechTts",
-                                methodName: "CreatePostSpeechTtsAsync",
+                                operationId: "PostTextToSpeech",
+                                methodName: "PostTextToSpeechAsync",
                                 pathTemplate: "\"/post/speech/tts\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -386,8 +386,8 @@ namespace Gradium
                         await global::Gradium.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createPostSpeechTts",
-                                methodName: "CreatePostSpeechTtsAsync",
+                                operationId: "PostTextToSpeech",
+                                methodName: "PostTextToSpeechAsync",
                                 pathTemplate: "\"/post/speech/tts\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -427,8 +427,8 @@ namespace Gradium
                         await global::Gradium.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createPostSpeechTts",
-                                methodName: "CreatePostSpeechTtsAsync",
+                                operationId: "PostTextToSpeech",
+                                methodName: "PostTextToSpeechAsync",
                                 pathTemplate: "\"/post/speech/tts\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -467,7 +467,7 @@ namespace Gradium
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessCreatePostSpeechTtsResponse(
+                ProcessPostTextToSpeechResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -475,8 +475,8 @@ namespace Gradium
                     await global::Gradium.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createPostSpeechTts",
-                                methodName: "CreatePostSpeechTtsAsync",
+                                operationId: "PostTextToSpeech",
+                                methodName: "PostTextToSpeechAsync",
                                 pathTemplate: "\"/post/speech/tts\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -497,8 +497,8 @@ namespace Gradium
                     await global::Gradium.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createPostSpeechTts",
-                                methodName: "CreatePostSpeechTtsAsync",
+                                operationId: "PostTextToSpeech",
+                                methodName: "PostTextToSpeechAsync",
                                 pathTemplate: "\"/post/speech/tts\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -730,15 +730,15 @@ namespace Gradium
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task CreatePostSpeechTtsAsync(
+        public async global::System.Threading.Tasks.Task PostTextToSpeechAsync(
             string text,
             string voiceId,
-            global::Gradium.CreatePostSpeechTtsRequestOutputFormat outputFormat,
+            global::Gradium.PostTextToSpeechRequestOutputFormat outputFormat,
             bool? onlyAudio = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Gradium.CreatePostSpeechTtsRequest
+            var __request = new global::Gradium.PostTextToSpeechRequest
             {
                 Text = text,
                 VoiceId = voiceId,
@@ -746,7 +746,7 @@ namespace Gradium
                 OnlyAudio = onlyAudio,
             };
 
-            await CreatePostSpeechTtsAsync(
+            await PostTextToSpeechAsync(
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

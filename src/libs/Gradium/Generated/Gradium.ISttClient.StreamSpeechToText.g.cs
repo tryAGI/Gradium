@@ -232,7 +232,7 @@ namespace Gradium
         /// # After connection, paste:<br/>
         /// # {"type":"setup","model_name":"default","input_format":"pcm","json_config":{"language":"en","delay_in_frames":16}}
         /// </remarks>
-        global::System.Threading.Tasks.Task GetSpeechAsrAsync(
+        global::System.Threading.Tasks.Task StreamSpeechToTextAsync(
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -463,7 +463,7 @@ namespace Gradium
         /// # After connection, paste:<br/>
         /// # {"type":"setup","model_name":"default","input_format":"pcm","json_config":{"language":"en","delay_in_frames":16}}
         /// </remarks>
-        global::System.Threading.Tasks.Task<global::Gradium.AutoSDKHttpResponse> GetSpeechAsrAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::Gradium.AutoSDKHttpResponse> StreamSpeechToTextAsResponseAsync(
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
