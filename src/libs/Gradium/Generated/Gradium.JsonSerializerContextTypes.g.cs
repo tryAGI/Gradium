@@ -156,19 +156,19 @@ namespace Gradium
         /// <summary>
         /// 
         /// </summary>
-        public global::Gradium.CreatePostSpeechTtsRequest? Type32 { get; set; }
+        public global::Gradium.PostTextToSpeechRequest? Type32 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Gradium.CreatePostSpeechTtsRequestOutputFormat? Type33 { get; set; }
+        public global::Gradium.PostTextToSpeechRequestOutputFormat? Type33 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Gradium.CreatePostSpeechAsrContentType? Type34 { get; set; }
+        public global::Gradium.PostSpeechToTextContentType? Type34 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Gradium.CreatePostSpeechAsrInputFormat? Type35 { get; set; }
+        public global::Gradium.PostSpeechToTextInputFormat? Type35 { get; set; }
         /// <summary>
         /// 
         /// </summary>

@@ -9,8 +9,8 @@ internal static class TTSApiGroupCommand
     public static Command Create()
     {
         var command = new Command(@"tts", @"TTS endpoint commands.");
-                         command.Subcommands.Add(TtsCreatePostSpeechTtsCommandApiCommand.Create());
-                         command.Subcommands.Add(TtsGetSpeechTtsCommandApiCommand.Create());
+                         command.Subcommands.Add(TtsPostTextToSpeechCommandApiCommand.Create());
+                         command.Subcommands.Add(TtsStreamTextToSpeechCommandApiCommand.Create());
         return command;
     }
 }

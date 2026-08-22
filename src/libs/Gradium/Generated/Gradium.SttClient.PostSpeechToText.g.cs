@@ -7,7 +7,7 @@ namespace Gradium
     {
 
 
-        private static readonly global::Gradium.EndPointSecurityRequirement s_CreatePostSpeechAsrSecurityRequirement0 =
+        private static readonly global::Gradium.EndPointSecurityRequirement s_PostSpeechToTextSecurityRequirement0 =
             new global::Gradium.EndPointSecurityRequirement
             {
                 Authorizations = new global::Gradium.EndPointAuthorizationRequirement[]
@@ -21,26 +21,26 @@ namespace Gradium
                     },
                 },
             };
-        private static readonly global::Gradium.EndPointSecurityRequirement[] s_CreatePostSpeechAsrSecurityRequirements =
+        private static readonly global::Gradium.EndPointSecurityRequirement[] s_PostSpeechToTextSecurityRequirements =
             new global::Gradium.EndPointSecurityRequirement[]
-            {                s_CreatePostSpeechAsrSecurityRequirement0,
+            {                s_PostSpeechToTextSecurityRequirement0,
             };
-        partial void PrepareCreatePostSpeechAsrArguments(
+        partial void PreparePostSpeechToTextArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref global::Gradium.CreatePostSpeechAsrContentType? contentType,
+            ref global::Gradium.PostSpeechToTextContentType? contentType,
             ref string? model,
-            ref global::Gradium.CreatePostSpeechAsrInputFormat? inputFormat,
+            ref global::Gradium.PostSpeechToTextInputFormat? inputFormat,
             ref string? jsonConfig,
             byte[] request);
-        partial void PrepareCreatePostSpeechAsrRequest(
+        partial void PreparePostSpeechToTextRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Gradium.CreatePostSpeechAsrContentType? contentType,
+            global::Gradium.PostSpeechToTextContentType? contentType,
             string? model,
-            global::Gradium.CreatePostSpeechAsrInputFormat? inputFormat,
+            global::Gradium.PostSpeechToTextInputFormat? inputFormat,
             string? jsonConfig,
             byte[] request);
-        partial void ProcessCreatePostSpeechAsrResponse(
+        partial void ProcessPostSpeechToTextResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
@@ -193,12 +193,12 @@ namespace Gradium
         ///   -H "Content-Type: audio/wav" \<br/>
         ///   --data-binary @input.wav
         /// </remarks>
-        public async global::System.Collections.Generic.IAsyncEnumerable<string> CreatePostSpeechAsrAsync(
+        public async global::System.Collections.Generic.IAsyncEnumerable<string> PostSpeechToTextAsync(
 
             byte[] request,
-            global::Gradium.CreatePostSpeechAsrContentType? contentType = default,
+            global::Gradium.PostSpeechToTextContentType? contentType = default,
             string? model = default,
-            global::Gradium.CreatePostSpeechAsrInputFormat? inputFormat = default,
+            global::Gradium.PostSpeechToTextInputFormat? inputFormat = default,
             string? jsonConfig = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             [global::System.Runtime.CompilerServices.EnumeratorCancellation] global::System.Threading.CancellationToken cancellationToken = default)
@@ -207,7 +207,7 @@ namespace Gradium
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreatePostSpeechAsrArguments(
+            PreparePostSpeechToTextArguments(
                 httpClient: HttpClient,
                 contentType: ref contentType,
                 model: ref model,
@@ -218,8 +218,8 @@ namespace Gradium
 
             var __authorizations = global::Gradium.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_CreatePostSpeechAsrSecurityRequirements,
-                operationName: "CreatePostSpeechAsrAsync");
+                securityRequirements: s_PostSpeechToTextSecurityRequirements,
+                operationName: "PostSpeechToTextAsync");
 
             using var __timeoutCancellationTokenSource = global::Gradium.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -293,7 +293,7 @@ namespace Gradium
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareCreatePostSpeechAsrRequest(
+                PreparePostSpeechToTextRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     contentType: contentType,
@@ -317,8 +317,8 @@ namespace Gradium
                     await global::Gradium.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createPostSpeechAsr",
-                                methodName: "CreatePostSpeechAsrAsync",
+                                operationId: "PostSpeechToText",
+                                methodName: "PostSpeechToTextAsync",
                                 pathTemplate: "\"/post/speech/asr\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -351,8 +351,8 @@ namespace Gradium
                         await global::Gradium.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createPostSpeechAsr",
-                                methodName: "CreatePostSpeechAsrAsync",
+                                operationId: "PostSpeechToText",
+                                methodName: "PostSpeechToTextAsync",
                                 pathTemplate: "\"/post/speech/asr\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -392,8 +392,8 @@ namespace Gradium
                         await global::Gradium.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createPostSpeechAsr",
-                                methodName: "CreatePostSpeechAsrAsync",
+                                operationId: "PostSpeechToText",
+                                methodName: "PostSpeechToTextAsync",
                                 pathTemplate: "\"/post/speech/asr\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -432,7 +432,7 @@ namespace Gradium
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessCreatePostSpeechAsrResponse(
+                ProcessPostSpeechToTextResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -440,8 +440,8 @@ namespace Gradium
                     await global::Gradium.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createPostSpeechAsr",
-                                methodName: "CreatePostSpeechAsrAsync",
+                                operationId: "PostSpeechToText",
+                                methodName: "PostSpeechToTextAsync",
                                 pathTemplate: "\"/post/speech/asr\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
@@ -462,8 +462,8 @@ namespace Gradium
                     await global::Gradium.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createPostSpeechAsr",
-                                methodName: "CreatePostSpeechAsrAsync",
+                                operationId: "PostSpeechToText",
+                                methodName: "PostSpeechToTextAsync",
                                 pathTemplate: "\"/post/speech/asr\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,

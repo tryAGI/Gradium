@@ -2,7 +2,7 @@
 
 namespace Gradium
 {
-    public sealed partial class CreatePostSpeechTtsRequest
+    public sealed partial class PostTextToSpeechRequest
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -47,20 +47,20 @@ namespace Gradium
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::Gradium.CreatePostSpeechTtsRequest? FromJson(
+        public static global::Gradium.PostTextToSpeechRequest? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::Gradium.CreatePostSpeechTtsRequest),
-                jsonSerializerContext) as global::Gradium.CreatePostSpeechTtsRequest;
+                typeof(global::Gradium.PostTextToSpeechRequest),
+                jsonSerializerContext) as global::Gradium.PostTextToSpeechRequest;
         }
 
         /// <summary>
         /// Deserializes a JSON string using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::Gradium.CreatePostSpeechTtsRequest? FromJson(
+        public static global::Gradium.PostTextToSpeechRequest? FromJson(
             string json)
         {
             return FromJson(
@@ -75,7 +75,7 @@ namespace Gradium
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::Gradium.CreatePostSpeechTtsRequest? FromJson(
+        public static global::Gradium.PostTextToSpeechRequest? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -86,7 +86,7 @@ namespace Gradium
                     global::Gradium.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::Gradium.CreatePostSpeechTtsRequest>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::Gradium.PostTextToSpeechRequest>(
                 json,
                 jsonSerializerOptions);
         }
@@ -94,20 +94,20 @@ namespace Gradium
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::Gradium.CreatePostSpeechTtsRequest?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::Gradium.PostTextToSpeechRequest?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::Gradium.CreatePostSpeechTtsRequest),
-                jsonSerializerContext).ConfigureAwait(false)) as global::Gradium.CreatePostSpeechTtsRequest;
+                typeof(global::Gradium.PostTextToSpeechRequest),
+                jsonSerializerContext).ConfigureAwait(false)) as global::Gradium.PostTextToSpeechRequest;
         }
 
         /// <summary>
         /// Deserializes a JSON stream using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::System.Threading.Tasks.ValueTask<global::Gradium.CreatePostSpeechTtsRequest?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::Gradium.PostTextToSpeechRequest?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream)
         {
             return FromJsonStreamAsync(
@@ -122,7 +122,7 @@ namespace Gradium
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::Gradium.CreatePostSpeechTtsRequest?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::Gradium.PostTextToSpeechRequest?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -133,7 +133,7 @@ namespace Gradium
                     global::Gradium.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::Gradium.CreatePostSpeechTtsRequest?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::Gradium.PostTextToSpeechRequest?>(
                 jsonStream,
                 jsonSerializerOptions);
         }

@@ -7,7 +7,7 @@ namespace Gradium
     {
 
 
-        private static readonly global::Gradium.EndPointSecurityRequirement s_GetSpeechAsrSecurityRequirement0 =
+        private static readonly global::Gradium.EndPointSecurityRequirement s_StreamSpeechToTextSecurityRequirement0 =
             new global::Gradium.EndPointSecurityRequirement
             {
                 Authorizations = new global::Gradium.EndPointAuthorizationRequirement[]
@@ -21,16 +21,16 @@ namespace Gradium
                     },
                 },
             };
-        private static readonly global::Gradium.EndPointSecurityRequirement[] s_GetSpeechAsrSecurityRequirements =
+        private static readonly global::Gradium.EndPointSecurityRequirement[] s_StreamSpeechToTextSecurityRequirements =
             new global::Gradium.EndPointSecurityRequirement[]
-            {                s_GetSpeechAsrSecurityRequirement0,
+            {                s_StreamSpeechToTextSecurityRequirement0,
             };
-        partial void PrepareGetSpeechAsrArguments(
+        partial void PrepareStreamSpeechToTextArguments(
             global::System.Net.Http.HttpClient httpClient);
-        partial void PrepareGetSpeechAsrRequest(
+        partial void PrepareStreamSpeechToTextRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage);
-        partial void ProcessGetSpeechAsrResponse(
+        partial void ProcessStreamSpeechToTextResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
@@ -262,11 +262,11 @@ namespace Gradium
         /// # After connection, paste:<br/>
         /// # {"type":"setup","model_name":"default","input_format":"pcm","json_config":{"language":"en","delay_in_frames":16}}
         /// </remarks>
-        public async global::System.Threading.Tasks.Task GetSpeechAsrAsync(
+        public async global::System.Threading.Tasks.Task StreamSpeechToTextAsync(
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            await GetSpeechAsrAsResponseAsync(
+            await StreamSpeechToTextAsResponseAsync(
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -499,20 +499,20 @@ namespace Gradium
         /// # After connection, paste:<br/>
         /// # {"type":"setup","model_name":"default","input_format":"pcm","json_config":{"language":"en","delay_in_frames":16}}
         /// </remarks>
-        public async global::System.Threading.Tasks.Task<global::Gradium.AutoSDKHttpResponse> GetSpeechAsrAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::Gradium.AutoSDKHttpResponse> StreamSpeechToTextAsResponseAsync(
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetSpeechAsrArguments(
+            PrepareStreamSpeechToTextArguments(
                 httpClient: HttpClient);
 
 
             var __authorizations = global::Gradium.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_GetSpeechAsrSecurityRequirements,
-                operationName: "GetSpeechAsrAsync");
+                securityRequirements: s_StreamSpeechToTextSecurityRequirements,
+                operationName: "StreamSpeechToTextAsync");
 
             using var __timeoutCancellationTokenSource = global::Gradium.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -571,7 +571,7 @@ namespace Gradium
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareGetSpeechAsrRequest(
+                PrepareStreamSpeechToTextRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest);
 
@@ -590,8 +590,8 @@ namespace Gradium
                     await global::Gradium.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "getSpeechAsr",
-                                methodName: "GetSpeechAsrAsync",
+                                operationId: "StreamSpeechToText",
+                                methodName: "StreamSpeechToTextAsync",
                                 pathTemplate: "\"/speech/asr\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -624,8 +624,8 @@ namespace Gradium
                         await global::Gradium.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "getSpeechAsr",
-                                methodName: "GetSpeechAsrAsync",
+                                operationId: "StreamSpeechToText",
+                                methodName: "StreamSpeechToTextAsync",
                                 pathTemplate: "\"/speech/asr\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -665,8 +665,8 @@ namespace Gradium
                         await global::Gradium.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "getSpeechAsr",
-                                methodName: "GetSpeechAsrAsync",
+                                operationId: "StreamSpeechToText",
+                                methodName: "StreamSpeechToTextAsync",
                                 pathTemplate: "\"/speech/asr\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -705,7 +705,7 @@ namespace Gradium
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessGetSpeechAsrResponse(
+                ProcessStreamSpeechToTextResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -713,8 +713,8 @@ namespace Gradium
                     await global::Gradium.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "getSpeechAsr",
-                                methodName: "GetSpeechAsrAsync",
+                                operationId: "StreamSpeechToText",
+                                methodName: "StreamSpeechToTextAsync",
                                 pathTemplate: "\"/speech/asr\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -735,8 +735,8 @@ namespace Gradium
                     await global::Gradium.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "getSpeechAsr",
-                                methodName: "GetSpeechAsrAsync",
+                                operationId: "StreamSpeechToText",
+                                methodName: "StreamSpeechToTextAsync",
                                 pathTemplate: "\"/speech/asr\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,

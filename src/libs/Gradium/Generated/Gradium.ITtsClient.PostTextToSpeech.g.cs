@@ -104,9 +104,9 @@ namespace Gradium
         ///   -d '{"text": "Hello, world!", "voice_id": "YTpq7expH9539ERJ", "output_format": "wav", "only_audio": true}' \<br/>
         ///   &gt; output.wav
         /// </remarks>
-        global::System.Threading.Tasks.Task CreatePostSpeechTtsAsync(
+        global::System.Threading.Tasks.Task PostTextToSpeechAsync(
 
-            global::Gradium.CreatePostSpeechTtsRequest request,
+            global::Gradium.PostTextToSpeechRequest request,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -209,9 +209,9 @@ namespace Gradium
         ///   -d '{"text": "Hello, world!", "voice_id": "YTpq7expH9539ERJ", "output_format": "wav", "only_audio": true}' \<br/>
         ///   &gt; output.wav
         /// </remarks>
-        global::System.Threading.Tasks.Task<global::Gradium.AutoSDKHttpResponse> CreatePostSpeechTtsAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::Gradium.AutoSDKHttpResponse> PostTextToSpeechAsResponseAsync(
 
-            global::Gradium.CreatePostSpeechTtsRequest request,
+            global::Gradium.PostTextToSpeechRequest request,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -318,10 +318,10 @@ namespace Gradium
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task CreatePostSpeechTtsAsync(
+        global::System.Threading.Tasks.Task PostTextToSpeechAsync(
             string text,
             string voiceId,
-            global::Gradium.CreatePostSpeechTtsRequestOutputFormat outputFormat,
+            global::Gradium.PostTextToSpeechRequestOutputFormat outputFormat,
             bool? onlyAudio = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

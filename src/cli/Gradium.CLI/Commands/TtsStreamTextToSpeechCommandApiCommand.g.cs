@@ -5,13 +5,13 @@ using System.CommandLine;
 
 namespace Gradium.CLI.Commands;
 
-internal static partial class TtsGetSpeechTtsCommandApiCommand
+internal static partial class TtsStreamTextToSpeechCommandApiCommand
 {
 
 
     public static Command Create()
     {
-        var command = new Command(@"get-speech-tts", @"TTS WebSocket Stream
+        var command = new Command(@"stream-text-to-speech", @"TTS WebSocket Stream
 Connect to this endpoint via WebSocket for real-time text-to-speech conversion with low latency audio streaming.
 
 **Connection URL:**
@@ -231,7 +231,7 @@ When errors occur, the server sends an error message as JSON before closing the 
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
-                                await client.Tts.GetSpeechTtsAsync(
+                                await client.Tts.StreamTextToSpeechAsync(
 
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 

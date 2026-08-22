@@ -9,7 +9,7 @@ internal static class S2SApiGroupCommand
     public static Command Create()
     {
         var command = new Command(@"s2-s", @"S2S endpoint commands.");
-                         command.Subcommands.Add(S2sGetSpeechS2sCommandApiCommand.Create());
+                         command.Subcommands.Add(S2sStreamSpeechToSpeechCommandApiCommand.Create());
         return command;
     }
 }

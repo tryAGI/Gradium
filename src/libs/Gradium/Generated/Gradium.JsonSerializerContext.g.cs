@@ -13,17 +13,17 @@ namespace Gradium
         DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
         Converters = new global::System.Type[]
         {
-            typeof(global::Gradium.JsonConverters.CreatePostSpeechTtsRequestOutputFormatJsonConverter),
+            typeof(global::Gradium.JsonConverters.PostTextToSpeechRequestOutputFormatJsonConverter),
 
-            typeof(global::Gradium.JsonConverters.CreatePostSpeechTtsRequestOutputFormatNullableJsonConverter),
+            typeof(global::Gradium.JsonConverters.PostTextToSpeechRequestOutputFormatNullableJsonConverter),
 
-            typeof(global::Gradium.JsonConverters.CreatePostSpeechAsrContentTypeJsonConverter),
+            typeof(global::Gradium.JsonConverters.PostSpeechToTextContentTypeJsonConverter),
 
-            typeof(global::Gradium.JsonConverters.CreatePostSpeechAsrContentTypeNullableJsonConverter),
+            typeof(global::Gradium.JsonConverters.PostSpeechToTextContentTypeNullableJsonConverter),
 
-            typeof(global::Gradium.JsonConverters.CreatePostSpeechAsrInputFormatJsonConverter),
+            typeof(global::Gradium.JsonConverters.PostSpeechToTextInputFormatJsonConverter),
 
-            typeof(global::Gradium.JsonConverters.CreatePostSpeechAsrInputFormatNullableJsonConverter),
+            typeof(global::Gradium.JsonConverters.PostSpeechToTextInputFormatNullableJsonConverter),
 
             typeof(global::Gradium.JsonConverters.AnyOfJsonConverter<string, int?>),
 
@@ -64,10 +64,10 @@ namespace Gradium
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.VoiceUpdate))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.AnyOf<string, bool?, object>), TypeInfoPropertyName = "AnyOfStringBooleanObject2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.CreatePostSpeechTtsRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.CreatePostSpeechTtsRequestOutputFormat), TypeInfoPropertyName = "CreatePostSpeechTtsRequestOutputFormat2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.CreatePostSpeechAsrContentType), TypeInfoPropertyName = "CreatePostSpeechAsrContentType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.CreatePostSpeechAsrInputFormat), TypeInfoPropertyName = "CreatePostSpeechAsrInputFormat2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.PostTextToSpeechRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.PostTextToSpeechRequestOutputFormat), TypeInfoPropertyName = "PostTextToSpeechRequestOutputFormat2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.PostSpeechToTextContentType), TypeInfoPropertyName = "PostSpeechToTextContentType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.PostSpeechToTextInputFormat), TypeInfoPropertyName = "PostSpeechToTextInputFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Gradium.APIVoiceResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Gradium.ExportedTag>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Gradium.ValidationError>))]

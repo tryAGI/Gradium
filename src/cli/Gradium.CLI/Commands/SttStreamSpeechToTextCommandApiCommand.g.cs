@@ -5,13 +5,13 @@ using System.CommandLine;
 
 namespace Gradium.CLI.Commands;
 
-internal static partial class SttGetSpeechAsrCommandApiCommand
+internal static partial class SttStreamSpeechToTextCommandApiCommand
 {
 
 
     public static Command Create()
     {
-        var command = new Command(@"get-speech-asr", @"STT WebSocket Stream
+        var command = new Command(@"stream-speech-to-text", @"STT WebSocket Stream
 Connect to this endpoint via WebSocket for real-time speech-to-text conversion with streaming audio input.
 
 **Connection URL:**
@@ -303,7 +303,7 @@ When errors occur, the server sends an error message as JSON before closing the 
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
-                                await client.Stt.GetSpeechAsrAsync(
+                                await client.Stt.StreamSpeechToTextAsync(
 
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 

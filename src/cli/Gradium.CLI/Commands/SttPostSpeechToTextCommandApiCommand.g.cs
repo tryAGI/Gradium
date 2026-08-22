@@ -5,9 +5,9 @@ using System.CommandLine;
 
 namespace Gradium.CLI.Commands;
 
-internal static partial class SttCreatePostSpeechAsrCommandApiCommand
+internal static partial class SttPostSpeechToTextCommandApiCommand
 {
-    private static Option<global::Gradium.CreatePostSpeechAsrContentType?> ContentType { get; } = new(
+    private static Option<global::Gradium.PostSpeechToTextContentType?> ContentType { get; } = new(
         name: @"--content-type")
     {
         Description = @"Format of the audio in the request body. Defaults to audio/wav when omitted.",
@@ -19,7 +19,7 @@ internal static partial class SttCreatePostSpeechAsrCommandApiCommand
         Description = @"Speech-to-Text model name.",
     };
 
-    private static Option<global::Gradium.CreatePostSpeechAsrInputFormat?> InputFormat { get; } = new(
+    private static Option<global::Gradium.PostSpeechToTextInputFormat?> InputFormat { get; } = new(
         name: @"--input-format")
     {
         Description = @"Overrides the audio format detected from Content-Type.",
@@ -49,7 +49,7 @@ internal static partial class SttCreatePostSpeechAsrCommandApiCommand
 
     public static Command Create()
     {
-        var command = new Command(@"create-post-speech-asr", @"STT POST Endpoint
+        var command = new Command(@"post-speech-to-text", @"STT POST Endpoint
 Use this HTTP POST endpoint for simple, one-shot speech-to-text
 transcription. Send the entire audio payload in the request body and receive
 a stream of newline-delimited JSON (NDJSON) messages with the transcription
@@ -263,7 +263,7 @@ when you need to:
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
-                                var response = client.Stt.CreatePostSpeechAsrAsync(
+                                var response = client.Stt.PostSpeechToTextAsync(
                                     contentType: contentType,
                                     model: model,
                                     inputFormat: inputFormat,

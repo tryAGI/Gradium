@@ -170,7 +170,7 @@ namespace Gradium
         /// # {"type":"text","text":"Hello, world!"}<br/>
         /// # {"type":"end_of_stream"}
         /// </remarks>
-        global::System.Threading.Tasks.Task GetSpeechTtsAsync(
+        global::System.Threading.Tasks.Task StreamTextToSpeechAsync(
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -339,7 +339,7 @@ namespace Gradium
         /// # {"type":"text","text":"Hello, world!"}<br/>
         /// # {"type":"end_of_stream"}
         /// </remarks>
-        global::System.Threading.Tasks.Task<global::Gradium.AutoSDKHttpResponse> GetSpeechTtsAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::Gradium.AutoSDKHttpResponse> StreamTextToSpeechAsResponseAsync(
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
