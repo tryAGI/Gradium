@@ -283,7 +283,7 @@ namespace Gradium
 
 
                             var __httpRequestContent = new global::System.Net.Http.ByteArrayContent(request);
-                            __httpRequestContent.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
+                            __httpRequestContent.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue("audio/wav");
                             __httpRequest.Content = __httpRequestContent;
                 global::Gradium.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
