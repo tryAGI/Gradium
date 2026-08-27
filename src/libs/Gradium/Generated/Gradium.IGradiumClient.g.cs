@@ -42,13 +42,13 @@ namespace Gradium
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; }
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MeteringClient Metering { get; }
 
@@ -58,7 +58,7 @@ namespace Gradium
         public PronunciationsClient Pronunciations { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public S2sClient S2s { get; }
 

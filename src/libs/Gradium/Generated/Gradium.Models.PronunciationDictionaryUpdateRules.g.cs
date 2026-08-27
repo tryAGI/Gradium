@@ -4,7 +4,7 @@
 namespace Gradium
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PronunciationDictionaryUpdateRules
     {

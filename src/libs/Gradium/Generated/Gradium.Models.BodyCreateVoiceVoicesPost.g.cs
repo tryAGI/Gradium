@@ -4,26 +4,26 @@
 namespace Gradium
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BodyCreateVoiceVoicesPost
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_file")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required byte[] AudioFile { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_filename")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string AudioFilename { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -36,13 +36,13 @@ namespace Gradium
         public string? InputFormat { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
         public string? Language { get; set; }

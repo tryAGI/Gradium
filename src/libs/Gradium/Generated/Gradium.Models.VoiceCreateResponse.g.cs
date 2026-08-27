@@ -4,18 +4,18 @@
 namespace Gradium
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class VoiceCreateResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("uid")]
         public string? Uid { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         public string? Error { get; set; }

@@ -167,7 +167,7 @@ namespace Gradium
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::Gradium.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

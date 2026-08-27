@@ -417,7 +417,7 @@ namespace Gradium
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::Gradium.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -608,7 +608,7 @@ namespace Gradium
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // 
+                            //
                             if ((int)__response.StatusCode == 101)
                             {
                                 string? __content_101 = null;

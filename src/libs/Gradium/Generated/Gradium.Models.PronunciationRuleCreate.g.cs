@@ -4,19 +4,19 @@
 namespace Gradium
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PronunciationRuleCreate
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("original")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Original { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rewrite")]
         [global::System.Text.Json.Serialization.JsonRequired]

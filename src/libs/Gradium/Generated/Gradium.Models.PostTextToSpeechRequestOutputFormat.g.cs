@@ -9,51 +9,51 @@ namespace Gradium
     public enum PostTextToSpeechRequestOutputFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Alaw8000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mulaw8000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Opus,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm16000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm22050,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm24000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm44100,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm48000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm8000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ulaw8000,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wav,
     }
