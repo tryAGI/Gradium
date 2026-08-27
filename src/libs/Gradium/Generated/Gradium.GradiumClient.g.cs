@@ -40,7 +40,7 @@ namespace Gradium
         internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Gradium.SourceGenerationContext.Default);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {
@@ -50,7 +50,7 @@ namespace Gradium
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MeteringClient Metering => new MeteringClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -68,7 +68,7 @@ namespace Gradium
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public S2sClient S2s => new S2sClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {

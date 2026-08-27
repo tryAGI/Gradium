@@ -4,24 +4,24 @@
 namespace Gradium
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostSpeechToTextContentType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioOgg,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioOpus,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioPcm,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioWav,
     }

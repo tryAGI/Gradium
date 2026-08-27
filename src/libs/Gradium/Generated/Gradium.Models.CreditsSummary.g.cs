@@ -9,34 +9,34 @@ namespace Gradium
     public sealed partial class CreditsSummary
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("remaining_credits")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int RemainingCredits { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("allocated_credits")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int AllocatedCredits { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("billing_period")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string BillingPeriod { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("next_rollover_date")]
         public global::System.DateTime? NextRolloverDate { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("plan_name")]
         public string? PlanName { get; set; }

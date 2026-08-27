@@ -20,7 +20,7 @@ namespace Gradium.JsonConverters
                     {
                         return global::Gradium.PostTextToSpeechRequestOutputFormatExtensions.ToEnum(stringValue) ?? default;
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

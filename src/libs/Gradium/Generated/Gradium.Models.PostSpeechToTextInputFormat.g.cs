@@ -4,20 +4,20 @@
 namespace Gradium
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostSpeechToTextInputFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Opus,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pcm,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wav,
     }
