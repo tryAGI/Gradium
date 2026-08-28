@@ -41,7 +41,9 @@ namespace Gradium
         /// Audio format. If omitted, inferred from the audio_file extension.
         /// </param>
         /// <param name="description"></param>
-        /// <param name="language"></param>
+        /// <param name="language">
+        /// Language spoken in the audio sample.
+        /// </param>
         /// <param name="startS">
         /// Default Value: 0
         /// </param>
@@ -55,9 +57,9 @@ namespace Gradium
             byte[] audioFile,
             string audioFilename,
             string name,
+            global::Gradium.BodyCreateVoiceVoicesPostLanguage language,
             string? inputFormat = default,
             string? description = default,
-            string? language = default,
             double? startS = default,
             double? timeoutS = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
@@ -76,7 +78,9 @@ namespace Gradium
         /// Audio format. If omitted, inferred from the audio_file extension.
         /// </param>
         /// <param name="description"></param>
-        /// <param name="language"></param>
+        /// <param name="language">
+        /// Language spoken in the audio sample.
+        /// </param>
         /// <param name="startS">
         /// Default Value: 0
         /// </param>
@@ -90,9 +94,9 @@ namespace Gradium
             global::System.IO.Stream audioFile,
             string audioFilename,
             string name,
+            global::Gradium.BodyCreateVoiceVoicesPostLanguage language,
             string? inputFormat = default,
             string? description = default,
-            string? language = default,
             double? startS = default,
             double? timeoutS = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
@@ -110,7 +114,9 @@ namespace Gradium
         /// Audio format. If omitted, inferred from the audio_file extension.
         /// </param>
         /// <param name="description"></param>
-        /// <param name="language"></param>
+        /// <param name="language">
+        /// Language spoken in the audio sample.
+        /// </param>
         /// <param name="startS">
         /// Default Value: 0
         /// </param>
@@ -124,9 +130,9 @@ namespace Gradium
             global::System.IO.Stream audioFile,
             string audioFilename,
             string name,
+            global::Gradium.BodyCreateVoiceVoicesPostLanguage language,
             string? inputFormat = default,
             string? description = default,
-            string? language = default,
             double? startS = default,
             double? timeoutS = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,

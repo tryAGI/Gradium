@@ -13,6 +13,10 @@ namespace Gradium
         DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
         Converters = new global::System.Type[]
         {
+            typeof(global::Gradium.JsonConverters.BodyCreateVoiceVoicesPostLanguageJsonConverter),
+
+            typeof(global::Gradium.JsonConverters.BodyCreateVoiceVoicesPostLanguageNullableJsonConverter),
+
             typeof(global::Gradium.JsonConverters.PostTextToSpeechRequestOutputFormatJsonConverter),
 
             typeof(global::Gradium.JsonConverters.PostTextToSpeechRequestOutputFormatNullableJsonConverter),
@@ -41,6 +45,7 @@ namespace Gradium
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.ExportedTag))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.BodyCreateVoiceVoicesPost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(byte[]))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.BodyCreateVoiceVoicesPostLanguage), TypeInfoPropertyName = "BodyCreateVoiceVoicesPostLanguage2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.CreditsSummary))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]

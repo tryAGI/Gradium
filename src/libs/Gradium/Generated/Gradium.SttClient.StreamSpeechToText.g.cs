@@ -79,7 +79,7 @@ namespace Gradium
         /// - `type` (string, required): Must be "setup"<br/>
         /// - `model_name` (string, optional): The Speech-To-Text model to use (default: "default")<br/>
         /// - `input_format` (string, optional): Audio format (default: "wav"). One of "pcm", "pcm_8000", "pcm_16000", "pcm_22050", "pcm_24000", "pcm_44100", "pcm_48000", "wav", "opus", "ulaw_8000", "mulaw_8000", "alaw_8000".<br/>
-        /// - `json_config` (object or string, optional): Advanced STT settings, for example `{"language":"en","delay_in_frames":16}`.<br/>
+        /// - `json_config` (object or string, required): STT settings, for example `{"language":"en","delay_in_frames":16}`. `language` is required; set it to (`en`, `fr`, `es`, `pt`, `de`, or `any` to auto-detect).<br/>
         /// **Important:** This must be the very first message sent after connection. The server will close the connection if any other message is sent first.<br/>
         /// ---<br/>
         /// ### 2. Ready Message<br/>
@@ -316,7 +316,7 @@ namespace Gradium
         /// - `type` (string, required): Must be "setup"<br/>
         /// - `model_name` (string, optional): The Speech-To-Text model to use (default: "default")<br/>
         /// - `input_format` (string, optional): Audio format (default: "wav"). One of "pcm", "pcm_8000", "pcm_16000", "pcm_22050", "pcm_24000", "pcm_44100", "pcm_48000", "wav", "opus", "ulaw_8000", "mulaw_8000", "alaw_8000".<br/>
-        /// - `json_config` (object or string, optional): Advanced STT settings, for example `{"language":"en","delay_in_frames":16}`.<br/>
+        /// - `json_config` (object or string, required): STT settings, for example `{"language":"en","delay_in_frames":16}`. `language` is required; set it to (`en`, `fr`, `es`, `pt`, `de`, or `any` to auto-detect).<br/>
         /// **Important:** This must be the very first message sent after connection. The server will close the connection if any other message is sent first.<br/>
         /// ---<br/>
         /// ### 2. Ready Message<br/>

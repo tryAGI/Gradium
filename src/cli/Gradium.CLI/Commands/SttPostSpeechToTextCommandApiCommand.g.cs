@@ -25,10 +25,11 @@ internal static partial class SttPostSpeechToTextCommandApiCommand
         Description = @"Overrides the audio format detected from Content-Type.",
     };
 
-    private static Option<string?> JsonConfig { get; } = new(
+    private static Option<string> JsonConfig { get; } = new(
         name: @"--json-config")
     {
-        Description = @"JSON-encoded model configuration. Example: {""language"": ""en""}",
+        Description = @"JSON-encoded model configuration. language is required, e.g. {""language"": ""en""} or {""language"": ""any""} to auto-detect.",
+        Required = true,
     };
       private static Option<string?> Input { get; } = new(@"--input")
       {
@@ -71,19 +72,13 @@ Include your API key in the request header:
 
 ```bash
 curl -L -X POST https://api.gradium.ai/api/post/speech/asr \
+  --url-query 'json_config={""language"":""en""}' \
   -H ""x-api-key: your_api_key"" \
   -H ""Content-Type: audio/wav"" \
   --data-binary @input.wav
 ```
 
-With a language hint:
-
-```bash
-curl -L -X POST ""https://api.gradium.ai/api/post/speech/asr?json_config=%7B%22language%22%3A%22en%22%7D"" \
-  -H ""x-api-key: your_api_key"" \
-  -H ""Content-Type: audio/wav"" \
-  --data-binary @input.wav
-```
+The `json_config` query parameter is URL-encoded `{""language"": ""en""}`. Always set `language`; pass `""any""` if it is unknown.
 
 ---
 
@@ -104,9 +99,9 @@ The input audio format is selected from the `Content-Type` header:
 - `model` (string, optional): The Speech-to-Text model to use (default: `default`).
 - `input_format` (string, optional): Override the input format detected from
   `Content-Type`. One of `wav`, `pcm`, `opus`.
-- `json_config` (string, optional): JSON-encoded model configuration. Common
-  use case: pass a language hint, e.g. `{""language"": ""en""}`. The value should
-  be URL-encoded when used as a query parameter.
+- `json_config` (string, required): JSON-encoded model configuration. `language` is
+  required; set it e.g. `{""language"": ""en""}`, or `{""language"": ""any""}` if
+  unknown. The value should be URL-encoded when used as a query parameter.
 
 ---
 
@@ -162,6 +157,7 @@ with open(""input.wav"", ""rb"") as f:
 
 with requests.post(
     ""https://api.gradium.ai/api/post/speech/asr"",
+    params={""json_config"": json.dumps({""language"": ""en""})},
     data=audio,
     headers={
         ""x-api-key"": ""your_api_key"",
@@ -252,7 +248,7 @@ when you need to:
                         var contentType = parseResult.GetValue(ContentType);
                         var model = parseResult.GetValue(Model);
                         var inputFormat = parseResult.GetValue(InputFormat);
-                        var jsonConfig = parseResult.GetValue(JsonConfig);
+                        var jsonConfig = parseResult.GetRequiredValue(JsonConfig);
                         var request = await CliRuntime.ReadRequestAsync<byte[]>(
                             parseResult,
                             Input,
