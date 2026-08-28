@@ -42,10 +42,12 @@ namespace Gradium
         public string? Description { get; set; }
 
         /// <summary>
-        ///
+        /// Language spoken in the audio sample.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
-        public string? Language { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Gradium.JsonConverters.BodyCreateVoiceVoicesPostLanguageJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Gradium.BodyCreateVoiceVoicesPostLanguage Language { get; set; }
 
         /// <summary>
         /// Default Value: 0
@@ -71,11 +73,13 @@ namespace Gradium
         /// <param name="audioFile"></param>
         /// <param name="audioFilename"></param>
         /// <param name="name"></param>
+        /// <param name="language">
+        /// Language spoken in the audio sample.
+        /// </param>
         /// <param name="inputFormat">
         /// Audio format. If omitted, inferred from the audio_file extension.
         /// </param>
         /// <param name="description"></param>
-        /// <param name="language"></param>
         /// <param name="startS">
         /// Default Value: 0
         /// </param>
@@ -89,9 +93,9 @@ namespace Gradium
             byte[] audioFile,
             string audioFilename,
             string name,
+            global::Gradium.BodyCreateVoiceVoicesPostLanguage language,
             string? inputFormat,
             string? description,
-            string? language,
             double? startS,
             double? timeoutS)
         {

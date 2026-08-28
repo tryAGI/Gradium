@@ -39,10 +39,11 @@ internal static partial class VoicesCreateVoiceVoicesPostCommandApiCommand
         Description = @"",
     };
 
-    private static Option<string?> Language { get; } = new(
+    private static Option<global::Gradium.BodyCreateVoiceVoicesPostLanguage> Language { get; } = new(
         name: @"--language")
     {
-        Description = @"",
+        Description = @"Language spoken in the audio sample.",
+        Required = true,
     };
 
     private static Option<double?> StartS { get; } = new(
@@ -135,7 +136,7 @@ Create a new voice for an organization with audio file upload.");
                         var audioFilename = parseResult.GetRequiredValue(AudioFilename);
                         var inputFormat = CliRuntime.WasSpecified(parseResult, InputFormat) ? parseResult.GetValue(InputFormat) : (__requestBase is { } __InputFormatBaseValue ? __InputFormatBaseValue.InputFormat : default);
                         var description = CliRuntime.WasSpecified(parseResult, DescriptionOption) ? parseResult.GetValue(DescriptionOption) : (__requestBase is { } __DescriptionBaseValue ? __DescriptionBaseValue.Description : default);
-                        var language = CliRuntime.WasSpecified(parseResult, Language) ? parseResult.GetValue(Language) : (__requestBase is { } __LanguageBaseValue ? __LanguageBaseValue.Language : default);
+                        var language = parseResult.GetRequiredValue(Language);
                         var startS = CliRuntime.WasSpecified(parseResult, StartS) ? parseResult.GetValue(StartS) : (__requestBase is { } __StartSBaseValue ? __StartSBaseValue.StartS : default);
                         var timeoutS = CliRuntime.WasSpecified(parseResult, TimeoutS) ? parseResult.GetValue(TimeoutS) : (__requestBase is { } __TimeoutSBaseValue ? __TimeoutSBaseValue.TimeoutS : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);

@@ -30,7 +30,7 @@ namespace Gradium
             ref global::Gradium.PostSpeechToTextContentType? contentType,
             ref string? model,
             ref global::Gradium.PostSpeechToTextInputFormat? inputFormat,
-            ref string? jsonConfig,
+            ref string jsonConfig,
             byte[] request);
         partial void PreparePostSpeechToTextRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -38,7 +38,7 @@ namespace Gradium
             global::Gradium.PostSpeechToTextContentType? contentType,
             string? model,
             global::Gradium.PostSpeechToTextInputFormat? inputFormat,
-            string? jsonConfig,
+            string jsonConfig,
             byte[] request);
         partial void ProcessPostSpeechToTextResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -61,17 +61,12 @@ namespace Gradium
         /// ## Quick Example<br/>
         /// ```bash<br/>
         /// curl -L -X POST https://api.gradium.ai/api/post/speech/asr \<br/>
+        ///   --url-query 'json_config={"language":"en"}' \<br/>
         ///   -H "x-api-key: your_api_key" \<br/>
         ///   -H "Content-Type: audio/wav" \<br/>
         ///   --data-binary @input.wav<br/>
         /// ```<br/>
-        /// With a language hint:<br/>
-        /// ```bash<br/>
-        /// curl -L -X POST "https://api.gradium.ai/api/post/speech/asr?json_config=%7B%22language%22%3A%22en%22%7D" \<br/>
-        ///   -H "x-api-key: your_api_key" \<br/>
-        ///   -H "Content-Type: audio/wav" \<br/>
-        ///   --data-binary @input.wav<br/>
-        /// ```<br/>
+        /// The `json_config` query parameter is URL-encoded `{"language": "en"}`. Always set `language`; pass `"any"` if it is unknown.<br/>
         /// ---<br/>
         /// ## Request Format<br/>
         /// **Method:** POST<br/>
@@ -86,9 +81,9 @@ namespace Gradium
         /// - `model` (string, optional): The Speech-to-Text model to use (default: `default`).<br/>
         /// - `input_format` (string, optional): Override the input format detected from<br/>
         ///   `Content-Type`. One of `wav`, `pcm`, `opus`.<br/>
-        /// - `json_config` (string, optional): JSON-encoded model configuration. Common<br/>
-        ///   use case: pass a language hint, e.g. `{"language": "en"}`. The value should<br/>
-        ///   be URL-encoded when used as a query parameter.<br/>
+        /// - `json_config` (string, required): JSON-encoded model configuration. `language` is<br/>
+        ///   required; set it e.g. `{"language": "en"}`, or `{"language": "any"}` if<br/>
+        ///   unknown. The value should be URL-encoded when used as a query parameter.<br/>
         /// ---<br/>
         /// ## Response Format<br/>
         /// **Content-Type:** `application/x-ndjson`<br/>
@@ -125,6 +120,7 @@ namespace Gradium
         ///     audio = f.read()<br/>
         /// with requests.post(<br/>
         ///     "https://api.gradium.ai/api/post/speech/asr",<br/>
+        ///     params={"json_config": json.dumps({"language": "en"})},<br/>
         ///     data=audio,<br/>
         ///     headers={<br/>
         ///         "x-api-key": "your_api_key",<br/>
@@ -189,17 +185,18 @@ namespace Gradium
         /// <exception cref="global::Gradium.ApiException"></exception>
         /// <remarks>
         /// curl -L -X POST https://api.gradium.ai/api/post/speech/asr \<br/>
+        ///   --url-query 'json_config={"language":"en"}' \<br/>
         ///   -H "x-api-key: your_api_key" \<br/>
         ///   -H "Content-Type: audio/wav" \<br/>
         ///   --data-binary @input.wav
         /// </remarks>
         public async global::System.Collections.Generic.IAsyncEnumerable<string> PostSpeechToTextAsync(
+            string jsonConfig,
 
             byte[] request,
             global::Gradium.PostSpeechToTextContentType? contentType = default,
             string? model = default,
             global::Gradium.PostSpeechToTextInputFormat? inputFormat = default,
-            string? jsonConfig = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             [global::System.Runtime.CompilerServices.EnumeratorCancellation] global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -244,7 +241,7 @@ namespace Gradium
                             __pathBuilder
                                 .AddOptionalParameter("model", model)
                                 .AddOptionalParameter("input_format", inputFormat?.ToValueString())
-                                .AddOptionalParameter("json_config", jsonConfig)
+                                .AddRequiredParameter("json_config", jsonConfig)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Gradium.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -299,7 +296,7 @@ namespace Gradium
                     contentType: contentType,
                     model: model,
                     inputFormat: inputFormat,
-                    jsonConfig: jsonConfig,
+                    jsonConfig: jsonConfig!,
                     request: request);
 
                 return __httpRequest;
