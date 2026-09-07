@@ -832,6 +832,203 @@
           }
         ]
       }
+    },
+    "/voice-generator/generate": {
+      "post": {
+        "tags": [
+          "Voice Design"
+        ],
+        "summary": "Generate Voice Candidates",
+        "description": "Sample candidate voices from a written description. No reference audio is involved.\n\nGeneration runs in the background, so the candidate ids come back immediately with `ready: false`. Poll `GET /voice-generator/embeddings` every two seconds until each is ready, which typically takes three to five seconds for three candidates.\n\nEvery request mints new ids, and the description is expanded before sampling, so the same description gives a fresh voice each time. Capture the ids from the response and carry them through the rest of the flow.",
+        "operationId": "generate_voice_voice_generator_generate_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VoiceGenerationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoiceGenerationResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voice-generator/embeddings": {
+      "get": {
+        "tags": [
+          "Voice Design"
+        ],
+        "summary": "List Voice Candidates",
+        "description": "Check whether a candidate is ready, or list the candidates belonging to the authenticated organization, newest first.\n\nPass `embedding_id` to look up a single candidate. Omit it to page through all of them with `skip` and `limit`, which is also how you recover ids you did not store. A page shorter than `limit` is the last page.\n\nA lookup for an id this organization does not hold returns `200` with an empty `embeddings` list, so check the list before indexing into it.",
+        "operationId": "list_voice_embeddings_voice_generator_embeddings_get",
+        "parameters": [
+          {
+            "name": "embedding_id",
+            "in": "query",
+            "required": false,
+            "description": "Look up a single candidate by id. Omit to list all candidates.",
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Embedding Id"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Skip"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000,
+              "default": 100,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoiceEmbeddingListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voice-generator/embeddings/{embedding_id}": {
+      "delete": {
+        "tags": [
+          "Voice Design"
+        ],
+        "summary": "Delete Voice Candidate",
+        "description": "Remove a candidate you are not keeping. Candidates you leave alone are removed automatically after 30 days.\n\nSafe at any time: a voice kept from a candidate holds its own copy, so deleting the candidate leaves the voice untouched. An id that is already gone returns `404`, so treat cleanup as best effort.",
+        "operationId": "delete_voice_embedding_voice_generator_embeddings__embedding_id__delete",
+        "parameters": [
+          {
+            "name": "embedding_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Embedding Id"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voices/from-embedding": {
+      "post": {
+        "tags": [
+          "Voice Design"
+        ],
+        "summary": "Create Voice From Candidate",
+        "description": "Keep a generated candidate as a permanent voice in your organization.\n\nThe response field `uid` is the `voice_id` every other endpoint expects: the same value under two names. From here the voice behaves like any other Gradium voice, on one-shot Text-to-Speech, the streaming WebSockets and Speech-to-Speech.\n\nKeeping a candidate is free, since generation is already accounted for, and it clears the candidate's expiry. Store the `embedding_id` to `voice_id` mapping: keeping the same candidate twice returns `409`, and your own record is the cleanest way to find the voice you already made.",
+        "operationId": "create_voice_from_embedding_voices_from_embedding_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VoiceFromEmbeddingCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoiceFromEmbeddingResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "A voice already exists for this candidate"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1533,6 +1730,282 @@
         "type": "object",
         "title": "VoiceUpdate",
         "description": "Schema for updating voice data."
+      },
+      "VoiceGeneratorConfig": {
+        "properties": {
+          "cfg_scale": {
+            "type": "number",
+            "minimum": 1.0,
+            "maximum": 20.0,
+            "default": 5.0,
+            "title": "Cfg Scale",
+            "description": "How closely the sampled voice follows the description. Higher is more literal and less varied."
+          },
+          "steps": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 128,
+            "default": 16,
+            "title": "Steps",
+            "description": "Sampling steps. More steps takes more time."
+          },
+          "seed": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed",
+            "description": "Fixes the noise draw. Unset by default."
+          },
+          "utmos_score": {
+            "type": "number",
+            "minimum": 1.0,
+            "maximum": 5.0,
+            "title": "Utmos Score",
+            "description": "Target recording quality of the voice. Defaults to 3.1 for `en` and 3.0 for other languages."
+          }
+        },
+        "type": "object",
+        "title": "VoiceGeneratorConfig",
+        "description": "Advanced sampling options for voice generation. The defaults are tuned, so send only the keys you need."
+      },
+      "VoiceGenerationRequest": {
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500,
+            "title": "Prompt",
+            "description": "The voice description, up to 500 characters. Must contain actual text, not only spaces."
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "en",
+              "fr",
+              "es",
+              "pt",
+              "de"
+            ],
+            "title": "Language",
+            "description": "Language the voice will speak. Shapes the accent and the delivery."
+          },
+          "n_samples": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5,
+            "default": 1,
+            "title": "N Samples",
+            "description": "Number of candidate voices to sample from the description. All candidates in one request are variations on the same character."
+          },
+          "json_config": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/VoiceGeneratorConfig"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Json Config",
+            "description": "Advanced sampling options."
+          }
+        },
+        "type": "object",
+        "required": [
+          "prompt",
+          "language"
+        ],
+        "title": "VoiceGenerationRequest"
+      },
+      "GeneratedEmbedding": {
+        "properties": {
+          "embedding_id": {
+            "type": "string",
+            "title": "Embedding Id",
+            "description": "Candidate id, prefixed `vox_emb_`. Pass it as `voice_id` to audition the candidate."
+          },
+          "ready": {
+            "type": "boolean",
+            "title": "Ready",
+            "description": "Whether the candidate has finished generating. Newly created candidates start as `false`."
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Expires At",
+            "description": "UTC time the candidate is removed, 30 days after creation. Cleared once you keep the candidate."
+          }
+        },
+        "type": "object",
+        "required": [
+          "embedding_id",
+          "ready",
+          "expires_at"
+        ],
+        "title": "GeneratedEmbedding"
+      },
+      "VoiceGenerationResponse": {
+        "properties": {
+          "embeddings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GeneratedEmbedding"
+            },
+            "title": "Embeddings"
+          }
+        },
+        "type": "object",
+        "required": [
+          "embeddings"
+        ],
+        "title": "VoiceGenerationResponse"
+      },
+      "VoiceEmbeddingResponse": {
+        "properties": {
+          "embedding_id": {
+            "type": "string",
+            "title": "Embedding Id"
+          },
+          "ready": {
+            "type": "boolean",
+            "title": "Ready"
+          },
+          "prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt",
+            "description": "The description the candidate was generated from."
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Expires At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "embedding_id",
+          "ready"
+        ],
+        "title": "VoiceEmbeddingResponse",
+        "description": "Timestamps are UTC. Parse them as UTC whether or not a trailing `Z` is present."
+      },
+      "VoiceEmbeddingListResponse": {
+        "properties": {
+          "embeddings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VoiceEmbeddingResponse"
+            },
+            "title": "Embeddings",
+            "description": "Matching candidates, newest first. An id this organization does not hold returns an empty list, so check the list before indexing into it."
+          }
+        },
+        "type": "object",
+        "required": [
+          "embeddings"
+        ],
+        "title": "VoiceEmbeddingListResponse"
+      },
+      "VoiceFromEmbeddingCreate": {
+        "properties": {
+          "voxium_embedding_id": {
+            "type": "string",
+            "title": "Voxium Embedding Id",
+            "description": "Id of the candidate to keep, as returned by `POST /voice-generator/generate`."
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "A name for the voice."
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description",
+            "description": "An optional description of the voice."
+          }
+        },
+        "type": "object",
+        "required": [
+          "voxium_embedding_id",
+          "name"
+        ],
+        "title": "VoiceFromEmbeddingCreate"
+      },
+      "VoiceFromEmbeddingResponse": {
+        "properties": {
+          "uid": {
+            "type": "string",
+            "title": "Uid",
+            "description": "The permanent `voice_id`. Store this one: it is stable for the life of the voice."
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language"
+          }
+        },
+        "type": "object",
+        "required": [
+          "uid",
+          "name"
+        ],
+        "title": "VoiceFromEmbeddingResponse"
       }
     }
   },
@@ -1551,6 +2024,7 @@
         "TTS",
         "STT",
         "Voices",
+        "Voice Design",
         "Pronunciations",
         "Credits"
       ]
@@ -1581,6 +2055,10 @@
     {
       "name": "Voices",
       "description": "Manage custom voice clones"
+    },
+    {
+      "name": "Voice Design",
+      "description": "Create voices from a written description"
     },
     {
       "name": "Pronunciations",
