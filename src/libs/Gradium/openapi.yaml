@@ -1760,13 +1760,6 @@
             ],
             "title": "Seed",
             "description": "Fixes the noise draw. Unset by default."
-          },
-          "utmos_score": {
-            "type": "number",
-            "minimum": 1.0,
-            "maximum": 5.0,
-            "title": "Utmos Score",
-            "description": "Target recording quality of the voice. Defaults to 3.1 for `en` and 3.0 for other languages."
           }
         },
         "type": "object",

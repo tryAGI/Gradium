@@ -29,12 +29,6 @@ namespace Gradium
         public int? Seed { get; set; }
 
         /// <summary>
-        /// Target recording quality of the voice. Defaults to 3.1 for `en` and 3.0 for other languages.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("utmos_score")]
-        public double? UtmosScore { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -54,22 +48,17 @@ namespace Gradium
         /// <param name="seed">
         /// Fixes the noise draw. Unset by default.
         /// </param>
-        /// <param name="utmosScore">
-        /// Target recording quality of the voice. Defaults to 3.1 for `en` and 3.0 for other languages.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public VoiceGeneratorConfig(
             double? cfgScale,
             int? steps,
-            int? seed,
-            double? utmosScore)
+            int? seed)
         {
             this.CfgScale = cfgScale;
             this.Steps = steps;
             this.Seed = seed;
-            this.UtmosScore = utmosScore;
         }
 
         /// <summary>
