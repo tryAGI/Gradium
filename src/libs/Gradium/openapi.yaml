@@ -1029,6 +1029,57 @@
           }
         }
       }
+    },
+    "/voice-generator/enhance": {
+      "post": {
+        "tags": [
+          "Voice Enhance"
+        ],
+        "summary": "Enhance Voice",
+        "operationId": "enhance_voice_generator_enhance_post",
+        "description": "Voice Enhance is in beta: output quality will keep improving.\n\nClean up an existing voice without changing its language or who is speaking: the same speaker comes back as new candidates with background noise reduced and a quality target applied. The source can be a flagship voice, one of your clones, a converted candidate or a `vox_emb_` candidate; it is never modified. The body is `src_voice` and `n_samples` only.\n\nEach request creates `n_samples` new candidates that behave exactly like Voice Design candidates and list as `kind: enhance` with `enhance_config` filled. Poll `GET /voice-generator/embeddings` until `ready` (typically fifteen to twenty seconds), audition them with `POST /post/speech/tts` and keep one with `POST /voices/from-embedding`.\n\nThe request is validated before anything is queued. The source needs a `language` (a source without one returns `409`; set it with `PUT /voices/{voice_uid}` first), a candidate source must be ready, and pro clones are not accepted.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnhanceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Candidates accepted, one per requested sample, all `ready: false`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoiceGenerationResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown source, or a voice or candidate belonging to another account."
+          },
+          "409": {
+            "description": "Source cannot be enhanced: no language set, candidate not ready, or pro clone. `detail` says which."
+          },
+          "422": {
+            "description": "Validation Error: invalid `n_samples` or an empty `src_voice`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "The source audio could not be copied or no voice generator is available. Nothing was created; retry."
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1740,26 +1791,6 @@
             "default": 5.0,
             "title": "Cfg Scale",
             "description": "How closely the sampled voice follows the description. Higher is more literal and less varied."
-          },
-          "steps": {
-            "type": "integer",
-            "minimum": 1,
-            "maximum": 128,
-            "default": 16,
-            "title": "Steps",
-            "description": "Sampling steps. More steps takes more time."
-          },
-          "seed": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Seed",
-            "description": "Fixes the noise draw. Unset by default."
           }
         },
         "type": "object",
@@ -1878,7 +1909,7 @@
               }
             ],
             "title": "Prompt",
-            "description": "The description the candidate was generated from."
+            "description": "The description a Voice Design candidate was generated from. Empty for an enhanced candidate."
           },
           "language": {
             "anyOf": [
@@ -1900,6 +1931,26 @@
             "type": "string",
             "format": "date-time",
             "title": "Expires At"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "generate",
+              "enhance"
+            ],
+            "title": "Kind",
+            "description": "How the candidate was made. `enhance_config` is set when `kind` is `enhance`."
+          },
+          "enhance_config": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EnhanceConfig"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enhance Config"
           }
         },
         "type": "object",
@@ -1999,6 +2050,51 @@
           "name"
         ],
         "title": "VoiceFromEmbeddingResponse"
+      },
+      "EnhanceRequest": {
+        "type": "object",
+        "required": [
+          "src_voice"
+        ],
+        "title": "EnhanceRequest",
+        "properties": {
+          "src_voice": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "title": "Src Voice",
+            "description": "The voice to enhance: a voice id (your clone, a converted candidate or a flagship voice) or a `vox_emb_` candidate id. It keeps its language and is not modified."
+          },
+          "n_samples": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5,
+            "default": 1,
+            "title": "N Samples",
+            "description": "Number of candidates to produce. All candidates in one request are variations of the same speaker."
+          }
+        }
+      },
+      "EnhanceConfig": {
+        "type": "object",
+        "required": [
+          "src_voice",
+          "src_language"
+        ],
+        "title": "EnhanceConfig",
+        "description": "What an enhance request asked for. Set when `kind` is `enhance`.",
+        "properties": {
+          "src_voice": {
+            "type": "string",
+            "title": "Src Voice",
+            "description": "The source id as given. A loose reference: the source may have been deleted since."
+          },
+          "src_language": {
+            "type": "string",
+            "title": "Src Language",
+            "description": "The source voice's language, which the candidate keeps."
+          }
+        }
       }
     }
   },
@@ -2018,6 +2114,7 @@
         "STT",
         "Voices",
         "Voice Design",
+        "Voice Enhance",
         "Pronunciations",
         "Credits"
       ]
@@ -2060,6 +2157,10 @@
     {
       "name": "Credits",
       "description": "Monitor API credit balance"
+    },
+    {
+      "name": "Voice Enhance",
+      "description": "Voice Enhance is in beta. Clean up an existing voice without changing its language or who is speaking, as new candidates."
     }
   ]
 }

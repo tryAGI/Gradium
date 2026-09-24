@@ -16,19 +16,6 @@ namespace Gradium
         public double? CfgScale { get; set; }
 
         /// <summary>
-        /// Sampling steps. More steps takes more time.<br/>
-        /// Default Value: 16
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("steps")]
-        public int? Steps { get; set; }
-
-        /// <summary>
-        /// Fixes the noise draw. Unset by default.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("seed")]
-        public int? Seed { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -41,24 +28,13 @@ namespace Gradium
         /// How closely the sampled voice follows the description. Higher is more literal and less varied.<br/>
         /// Default Value: 5F
         /// </param>
-        /// <param name="steps">
-        /// Sampling steps. More steps takes more time.<br/>
-        /// Default Value: 16
-        /// </param>
-        /// <param name="seed">
-        /// Fixes the noise draw. Unset by default.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public VoiceGeneratorConfig(
-            double? cfgScale,
-            int? steps,
-            int? seed)
+            double? cfgScale)
         {
             this.CfgScale = cfgScale;
-            this.Steps = steps;
-            this.Seed = seed;
         }
 
         /// <summary>
