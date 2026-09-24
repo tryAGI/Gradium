@@ -4,13 +4,11 @@
 namespace Gradium
 {
     /// <summary>
-    /// This documentation covers the Gradium API.<br/>
-    /// This API exposes our Text-To-Speech and Speech-To-Text models, which offers low-latency, high-quality &amp; natural sounding output and best in class accuracy.  <br/>
-    /// For issues, questions, or feature requests, please contact us at support@gradium.ai<br/>
+    /// Voice Enhance is in beta. Clean up an existing voice without changing its language or who is speaking, as new candidates.<br/>
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>
-    public partial interface IGradiumClient : global::System.IDisposable
+    public partial interface IVoiceEnhanceClient : global::System.IDisposable
     {
         /// <summary>
         /// The HttpClient instance.
@@ -46,46 +44,6 @@ namespace Gradium
         /// </summary>
         global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; }
 
-
-        /// <summary>
-        ///
-        /// </summary>
-        public MeteringClient Metering { get; }
-
-        /// <summary>
-        /// Manage pronunciation dictionaries for custom text rewriting.
-        /// </summary>
-        public PronunciationsClient Pronunciations { get; }
-
-        /// <summary>
-        ///
-        /// </summary>
-        public S2sClient S2s { get; }
-
-        /// <summary>
-        /// Speech-to-Text endpoints for converting audio to text.
-        /// </summary>
-        public SttClient Stt { get; }
-
-        /// <summary>
-        /// Text-to-Speech endpoints for converting text to audio.
-        /// </summary>
-        public TtsClient Tts { get; }
-
-        /// <summary>
-        /// Create voices from a written description.
-        /// </summary>
-        public VoiceDesignClient VoiceDesign { get; }
-
-        /// <summary>
-        /// Voice Enhance is in beta. Clean up an existing voice without changing its language or who is speaking, as new candidates.
-        /// </summary>
-        public VoiceEnhanceClient VoiceEnhance { get; }
-
-        /// <summary>
-        /// Manage custom voice clones.
-        /// </summary>
-        public VoicesClient Voices { get; }
 
     }
 }
