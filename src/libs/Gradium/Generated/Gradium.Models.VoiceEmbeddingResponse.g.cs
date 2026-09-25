@@ -23,7 +23,7 @@ namespace Gradium
         public required bool Ready { get; set; }
 
         /// <summary>
-        /// The description the candidate was generated from.
+        /// The description a Voice Design candidate was generated from. Empty for an enhanced candidate.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         public string? Prompt { get; set; }
@@ -47,6 +47,19 @@ namespace Gradium
         public global::System.DateTime? ExpiresAt { get; set; }
 
         /// <summary>
+        /// How the candidate was made. `enhance_config` is set when `kind` is `enhance`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("kind")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Gradium.JsonConverters.VoiceEmbeddingResponseKindJsonConverter))]
+        public global::Gradium.VoiceEmbeddingResponseKind? Kind { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enhance_config")]
+        public global::Gradium.EnhanceConfig? EnhanceConfig { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -58,11 +71,15 @@ namespace Gradium
         /// <param name="embeddingId"></param>
         /// <param name="ready"></param>
         /// <param name="prompt">
-        /// The description the candidate was generated from.
+        /// The description a Voice Design candidate was generated from. Empty for an enhanced candidate.
         /// </param>
         /// <param name="language"></param>
         /// <param name="createdAt"></param>
         /// <param name="expiresAt"></param>
+        /// <param name="kind">
+        /// How the candidate was made. `enhance_config` is set when `kind` is `enhance`.
+        /// </param>
+        /// <param name="enhanceConfig"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -72,7 +89,9 @@ namespace Gradium
             string? prompt,
             string? language,
             global::System.DateTime? createdAt,
-            global::System.DateTime? expiresAt)
+            global::System.DateTime? expiresAt,
+            global::Gradium.VoiceEmbeddingResponseKind? kind,
+            global::Gradium.EnhanceConfig? enhanceConfig)
         {
             this.EmbeddingId = embeddingId ?? throw new global::System.ArgumentNullException(nameof(embeddingId));
             this.Ready = ready;
@@ -80,6 +99,8 @@ namespace Gradium
             this.Language = language;
             this.CreatedAt = createdAt;
             this.ExpiresAt = expiresAt;
+            this.Kind = kind;
+            this.EnhanceConfig = enhanceConfig;
         }
 
         /// <summary>

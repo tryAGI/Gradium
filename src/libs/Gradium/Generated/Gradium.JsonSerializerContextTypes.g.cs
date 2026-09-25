@@ -193,39 +193,51 @@ namespace Gradium
         /// <summary>
         ///
         /// </summary>
-        public global::Gradium.VoiceEmbeddingListResponse? Type40 { get; set; }
+        public global::Gradium.VoiceEmbeddingResponseKind? Type40 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Gradium.VoiceEmbeddingResponse>? Type41 { get; set; }
+        public global::Gradium.EnhanceConfig? Type41 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Gradium.VoiceFromEmbeddingCreate? Type42 { get; set; }
+        public global::Gradium.VoiceEmbeddingListResponse? Type42 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Gradium.VoiceFromEmbeddingResponse? Type43 { get; set; }
+        public global::System.Collections.Generic.IList<global::Gradium.VoiceEmbeddingResponse>? Type43 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Gradium.PostTextToSpeechRequest? Type44 { get; set; }
+        public global::Gradium.VoiceFromEmbeddingCreate? Type44 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Gradium.PostTextToSpeechRequestOutputFormat? Type45 { get; set; }
+        public global::Gradium.VoiceFromEmbeddingResponse? Type45 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Gradium.PostSpeechToTextContentType? Type46 { get; set; }
+        public global::Gradium.EnhanceRequest? Type46 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Gradium.PostSpeechToTextInputFormat? Type47 { get; set; }
+        public global::Gradium.PostTextToSpeechRequest? Type47 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Gradium.APIVoiceResponse>? Type48 { get; set; }
+        public global::Gradium.PostTextToSpeechRequestOutputFormat? Type48 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Gradium.PostSpeechToTextContentType? Type49 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Gradium.PostSpeechToTextInputFormat? Type50 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::Gradium.APIVoiceResponse>? Type51 { get; set; }
 
         /// <summary>
         ///

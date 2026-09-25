@@ -21,6 +21,10 @@ namespace Gradium
 
             typeof(global::Gradium.JsonConverters.VoiceGenerationRequestLanguageNullableJsonConverter),
 
+            typeof(global::Gradium.JsonConverters.VoiceEmbeddingResponseKindJsonConverter),
+
+            typeof(global::Gradium.JsonConverters.VoiceEmbeddingResponseKindNullableJsonConverter),
+
             typeof(global::Gradium.JsonConverters.PostTextToSpeechRequestOutputFormatJsonConverter),
 
             typeof(global::Gradium.JsonConverters.PostTextToSpeechRequestOutputFormatNullableJsonConverter),
@@ -81,10 +85,13 @@ namespace Gradium
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.VoiceGenerationResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Gradium.GeneratedEmbedding>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.VoiceEmbeddingResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.VoiceEmbeddingResponseKind), TypeInfoPropertyName = "VoiceEmbeddingResponseKind2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.EnhanceConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.VoiceEmbeddingListResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Gradium.VoiceEmbeddingResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.VoiceFromEmbeddingCreate))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.VoiceFromEmbeddingResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.EnhanceRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.PostTextToSpeechRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.PostTextToSpeechRequestOutputFormat), TypeInfoPropertyName = "PostTextToSpeechRequestOutputFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.PostSpeechToTextContentType), TypeInfoPropertyName = "PostSpeechToTextContentType2")]

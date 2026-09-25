@@ -16,6 +16,7 @@ internal static class ApiCommand
                          command.Subcommands.Add(STTApiGroupCommand.Create());
                          command.Subcommands.Add(TTSApiGroupCommand.Create());
                          command.Subcommands.Add(VoiceDesignApiGroupCommand.Create());
+                         command.Subcommands.Add(VoiceEnhanceApiGroupCommand.Create());
                          command.Subcommands.Add(VoicesApiGroupCommand.Create());
         return command;
     }

@@ -4,13 +4,11 @@
 namespace Gradium
 {
     /// <summary>
-    /// This documentation covers the Gradium API.<br/>
-    /// This API exposes our Text-To-Speech and Speech-To-Text models, which offers low-latency, high-quality &amp; natural sounding output and best in class accuracy.  <br/>
-    /// For issues, questions, or feature requests, please contact us at support@gradium.ai<br/>
+    /// Voice Enhance is in beta. Clean up an existing voice without changing its language or who is speaking, as new candidates.<br/>
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>
-    public sealed partial class GradiumClient : global::Gradium.IGradiumClient, global::System.IDisposable
+    public sealed partial class VoiceEnhanceClient : global::Gradium.IVoiceEnhanceClient, global::System.IDisposable
     {
         /// <summary>
         /// Gradium API
@@ -37,7 +35,7 @@ namespace Gradium
         /// <inheritdoc/>
         public global::Gradium.AutoSDKClientOptions Options { get; }
 
-        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Gradium.SourceGenerationContext.Default);
+        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Gradium.VoiceEnhanceSourceGenerationContext.Default);
 
         /// <summary>
         ///
@@ -50,79 +48,7 @@ namespace Gradium
 
 
         /// <summary>
-        ///
-        /// </summary>
-        public MeteringClient Metering => new MeteringClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContextProvider = JsonSerializerContextProvider,
-        };
-
-        /// <summary>
-        /// Manage pronunciation dictionaries for custom text rewriting.
-        /// </summary>
-        public PronunciationsClient Pronunciations => new PronunciationsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContextProvider = JsonSerializerContextProvider,
-        };
-
-        /// <summary>
-        ///
-        /// </summary>
-        public S2sClient S2s => new S2sClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContextProvider = JsonSerializerContextProvider,
-        };
-
-        /// <summary>
-        /// Speech-to-Text endpoints for converting audio to text.
-        /// </summary>
-        public SttClient Stt => new SttClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContextProvider = JsonSerializerContextProvider,
-        };
-
-        /// <summary>
-        /// Text-to-Speech endpoints for converting text to audio.
-        /// </summary>
-        public TtsClient Tts => new TtsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContextProvider = JsonSerializerContextProvider,
-        };
-
-        /// <summary>
-        /// Create voices from a written description.
-        /// </summary>
-        public VoiceDesignClient VoiceDesign => new VoiceDesignClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContextProvider = JsonSerializerContextProvider,
-        };
-
-        /// <summary>
-        /// Voice Enhance is in beta. Clean up an existing voice without changing its language or who is speaking, as new candidates.
-        /// </summary>
-        public VoiceEnhanceClient VoiceEnhance => new VoiceEnhanceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContextProvider = JsonSerializerContextProvider,
-        };
-
-        /// <summary>
-        /// Manage custom voice clones.
-        /// </summary>
-        public VoicesClient Voices => new VoicesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContextProvider = JsonSerializerContextProvider,
-        };
-
-        /// <summary>
-        /// Creates a new instance of the GradiumClient.
+        /// Creates a new instance of the VoiceEnhanceClient.
         /// If no httpClient is provided, a new one will be created.
         /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
         /// </summary>
@@ -130,7 +56,7 @@ namespace Gradium
         /// <param name="baseUri">The base URL for the API. If not provided, the default baseUri from OpenAPI spec will be used.</param>
         /// <param name="authorizations">The authorizations to use for the requests.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
-        public GradiumClient(
+        public VoiceEnhanceClient(
             global::System.Net.Http.HttpClient? httpClient = null,
             global::System.Uri? baseUri = null,
             global::System.Collections.Generic.List<global::Gradium.EndPointAuthorization>? authorizations = null,
@@ -144,14 +70,14 @@ namespace Gradium
         }
 
         /// <summary>
-        /// Creates a new instance of the GradiumClient with explicit options but no base URL override.
+        /// Creates a new instance of the VoiceEnhanceClient with explicit options but no base URL override.
         /// Skips passing <c>baseUri</c> so the default base URL from the OpenAPI spec applies.
         /// </summary>
         /// <param name="httpClient">The HttpClient instance. If not provided, a new one will be created.</param>
         /// <param name="authorizations">The authorizations to use for the requests.</param>
         /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
-        public GradiumClient(
+        public VoiceEnhanceClient(
             global::System.Net.Http.HttpClient? httpClient,
             global::System.Collections.Generic.List<global::Gradium.EndPointAuthorization>? authorizations,
             global::Gradium.AutoSDKClientOptions? options,
@@ -165,7 +91,7 @@ namespace Gradium
         }
 
         /// <summary>
-        /// Creates a new instance of the GradiumClient.
+        /// Creates a new instance of the VoiceEnhanceClient.
         /// If no httpClient is provided, a new one will be created.
         /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
         /// </summary>
@@ -174,7 +100,7 @@ namespace Gradium
         /// <param name="authorizations">The authorizations to use for the requests.</param>
         /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
-        public GradiumClient(
+        public VoiceEnhanceClient(
             global::System.Net.Http.HttpClient? httpClient,
             global::System.Uri? baseUri,
             global::System.Collections.Generic.List<global::Gradium.EndPointAuthorization>? authorizations,
