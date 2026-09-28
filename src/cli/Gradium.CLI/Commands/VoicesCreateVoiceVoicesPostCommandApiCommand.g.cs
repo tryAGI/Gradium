@@ -94,6 +94,8 @@ internal static partial class VoicesCreateVoiceVoicesPostCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"create-voice-voices-post", @"Create Voice
@@ -161,6 +163,7 @@ Create a new voice for an organization with audio file upload.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

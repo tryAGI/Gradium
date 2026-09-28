@@ -33,6 +33,8 @@ internal static partial class VoicesGetVoiceVoicesVoiceUidGetCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-voice-voices-voice-uid-get", @"Get Voice
@@ -67,6 +69,7 @@ Get a voice by its UID. Optional org_uid and key_uid for access control.");
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -73,6 +73,8 @@ internal static partial class PronunciationsUpdatePronunciationDictionaryPronunc
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"update-pronunciation-dictionary-pronunciations-uid-put", @"Update Pronunciation Dictionary
@@ -139,6 +141,7 @@ Update a pronunciation dictionary by its UID.");
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

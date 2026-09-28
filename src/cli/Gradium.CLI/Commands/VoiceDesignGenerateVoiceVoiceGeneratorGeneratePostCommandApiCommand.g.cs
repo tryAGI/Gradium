@@ -69,6 +69,8 @@ internal static partial class VoiceDesignGenerateVoiceVoiceGeneratorGeneratePost
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"generate-voice-voice-generator-generate-post", @"Generate Voice Candidates
@@ -136,6 +138,7 @@ Every request mints new ids, and the description is expanded before sampling, so
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -33,6 +33,8 @@ internal static partial class PronunciationsGetPronunciationDictionaryPronunciat
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-pronunciation-dictionary-pronunciations-uid-get", @"Get Pronunciation Dictionary
@@ -67,6 +69,7 @@ Get a pronunciation dictionary by its UID.");
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -45,6 +45,8 @@ internal static partial class PronunciationsListPronunciationDictionariesPronunc
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"list-pronunciation-dictionaries-pronunciations-get", @"List Pronunciation Dictionaries
@@ -85,6 +87,7 @@ List pronunciation dictionaries for the authenticated organization.");
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

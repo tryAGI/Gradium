@@ -45,6 +45,8 @@ internal static partial class VoiceDesignListVoiceEmbeddingsVoiceGeneratorEmbedd
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"list-voice-embeddings-voice-generator-embeddings-get", @"List Voice Candidates
@@ -89,6 +91,7 @@ A lookup for an id this organization does not hold returns `200` with an empty `
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

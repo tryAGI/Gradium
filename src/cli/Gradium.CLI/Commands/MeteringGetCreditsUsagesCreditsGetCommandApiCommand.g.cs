@@ -29,6 +29,8 @@ internal static partial class MeteringGetCreditsUsagesCreditsGetCommandApiComman
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-credits-usages-credits-get", @"Get Credits
@@ -55,6 +57,7 @@ Get current credit balance for the authenticated user's subscription.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }
