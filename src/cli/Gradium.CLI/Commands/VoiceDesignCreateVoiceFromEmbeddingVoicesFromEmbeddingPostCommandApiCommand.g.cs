@@ -62,6 +62,8 @@ internal static partial class VoiceDesignCreateVoiceFromEmbeddingVoicesFromEmbed
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"create-voice-from-embedding-voices-from-embedding-post", @"Create Voice From Candidate
@@ -118,6 +120,7 @@ Keeping a candidate is free, since generation is already accounted for, and it c
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

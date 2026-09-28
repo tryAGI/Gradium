@@ -9,6 +9,8 @@ internal static partial class TtsStreamTextToSpeechCommandApiCommand
 {
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"stream-text-to-speech", @"TTS WebSocket Stream
@@ -237,6 +239,7 @@ When errors occur, the server sends an error message as JSON before closing the 
 
                                 await CliRuntime.WriteSuccessAsync(parseResult, cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

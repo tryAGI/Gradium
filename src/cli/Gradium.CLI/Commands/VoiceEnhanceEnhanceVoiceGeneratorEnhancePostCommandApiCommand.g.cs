@@ -56,6 +56,8 @@ internal static partial class VoiceEnhanceEnhanceVoiceGeneratorEnhancePostComman
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"enhance-voice-generator-enhance-post", @"Enhance Voice
@@ -119,6 +121,7 @@ The request is validated before anything is queued. The source needs a `language
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

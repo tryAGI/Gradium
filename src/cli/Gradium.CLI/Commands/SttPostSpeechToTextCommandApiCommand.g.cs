@@ -48,6 +48,8 @@ internal static partial class SttPostSpeechToTextCommandApiCommand
           Hidden = true,
       };
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-speech-to-text", @"STT POST Endpoint
@@ -276,6 +278,7 @@ when you need to:
                                         cancellationToken: cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

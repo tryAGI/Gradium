@@ -13,6 +13,8 @@ internal static partial class VoicesDeleteVoiceVoicesVoiceUidDeleteCommandApiCom
         Description = @"",
     };
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"delete-voice-voices-voice-uid-delete", @"Delete Voice
@@ -33,6 +35,7 @@ Delete a voice by its UID.");
 
                                 await CliRuntime.WriteSuccessAsync(parseResult, cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

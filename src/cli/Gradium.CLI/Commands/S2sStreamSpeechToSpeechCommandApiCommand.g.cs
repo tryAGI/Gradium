@@ -9,6 +9,8 @@ internal static partial class S2sStreamSpeechToSpeechCommandApiCommand
 {
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"stream-speech-to-speech", @"S2S WebSocket Stream
@@ -220,6 +222,7 @@ When errors occur, the server sends an error message as JSON before closing the 
 
                                 await CliRuntime.WriteSuccessAsync(parseResult, cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

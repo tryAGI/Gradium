@@ -13,6 +13,8 @@ internal static partial class VoiceDesignDeleteVoiceEmbeddingVoiceGeneratorEmbed
         Description = @"",
     };
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"delete-voice-embedding-voice-generator-embeddings-embedding-id-delete", @"Delete Voice Candidate
@@ -35,6 +37,7 @@ Safe at any time: a voice kept from a candidate holds its own copy, so deleting 
 
                                 await CliRuntime.WriteSuccessAsync(parseResult, cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

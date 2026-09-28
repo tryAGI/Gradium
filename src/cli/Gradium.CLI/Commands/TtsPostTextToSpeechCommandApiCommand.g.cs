@@ -48,6 +48,8 @@ internal static partial class TtsPostTextToSpeechCommandApiCommand
           Hidden = true,
       };
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-text-to-speech", @"TTS POST Endpoint
@@ -213,6 +215,7 @@ is more suitable.
 
                                 await CliRuntime.WriteSuccessAsync(parseResult, cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

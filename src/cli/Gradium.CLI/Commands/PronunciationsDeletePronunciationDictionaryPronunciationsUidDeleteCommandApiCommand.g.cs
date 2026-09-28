@@ -13,6 +13,8 @@ internal static partial class PronunciationsDeletePronunciationDictionaryPronunc
         Description = @"",
     };
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"delete-pronunciation-dictionary-pronunciations-uid-delete", @"Delete Pronunciation Dictionary
@@ -33,6 +35,7 @@ Delete a pronunciation dictionary by its UID.");
 
                                 await CliRuntime.WriteSuccessAsync(parseResult, cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }
