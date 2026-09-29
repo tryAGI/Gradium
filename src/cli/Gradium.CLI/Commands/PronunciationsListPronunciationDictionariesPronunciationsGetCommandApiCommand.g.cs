@@ -47,9 +47,9 @@ internal static partial class PronunciationsListPronunciationDictionariesPronunc
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"list-pronunciation-dictionaries-pronunciations-get", @"List Pronunciation Dictionaries
+        var command = new Command(commandName ?? @"list-pronunciation-dictionaries-pronunciations-get", @"List Pronunciation Dictionaries
 List pronunciation dictionaries for the authenticated organization.");
                         command.Options.Add(Limit);
                         command.Options.Add(Offset);

@@ -58,9 +58,9 @@ internal static partial class VoiceEnhanceEnhanceVoiceGeneratorEnhancePostComman
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"enhance-voice-generator-enhance-post", @"Enhance Voice
+        var command = new Command(commandName ?? @"enhance-voice-generator-enhance-post", @"Enhance Voice
 Voice Enhance is in beta: output quality will keep improving.
 
 Clean up an existing voice without changing its language or who is speaking: the same speaker comes back as new candidates with background noise reduced and a quality target applied. The source can be a flagship voice, one of your clones, a converted candidate or a `vox_emb_` candidate; it is never modified. The body is `src_voice` and `n_samples` only.

@@ -11,9 +11,9 @@ internal static partial class SttStreamSpeechToTextCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"stream-speech-to-text", @"STT WebSocket Stream
+        var command = new Command(commandName ?? @"stream-speech-to-text", @"STT WebSocket Stream
 Connect to this endpoint via WebSocket for real-time speech-to-text conversion with streaming audio input.
 
 **Connection URL:**

@@ -96,9 +96,9 @@ internal static partial class VoicesCreateVoiceVoicesPostCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"create-voice-voices-post", @"Create Voice
+        var command = new Command(commandName ?? @"create-voice-voices-post", @"Create Voice
 Create a new voice for an organization with audio file upload.");
                         command.Arguments.Add(NameOption);
                         command.Options.Add(AudioFile);

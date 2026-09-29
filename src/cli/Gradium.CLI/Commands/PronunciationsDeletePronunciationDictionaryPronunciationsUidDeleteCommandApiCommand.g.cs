@@ -15,9 +15,9 @@ internal static partial class PronunciationsDeletePronunciationDictionaryPronunc
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-pronunciation-dictionary-pronunciations-uid-delete", @"Delete Pronunciation Dictionary
+        var command = new Command(commandName ?? @"delete-pronunciation-dictionary-pronunciations-uid-delete", @"Delete Pronunciation Dictionary
 Delete a pronunciation dictionary by its UID.");
                         command.Arguments.Add(Uid);
 

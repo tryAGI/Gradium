@@ -15,9 +15,9 @@ internal static partial class VoiceDesignDeleteVoiceEmbeddingVoiceGeneratorEmbed
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-voice-embedding-voice-generator-embeddings-embedding-id-delete", @"Delete Voice Candidate
+        var command = new Command(commandName ?? @"delete-voice-embedding-voice-generator-embeddings-embedding-id-delete", @"Delete Voice Candidate
 Remove a candidate you are not keeping. Candidates you leave alone are removed automatically after 30 days.
 
 Safe at any time: a voice kept from a candidate holds its own copy, so deleting the candidate leaves the voice untouched. An id that is already gone returns `404`, so treat cleanup as best effort.");

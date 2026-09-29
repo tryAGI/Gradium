@@ -50,9 +50,9 @@ internal static partial class SttPostSpeechToTextCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-speech-to-text", @"STT POST Endpoint
+        var command = new Command(commandName ?? @"post-speech-to-text", @"STT POST Endpoint
 Use this HTTP POST endpoint for simple, one-shot speech-to-text
 transcription. Send the entire audio payload in the request body and receive
 a stream of newline-delimited JSON (NDJSON) messages with the transcription

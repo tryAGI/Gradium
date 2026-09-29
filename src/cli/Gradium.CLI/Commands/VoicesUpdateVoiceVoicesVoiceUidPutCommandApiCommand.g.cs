@@ -87,9 +87,9 @@ internal static partial class VoicesUpdateVoiceVoicesVoiceUidPutCommandApiComman
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"update-voice-voices-voice-uid-put", @"Update Voice
+        var command = new Command(commandName ?? @"update-voice-voices-voice-uid-put", @"Update Voice
 Update a voice by its UID.");
                         command.Arguments.Add(VoiceUid);
                         command.Options.Add(NameOption);
