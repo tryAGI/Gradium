@@ -71,9 +71,9 @@ internal static partial class VoiceDesignGenerateVoiceVoiceGeneratorGeneratePost
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"generate-voice-voice-generator-generate-post", @"Generate Voice Candidates
+        var command = new Command(commandName ?? @"generate-voice-voice-generator-generate-post", @"Generate Voice Candidates
 Sample candidate voices from a written description. No reference audio is involved.
 
 Generation runs in the background, so the candidate ids come back immediately with `ready: false`. Poll `GET /voice-generator/embeddings` every two seconds until each is ready, which typically takes three to five seconds for three candidates.

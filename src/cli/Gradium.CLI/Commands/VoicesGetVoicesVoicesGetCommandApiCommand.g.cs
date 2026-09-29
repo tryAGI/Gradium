@@ -45,9 +45,9 @@ internal static partial class VoicesGetVoicesVoicesGetCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-voices-voices-get", @"Get Voices
+        var command = new Command(commandName ?? @"get-voices-voices-get", @"Get Voices
 List voices for the authenticated organization.");
                         command.Options.Add(Skip);
                         command.Options.Add(Limit);

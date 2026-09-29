@@ -64,9 +64,9 @@ internal static partial class VoiceDesignCreateVoiceFromEmbeddingVoicesFromEmbed
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"create-voice-from-embedding-voices-from-embedding-post", @"Create Voice From Candidate
+        var command = new Command(commandName ?? @"create-voice-from-embedding-voices-from-embedding-post", @"Create Voice From Candidate
 Keep a generated candidate as a permanent voice in your organization.
 
 The response field `uid` is the `voice_id` every other endpoint expects: the same value under two names. From here the voice behaves like any other Gradium voice, on one-shot Text-to-Speech, the streaming WebSockets and Speech-to-Speech.

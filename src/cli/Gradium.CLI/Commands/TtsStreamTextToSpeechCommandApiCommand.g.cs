@@ -11,9 +11,9 @@ internal static partial class TtsStreamTextToSpeechCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"stream-text-to-speech", @"TTS WebSocket Stream
+        var command = new Command(commandName ?? @"stream-text-to-speech", @"TTS WebSocket Stream
 Connect to this endpoint via WebSocket for real-time text-to-speech conversion with low latency audio streaming.
 
 **Connection URL:**

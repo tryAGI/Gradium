@@ -35,9 +35,9 @@ internal static partial class PronunciationsGetPronunciationDictionaryPronunciat
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-pronunciation-dictionary-pronunciations-uid-get", @"Get Pronunciation Dictionary
+        var command = new Command(commandName ?? @"get-pronunciation-dictionary-pronunciations-uid-get", @"Get Pronunciation Dictionary
 Get a pronunciation dictionary by its UID.");
                         command.Arguments.Add(Uid);
 

@@ -50,9 +50,9 @@ internal static partial class TtsPostTextToSpeechCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-text-to-speech", @"TTS POST Endpoint
+        var command = new Command(commandName ?? @"post-text-to-speech", @"TTS POST Endpoint
 Use this HTTP POST endpoint for simple, text-to-speech conversion. The audio
 data is sent back in a streaming way.
 

@@ -11,9 +11,9 @@ internal static partial class S2sStreamSpeechToSpeechCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"stream-speech-to-speech", @"S2S WebSocket Stream
+        var command = new Command(commandName ?? @"stream-speech-to-speech", @"S2S WebSocket Stream
 Connect to this endpoint via WebSocket for real-time speech-to-speech: incoming audio is transcribed, optionally translated, and re-synthesized into speech.
 
 **Connection URL:**

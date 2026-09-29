@@ -47,9 +47,9 @@ internal static partial class VoiceDesignListVoiceEmbeddingsVoiceGeneratorEmbedd
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"list-voice-embeddings-voice-generator-embeddings-get", @"List Voice Candidates
+        var command = new Command(commandName ?? @"list-voice-embeddings-voice-generator-embeddings-get", @"List Voice Candidates
 Check whether a candidate is ready, or list the candidates belonging to the authenticated organization, newest first.
 
 Pass `embedding_id` to look up a single candidate. Omit it to page through all of them with `skip` and `limit`, which is also how you recover ids you did not store. A page shorter than `limit` is the last page.

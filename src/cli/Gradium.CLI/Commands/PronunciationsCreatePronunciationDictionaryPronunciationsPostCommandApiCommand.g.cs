@@ -70,9 +70,9 @@ internal static partial class PronunciationsCreatePronunciationDictionaryPronunc
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"create-pronunciation-dictionary-pronunciations-post", @"Create Pronunciation Dictionary
+        var command = new Command(commandName ?? @"create-pronunciation-dictionary-pronunciations-post", @"Create Pronunciation Dictionary
 Create a pronunciation dictionary for the authenticated organization.");
                         command.Arguments.Add(NameOption);
                         command.Options.Add(DescriptionOption);

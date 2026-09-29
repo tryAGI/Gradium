@@ -75,9 +75,9 @@ internal static partial class PronunciationsUpdatePronunciationDictionaryPronunc
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"update-pronunciation-dictionary-pronunciations-uid-put", @"Update Pronunciation Dictionary
+        var command = new Command(commandName ?? @"update-pronunciation-dictionary-pronunciations-uid-put", @"Update Pronunciation Dictionary
 Update a pronunciation dictionary by its UID.");
                         command.Arguments.Add(Uid);
                         command.Options.Add(NameOption);
