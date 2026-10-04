@@ -161,7 +161,7 @@ namespace Gradium
         /// <summary>
         ///
         /// </summary>
-        public global::Gradium.AnyOf<string, bool?, object>? Type32 { get; set; }
+        public global::Gradium.AnyOf<string, bool?>? Type32 { get; set; }
         /// <summary>
         ///
         /// </summary>

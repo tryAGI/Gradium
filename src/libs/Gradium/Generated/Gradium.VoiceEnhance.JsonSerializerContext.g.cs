@@ -80,7 +80,7 @@ namespace Gradium
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
             options.Converters.Add(new global::Gradium.JsonConverters.AnyOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Gradium.JsonConverters.AnyOfJsonConverter<string, bool?, object>());
+            options.Converters.Add(new global::Gradium.JsonConverters.AnyOfJsonConverter<string, bool?>());
             options.Converters.Add(new global::Gradium.JsonConverters.UnixTimestampJsonConverter());
         }
 

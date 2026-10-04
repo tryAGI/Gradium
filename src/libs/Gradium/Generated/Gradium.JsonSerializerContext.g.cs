@@ -37,7 +37,7 @@ namespace Gradium
 
             typeof(global::Gradium.JsonConverters.AnyOfJsonConverter<string, int?>),
 
-            typeof(global::Gradium.JsonConverters.AnyOfJsonConverter<string, bool?, object>),
+            typeof(global::Gradium.JsonConverters.AnyOfJsonConverter<string, bool?>),
 
             typeof(global::Gradium.JsonConverters.UnixTimestampJsonConverter),
         })]
@@ -76,7 +76,7 @@ namespace Gradium
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.VoiceResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.VoiceUpdate))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<object>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.AnyOf<string, bool?, object>), TypeInfoPropertyName = "AnyOfStringBooleanObject2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.AnyOf<string, bool?>), TypeInfoPropertyName = "AnyOfStringBoolean2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.VoiceGeneratorConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.VoiceGenerationRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.VoiceGenerationRequestLanguage), TypeInfoPropertyName = "VoiceGenerationRequestLanguage2")]
