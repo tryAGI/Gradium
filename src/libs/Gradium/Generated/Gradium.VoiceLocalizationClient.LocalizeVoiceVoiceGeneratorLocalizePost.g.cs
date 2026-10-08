@@ -3,11 +3,11 @@
 
 namespace Gradium
 {
-    public partial class VoiceEnhanceClient
+    public partial class VoiceLocalizationClient
     {
 
 
-        private static readonly global::Gradium.EndPointSecurityRequirement s_EnhanceVoiceGeneratorEnhancePostSecurityRequirement0 =
+        private static readonly global::Gradium.EndPointSecurityRequirement s_LocalizeVoiceVoiceGeneratorLocalizePostSecurityRequirement0 =
             new global::Gradium.EndPointSecurityRequirement
             {
                 Authorizations = new global::Gradium.EndPointAuthorizationRequirement[]
@@ -21,43 +21,43 @@ namespace Gradium
                     },
                 },
             };
-        private static readonly global::Gradium.EndPointSecurityRequirement[] s_EnhanceVoiceGeneratorEnhancePostSecurityRequirements =
+        private static readonly global::Gradium.EndPointSecurityRequirement[] s_LocalizeVoiceVoiceGeneratorLocalizePostSecurityRequirements =
             new global::Gradium.EndPointSecurityRequirement[]
-            {                s_EnhanceVoiceGeneratorEnhancePostSecurityRequirement0,
+            {                s_LocalizeVoiceVoiceGeneratorLocalizePostSecurityRequirement0,
             };
-        partial void PrepareEnhanceVoiceGeneratorEnhancePostArguments(
+        partial void PrepareLocalizeVoiceVoiceGeneratorLocalizePostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Gradium.EnhanceRequest request);
-        partial void PrepareEnhanceVoiceGeneratorEnhancePostRequest(
+            global::Gradium.LocalizeRequest request);
+        partial void PrepareLocalizeVoiceVoiceGeneratorLocalizePostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Gradium.EnhanceRequest request);
-        partial void ProcessEnhanceVoiceGeneratorEnhancePostResponse(
+            global::Gradium.LocalizeRequest request);
+        partial void ProcessLocalizeVoiceVoiceGeneratorLocalizePostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessEnhanceVoiceGeneratorEnhancePostResponseContent(
+        partial void ProcessLocalizeVoiceVoiceGeneratorLocalizePostResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Enhance Voice<br/>
-        /// Clean up an existing voice without changing its language or who is speaking: the same speaker comes back as new candidates with background noise reduced and a quality target applied. The source can be a flagship voice, one of your clones, a converted candidate or a `vox_emb_` candidate; it is never modified. The body is `src_voice` and `n_samples` only.<br/>
-        /// Each request creates `n_samples` new candidates that behave exactly like Voice Design candidates and list as `kind: enhance` with `enhance_config` filled. Poll `GET /voice-generator/embeddings` until `ready` (typically fifteen to twenty seconds), audition them with `POST /post/speech/tts` and keep one with `POST /voices/from-embedding`.<br/>
-        /// The request is validated before anything is queued. The source needs a `language` (a source without one returns `409`; set it with `PUT /voices/{voice_uid}` first), a candidate source must be ready, and pro clones are not accepted.
+        /// Localize Voice<br/>
+        /// Make an existing voice speak another language, or another accent of the same language, without changing who is speaking. The source can be a flagship voice, one of your clones, a converted candidate or a `vox_emb_` candidate; it is never modified.<br/>
+        /// Each request creates `n_samples` new candidates that behave exactly like Voice Design candidates: poll `GET /voice-generator/embeddings` until `ready` (typically two to eight seconds), audition them with `POST /post/speech/tts` using text in the target language, keep one with `POST /voices/from-embedding`.<br/>
+        /// The request is validated before anything is queued. A source with no `language` set returns `409`; set it with `PUT /voices/{voice_uid}` first. A candidate source must be ready. Pro clones cannot be localized.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Gradium.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Gradium.VoiceGenerationResponse> EnhanceVoiceGeneratorEnhancePostAsync(
+        public async global::System.Threading.Tasks.Task<global::Gradium.VoiceGenerationResponse> LocalizeVoiceVoiceGeneratorLocalizePostAsync(
 
-            global::Gradium.EnhanceRequest request,
+            global::Gradium.LocalizeRequest request,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await EnhanceVoiceGeneratorEnhancePostAsResponseAsync(
+            var __response = await LocalizeVoiceVoiceGeneratorLocalizePostAsResponseAsync(
 
                 request: request,
                 requestOptions: requestOptions,
@@ -67,18 +67,18 @@ namespace Gradium
             return __response.Body;
         }
         /// <summary>
-        /// Enhance Voice<br/>
-        /// Clean up an existing voice without changing its language or who is speaking: the same speaker comes back as new candidates with background noise reduced and a quality target applied. The source can be a flagship voice, one of your clones, a converted candidate or a `vox_emb_` candidate; it is never modified. The body is `src_voice` and `n_samples` only.<br/>
-        /// Each request creates `n_samples` new candidates that behave exactly like Voice Design candidates and list as `kind: enhance` with `enhance_config` filled. Poll `GET /voice-generator/embeddings` until `ready` (typically fifteen to twenty seconds), audition them with `POST /post/speech/tts` and keep one with `POST /voices/from-embedding`.<br/>
-        /// The request is validated before anything is queued. The source needs a `language` (a source without one returns `409`; set it with `PUT /voices/{voice_uid}` first), a candidate source must be ready, and pro clones are not accepted.
+        /// Localize Voice<br/>
+        /// Make an existing voice speak another language, or another accent of the same language, without changing who is speaking. The source can be a flagship voice, one of your clones, a converted candidate or a `vox_emb_` candidate; it is never modified.<br/>
+        /// Each request creates `n_samples` new candidates that behave exactly like Voice Design candidates: poll `GET /voice-generator/embeddings` until `ready` (typically two to eight seconds), audition them with `POST /post/speech/tts` using text in the target language, keep one with `POST /voices/from-embedding`.<br/>
+        /// The request is validated before anything is queued. A source with no `language` set returns `409`; set it with `PUT /voices/{voice_uid}` first. A candidate source must be ready. Pro clones cannot be localized.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Gradium.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Gradium.AutoSDKHttpResponse<global::Gradium.VoiceGenerationResponse>> EnhanceVoiceGeneratorEnhancePostAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::Gradium.AutoSDKHttpResponse<global::Gradium.VoiceGenerationResponse>> LocalizeVoiceVoiceGeneratorLocalizePostAsResponseAsync(
 
-            global::Gradium.EnhanceRequest request,
+            global::Gradium.LocalizeRequest request,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -86,15 +86,15 @@ namespace Gradium
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareEnhanceVoiceGeneratorEnhancePostArguments(
+            PrepareLocalizeVoiceVoiceGeneratorLocalizePostArguments(
                 httpClient: HttpClient,
                 request: request);
 
 
             var __authorizations = global::Gradium.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_EnhanceVoiceGeneratorEnhancePostSecurityRequirements,
-                operationName: "EnhanceVoiceGeneratorEnhancePostAsync");
+                securityRequirements: s_LocalizeVoiceVoiceGeneratorLocalizePostSecurityRequirements,
+                operationName: "LocalizeVoiceVoiceGeneratorLocalizePostAsync");
 
             using var __timeoutCancellationTokenSource = global::Gradium.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -114,7 +114,7 @@ namespace Gradium
             {
 
                             var __pathBuilder = new global::Gradium.PathBuilder(
-                                path: "/voice-generator/enhance",
+                                path: "/voice-generator/localize",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::Gradium.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -159,7 +159,7 @@ namespace Gradium
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareEnhanceVoiceGeneratorEnhancePostRequest(
+                PrepareLocalizeVoiceVoiceGeneratorLocalizePostRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     request: request);
@@ -179,9 +179,9 @@ namespace Gradium
                     await global::Gradium.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "EnhanceVoiceGeneratorEnhancePost",
-                                methodName: "EnhanceVoiceGeneratorEnhancePostAsync",
-                                pathTemplate: "\"/voice-generator/enhance\"",
+                                operationId: "LocalizeVoiceVoiceGeneratorLocalizePost",
+                                methodName: "LocalizeVoiceVoiceGeneratorLocalizePostAsync",
+                                pathTemplate: "\"/voice-generator/localize\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -213,9 +213,9 @@ namespace Gradium
                         await global::Gradium.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "EnhanceVoiceGeneratorEnhancePost",
-                                methodName: "EnhanceVoiceGeneratorEnhancePostAsync",
-                                pathTemplate: "\"/voice-generator/enhance\"",
+                                operationId: "LocalizeVoiceVoiceGeneratorLocalizePost",
+                                methodName: "LocalizeVoiceVoiceGeneratorLocalizePostAsync",
+                                pathTemplate: "\"/voice-generator/localize\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -254,9 +254,9 @@ namespace Gradium
                         await global::Gradium.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "EnhanceVoiceGeneratorEnhancePost",
-                                methodName: "EnhanceVoiceGeneratorEnhancePostAsync",
-                                pathTemplate: "\"/voice-generator/enhance\"",
+                                operationId: "LocalizeVoiceVoiceGeneratorLocalizePost",
+                                methodName: "LocalizeVoiceVoiceGeneratorLocalizePostAsync",
+                                pathTemplate: "\"/voice-generator/localize\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -294,7 +294,7 @@ namespace Gradium
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessEnhanceVoiceGeneratorEnhancePostResponse(
+                ProcessLocalizeVoiceVoiceGeneratorLocalizePostResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -302,9 +302,9 @@ namespace Gradium
                     await global::Gradium.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "EnhanceVoiceGeneratorEnhancePost",
-                                methodName: "EnhanceVoiceGeneratorEnhancePostAsync",
-                                pathTemplate: "\"/voice-generator/enhance\"",
+                                operationId: "LocalizeVoiceVoiceGeneratorLocalizePost",
+                                methodName: "LocalizeVoiceVoiceGeneratorLocalizePostAsync",
+                                pathTemplate: "\"/voice-generator/localize\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -324,9 +324,9 @@ namespace Gradium
                     await global::Gradium.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "EnhanceVoiceGeneratorEnhancePost",
-                                methodName: "EnhanceVoiceGeneratorEnhancePostAsync",
-                                pathTemplate: "\"/voice-generator/enhance\"",
+                                operationId: "LocalizeVoiceVoiceGeneratorLocalizePost",
+                                methodName: "LocalizeVoiceVoiceGeneratorLocalizePostAsync",
+                                pathTemplate: "\"/voice-generator/localize\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -405,7 +405,7 @@ namespace Gradium
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Validation Error: invalid `n_samples` or an empty `src_voice`.
+                            // Validation Error: invalid `target_language`, `accent` (the message lists the valid accents), `gender` or `n_samples`.
                             if ((int)__response.StatusCode == 422)
                             {
                                 string? __content_422 = null;
@@ -487,7 +487,7 @@ namespace Gradium
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessEnhanceVoiceGeneratorEnhancePostResponseContent(
+                                ProcessLocalizeVoiceVoiceGeneratorLocalizePostResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -571,34 +571,49 @@ namespace Gradium
             }
         }
         /// <summary>
-        /// Enhance Voice<br/>
-        /// Clean up an existing voice without changing its language or who is speaking: the same speaker comes back as new candidates with background noise reduced and a quality target applied. The source can be a flagship voice, one of your clones, a converted candidate or a `vox_emb_` candidate; it is never modified. The body is `src_voice` and `n_samples` only.<br/>
-        /// Each request creates `n_samples` new candidates that behave exactly like Voice Design candidates and list as `kind: enhance` with `enhance_config` filled. Poll `GET /voice-generator/embeddings` until `ready` (typically fifteen to twenty seconds), audition them with `POST /post/speech/tts` and keep one with `POST /voices/from-embedding`.<br/>
-        /// The request is validated before anything is queued. The source needs a `language` (a source without one returns `409`; set it with `PUT /voices/{voice_uid}` first), a candidate source must be ready, and pro clones are not accepted.
+        /// Localize Voice<br/>
+        /// Make an existing voice speak another language, or another accent of the same language, without changing who is speaking. The source can be a flagship voice, one of your clones, a converted candidate or a `vox_emb_` candidate; it is never modified.<br/>
+        /// Each request creates `n_samples` new candidates that behave exactly like Voice Design candidates: poll `GET /voice-generator/embeddings` until `ready` (typically two to eight seconds), audition them with `POST /post/speech/tts` using text in the target language, keep one with `POST /voices/from-embedding`.<br/>
+        /// The request is validated before anything is queued. A source with no `language` set returns `409`; set it with `PUT /voices/{voice_uid}` first. A candidate source must be ready. Pro clones cannot be localized.
         /// </summary>
         /// <param name="srcVoice">
-        /// The voice to enhance: a voice id (your clone, a converted candidate or a flagship voice) or a `vox_emb_` candidate id. It keeps its language and is not modified.
+        /// The voice to localize: a voice id (your clone, a converted candidate or a flagship voice) or a `vox_emb_` candidate id. The source is not modified.
+        /// </param>
+        /// <param name="targetLanguage">
+        /// Language the candidates will speak. May equal the source language: that is an accent change.
+        /// </param>
+        /// <param name="accent">
+        /// One of the accents `GET /voice-generator/available-accents` lists for `target_language`, matched case-insensitively. Omitted: the first accent listed for that language.
+        /// </param>
+        /// <param name="gender">
+        /// Opens the edit caption. Omitted: the source voice's gender tag, or the gender of the source candidate's own localization, or no gender. Clones and converted voices carry no tag, so send it for them.
         /// </param>
         /// <param name="nSamples">
-        /// Number of candidates to produce. All candidates in one request are variations of the same speaker.<br/>
+        /// Number of candidates to produce. All candidates in one request are variations of the same localized speaker.<br/>
         /// Default Value: 1
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Gradium.VoiceGenerationResponse> EnhanceVoiceGeneratorEnhancePostAsync(
+        public async global::System.Threading.Tasks.Task<global::Gradium.VoiceGenerationResponse> LocalizeVoiceVoiceGeneratorLocalizePostAsync(
             string srcVoice,
+            global::Gradium.LocalizeRequestTargetLanguage targetLanguage,
+            string? accent = default,
+            global::Gradium.LocalizeRequestGender? gender = default,
             int? nSamples = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Gradium.EnhanceRequest
+            var __request = new global::Gradium.LocalizeRequest
             {
                 SrcVoice = srcVoice,
+                TargetLanguage = targetLanguage,
+                Accent = accent,
+                Gender = gender,
                 NSamples = nSamples,
             };
 
-            return await EnhanceVoiceGeneratorEnhancePostAsync(
+            return await LocalizeVoiceVoiceGeneratorLocalizePostAsync(
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

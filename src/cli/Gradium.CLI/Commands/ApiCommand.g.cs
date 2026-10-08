@@ -19,6 +19,7 @@ internal static partial class ApiCommand
                          command.Subcommands.Add(TTSApiGroupCommand.Create());
                          command.Subcommands.Add(VoiceDesignApiGroupCommand.Create());
                          command.Subcommands.Add(VoiceEnhanceApiGroupCommand.Create());
+                         command.Subcommands.Add(VoiceLocalizationApiGroupCommand.Create());
                          command.Subcommands.Add(VoicesApiGroupCommand.Create());
         CustomizeCommand(ref command);
         return command;

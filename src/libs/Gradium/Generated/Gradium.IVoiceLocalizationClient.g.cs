@@ -4,11 +4,11 @@
 namespace Gradium
 {
     /// <summary>
-    /// Clean up an existing voice without changing its language or who is speaking, as new candidates.<br/>
+    /// Make an existing voice speak another language or accent, as new candidates.<br/>
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>
-    public partial interface IVoiceEnhanceClient : global::System.IDisposable
+    public partial interface IVoiceLocalizationClient : global::System.IDisposable
     {
         /// <summary>
         /// The HttpClient instance.

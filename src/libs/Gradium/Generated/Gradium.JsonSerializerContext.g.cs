@@ -23,6 +23,18 @@ namespace Gradium
 
             typeof(global::Gradium.JsonConverters.VoiceEmbeddingResponseKindNullableJsonConverter),
 
+            typeof(global::Gradium.JsonConverters.LocalizeRequestTargetLanguageJsonConverter),
+
+            typeof(global::Gradium.JsonConverters.LocalizeRequestTargetLanguageNullableJsonConverter),
+
+            typeof(global::Gradium.JsonConverters.LocalizeRequestGenderJsonConverter),
+
+            typeof(global::Gradium.JsonConverters.LocalizeRequestGenderNullableJsonConverter),
+
+            typeof(global::Gradium.JsonConverters.LocalizeConfigGenderJsonConverter),
+
+            typeof(global::Gradium.JsonConverters.LocalizeConfigGenderNullableJsonConverter),
+
             typeof(global::Gradium.JsonConverters.PostTextToSpeechRequestOutputFormatJsonConverter),
 
             typeof(global::Gradium.JsonConverters.PostTextToSpeechRequestOutputFormatNullableJsonConverter),
@@ -85,12 +97,21 @@ namespace Gradium
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Gradium.GeneratedEmbedding>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.VoiceEmbeddingResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.VoiceEmbeddingResponseKind), TypeInfoPropertyName = "VoiceEmbeddingResponseKind2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.GenerateConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.LocalizeConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.EnhanceConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.VoiceEmbeddingListResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Gradium.VoiceEmbeddingResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.VoiceFromEmbeddingCreate))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.VoiceFromEmbeddingResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.AvailableAccentsResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.LocalizeRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.LocalizeRequestTargetLanguage), TypeInfoPropertyName = "LocalizeRequestTargetLanguage2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.LocalizeRequestGender), TypeInfoPropertyName = "LocalizeRequestGender2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.EnhanceRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.LocalizeConfigGender), TypeInfoPropertyName = "LocalizeConfigGender2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.PostTextToSpeechRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.PostTextToSpeechRequestOutputFormat), TypeInfoPropertyName = "PostTextToSpeechRequestOutputFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Gradium.PostSpeechToTextContentType), TypeInfoPropertyName = "PostSpeechToTextContentType2")]
@@ -104,6 +125,8 @@ namespace Gradium
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Gradium.AnyOf<string, int?>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Gradium.GeneratedEmbedding>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Gradium.VoiceEmbeddingResponse>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Gradium.APIVoiceResponse>))]
     public sealed partial class SourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
     {

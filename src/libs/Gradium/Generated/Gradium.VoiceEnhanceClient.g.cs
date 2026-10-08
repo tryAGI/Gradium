@@ -4,7 +4,7 @@
 namespace Gradium
 {
     /// <summary>
-    /// Voice Enhance is in beta. Clean up an existing voice without changing its language or who is speaking, as new candidates.<br/>
+    /// Clean up an existing voice without changing its language or who is speaking, as new candidates.<br/>
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>
