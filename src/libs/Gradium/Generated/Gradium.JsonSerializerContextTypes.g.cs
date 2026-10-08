@@ -197,47 +197,83 @@ namespace Gradium
         /// <summary>
         ///
         /// </summary>
-        public global::Gradium.EnhanceConfig? Type41 { get; set; }
+        public global::Gradium.GenerateConfig? Type41 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Gradium.VoiceEmbeddingListResponse? Type42 { get; set; }
+        public global::Gradium.LocalizeConfig? Type42 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Gradium.VoiceEmbeddingResponse>? Type43 { get; set; }
+        public global::Gradium.EnhanceConfig? Type43 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Gradium.VoiceFromEmbeddingCreate? Type44 { get; set; }
+        public global::Gradium.VoiceEmbeddingListResponse? Type44 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Gradium.VoiceFromEmbeddingResponse? Type45 { get; set; }
+        public global::System.Collections.Generic.IList<global::Gradium.VoiceEmbeddingResponse>? Type45 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Gradium.EnhanceRequest? Type46 { get; set; }
+        public global::Gradium.VoiceFromEmbeddingCreate? Type46 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Gradium.PostTextToSpeechRequest? Type47 { get; set; }
+        public global::Gradium.VoiceFromEmbeddingResponse? Type47 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Gradium.PostTextToSpeechRequestOutputFormat? Type48 { get; set; }
+        public global::Gradium.AvailableAccentsResponse? Type48 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Gradium.PostSpeechToTextContentType? Type49 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>>? Type49 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Gradium.PostSpeechToTextInputFormat? Type50 { get; set; }
+        public global::System.Collections.Generic.IList<string>? Type50 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Gradium.APIVoiceResponse>? Type51 { get; set; }
+        public global::Gradium.LocalizeRequest? Type51 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Gradium.LocalizeRequestTargetLanguage? Type52 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Gradium.LocalizeRequestGender? Type53 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Gradium.EnhanceRequest? Type54 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Gradium.LocalizeConfigGender? Type55 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Gradium.PostTextToSpeechRequest? Type56 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Gradium.PostTextToSpeechRequestOutputFormat? Type57 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Gradium.PostSpeechToTextContentType? Type58 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Gradium.PostSpeechToTextInputFormat? Type59 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::Gradium.APIVoiceResponse>? Type60 { get; set; }
 
         /// <summary>
         ///
@@ -278,6 +314,14 @@ namespace Gradium
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Gradium.APIVoiceResponse>? ListType9 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>>? ListType9 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.List<string>? ListType10 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.List<global::Gradium.APIVoiceResponse>? ListType11 { get; set; }
     }
 }

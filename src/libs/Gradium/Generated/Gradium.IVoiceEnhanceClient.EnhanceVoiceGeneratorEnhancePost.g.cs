@@ -6,7 +6,6 @@ namespace Gradium
     {
         /// <summary>
         /// Enhance Voice<br/>
-        /// Voice Enhance is in beta: output quality will keep improving.<br/>
         /// Clean up an existing voice without changing its language or who is speaking: the same speaker comes back as new candidates with background noise reduced and a quality target applied. The source can be a flagship voice, one of your clones, a converted candidate or a `vox_emb_` candidate; it is never modified. The body is `src_voice` and `n_samples` only.<br/>
         /// Each request creates `n_samples` new candidates that behave exactly like Voice Design candidates and list as `kind: enhance` with `enhance_config` filled. Poll `GET /voice-generator/embeddings` until `ready` (typically fifteen to twenty seconds), audition them with `POST /post/speech/tts` and keep one with `POST /voices/from-embedding`.<br/>
         /// The request is validated before anything is queued. The source needs a `language` (a source without one returns `409`; set it with `PUT /voices/{voice_uid}` first), a candidate source must be ready, and pro clones are not accepted.
@@ -22,7 +21,6 @@ namespace Gradium
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Enhance Voice<br/>
-        /// Voice Enhance is in beta: output quality will keep improving.<br/>
         /// Clean up an existing voice without changing its language or who is speaking: the same speaker comes back as new candidates with background noise reduced and a quality target applied. The source can be a flagship voice, one of your clones, a converted candidate or a `vox_emb_` candidate; it is never modified. The body is `src_voice` and `n_samples` only.<br/>
         /// Each request creates `n_samples` new candidates that behave exactly like Voice Design candidates and list as `kind: enhance` with `enhance_config` filled. Poll `GET /voice-generator/embeddings` until `ready` (typically fifteen to twenty seconds), audition them with `POST /post/speech/tts` and keep one with `POST /voices/from-embedding`.<br/>
         /// The request is validated before anything is queued. The source needs a `language` (a source without one returns `409`; set it with `PUT /voices/{voice_uid}` first), a candidate source must be ready, and pro clones are not accepted.
@@ -38,7 +36,6 @@ namespace Gradium
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Enhance Voice<br/>
-        /// Voice Enhance is in beta: output quality will keep improving.<br/>
         /// Clean up an existing voice without changing its language or who is speaking: the same speaker comes back as new candidates with background noise reduced and a quality target applied. The source can be a flagship voice, one of your clones, a converted candidate or a `vox_emb_` candidate; it is never modified. The body is `src_voice` and `n_samples` only.<br/>
         /// Each request creates `n_samples` new candidates that behave exactly like Voice Design candidates and list as `kind: enhance` with `enhance_config` filled. Poll `GET /voice-generator/embeddings` until `ready` (typically fifteen to twenty seconds), audition them with `POST /post/speech/tts` and keep one with `POST /voices/from-embedding`.<br/>
         /// The request is validated before anything is queued. The source needs a `language` (a source without one returns `409`; set it with `PUT /voices/{voice_uid}` first), a candidate source must be ready, and pro clones are not accepted.

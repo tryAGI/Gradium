@@ -4,16 +4,20 @@
 namespace Gradium
 {
     /// <summary>
-    /// How the candidate was made. `enhance_config` is set when `kind` is `enhance`.
+    /// How the candidate was made: `generate` for Voice Design, `edit_language` for Voice Localization, `enhance` for Voice Enhance. Exactly one of `generate_config`, `edit_language_config` and `enhance_config` is set: the one `kind` names.
     /// </summary>
     public enum VoiceEmbeddingResponseKind
     {
         /// <summary>
-        ///
+        /// `generate` for Voice Design, `edit_language` for Voice Localization, `enhance` for Voice Enhance. Exactly one of `generate_config`, `edit_language_config` and `enhance_config` is set: the one `kind` names.
+        /// </summary>
+        EditLanguage,
+        /// <summary>
+        /// `generate` for Voice Design, `edit_language` for Voice Localization, `enhance` for Voice Enhance. Exactly one of `generate_config`, `edit_language_config` and `enhance_config` is set: the one `kind` names.
         /// </summary>
         Enhance,
         /// <summary>
-        ///
+        /// `generate` for Voice Design, `edit_language` for Voice Localization, `enhance` for Voice Enhance. Exactly one of `generate_config`, `edit_language_config` and `enhance_config` is set: the one `kind` names.
         /// </summary>
         Generate,
     }
@@ -30,6 +34,7 @@ namespace Gradium
         {
             return value switch
             {
+                VoiceEmbeddingResponseKind.EditLanguage => "edit_language",
                 VoiceEmbeddingResponseKind.Enhance => "enhance",
                 VoiceEmbeddingResponseKind.Generate => "generate",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -42,6 +47,7 @@ namespace Gradium
         {
             return value switch
             {
+                "edit_language" => VoiceEmbeddingResponseKind.EditLanguage,
                 "enhance" => VoiceEmbeddingResponseKind.Enhance,
                 "generate" => VoiceEmbeddingResponseKind.Generate,
                 _ => null,

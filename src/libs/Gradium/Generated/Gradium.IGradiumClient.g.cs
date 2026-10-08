@@ -78,9 +78,14 @@ namespace Gradium
         public VoiceDesignClient VoiceDesign { get; }
 
         /// <summary>
-        /// Voice Enhance is in beta. Clean up an existing voice without changing its language or who is speaking, as new candidates.
+        /// Clean up an existing voice without changing its language or who is speaking, as new candidates.
         /// </summary>
         public VoiceEnhanceClient VoiceEnhance { get; }
+
+        /// <summary>
+        /// Make an existing voice speak another language or accent, as new candidates.
+        /// </summary>
+        public VoiceLocalizationClient VoiceLocalization { get; }
 
         /// <summary>
         /// Manage custom voice clones.

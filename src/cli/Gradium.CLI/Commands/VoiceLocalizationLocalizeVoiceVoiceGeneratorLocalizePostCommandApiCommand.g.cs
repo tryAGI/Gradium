@@ -5,19 +5,38 @@ using System.CommandLine;
 
 namespace Gradium.CLI.Commands;
 
-internal static partial class VoiceEnhanceEnhanceVoiceGeneratorEnhancePostCommandApiCommand
+internal static partial class VoiceLocalizationLocalizeVoiceVoiceGeneratorLocalizePostCommandApiCommand
 {
     private static Option<string> SrcVoice { get; } = new(
         name: @"--src-voice")
     {
-        Description = @"The voice to enhance: a voice id (your clone, a converted candidate or a flagship voice) or a `vox_emb_` candidate id. It keeps its language and is not modified.",
+        Description = @"The voice to localize: a voice id (your clone, a converted candidate or a flagship voice) or a `vox_emb_` candidate id. The source is not modified.",
         Required = true,
+    };
+
+    private static Option<global::Gradium.LocalizeRequestTargetLanguage> TargetLanguage { get; } = new(
+        name: @"--target-language")
+    {
+        Description = @"Language the candidates will speak. May equal the source language: that is an accent change.",
+        Required = true,
+    };
+
+    private static Option<string?> Accent { get; } = new(
+        name: @"--accent")
+    {
+        Description = @"One of the accents `GET /voice-generator/available-accents` lists for `target_language`, matched case-insensitively. Omitted: the first accent listed for that language.",
+    };
+
+    private static Option<global::Gradium.LocalizeRequestGender?> Gender { get; } = new(
+        name: @"--gender")
+    {
+        Description = @"Opens the edit caption. Omitted: the source voice's gender tag, or the gender of the source candidate's own localization, or no gender. Clones and converted voices carry no tag, so send it for them.",
     };
 
     private static Option<int?> NSamples { get; } = new(
         name: @"--n-samples")
     {
-        Description = @"Number of candidates to produce. All candidates in one request are variations of the same speaker.",
+        Description = @"Number of candidates to produce. All candidates in one request are variations of the same localized speaker.",
     };
       private static Option<string?> Input { get; } = new(@"--input")
       {
@@ -60,13 +79,16 @@ internal static partial class VoiceEnhanceEnhanceVoiceGeneratorEnhancePostComman
 
     public static Command Create(string? commandName = null)
     {
-        var command = new Command(commandName ?? @"enhance-voice-generator-enhance-post", @"Enhance Voice
-Clean up an existing voice without changing its language or who is speaking: the same speaker comes back as new candidates with background noise reduced and a quality target applied. The source can be a flagship voice, one of your clones, a converted candidate or a `vox_emb_` candidate; it is never modified. The body is `src_voice` and `n_samples` only.
+        var command = new Command(commandName ?? @"localize-voice-voice-generator-localize-post", @"Localize Voice
+Make an existing voice speak another language, or another accent of the same language, without changing who is speaking. The source can be a flagship voice, one of your clones, a converted candidate or a `vox_emb_` candidate; it is never modified.
 
-Each request creates `n_samples` new candidates that behave exactly like Voice Design candidates and list as `kind: enhance` with `enhance_config` filled. Poll `GET /voice-generator/embeddings` until `ready` (typically fifteen to twenty seconds), audition them with `POST /post/speech/tts` and keep one with `POST /voices/from-embedding`.
+Each request creates `n_samples` new candidates that behave exactly like Voice Design candidates: poll `GET /voice-generator/embeddings` until `ready` (typically two to eight seconds), audition them with `POST /post/speech/tts` using text in the target language, keep one with `POST /voices/from-embedding`.
 
-The request is validated before anything is queued. The source needs a `language` (a source without one returns `409`; set it with `PUT /voices/{voice_uid}` first), a candidate source must be ready, and pro clones are not accepted.");
+The request is validated before anything is queued. A source with no `language` set returns `409`; set it with `PUT /voices/{voice_uid}` first. A candidate source must be ready. Pro clones cannot be localized.");
                         command.Options.Add(SrcVoice);
+                        command.Options.Add(TargetLanguage);
+                        command.Options.Add(Accent);
+                        command.Options.Add(Gender);
                         command.Options.Add(NSamples);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
@@ -86,7 +108,7 @@ The request is validated before anything is queued. The source needs a `language
         command.SetAction(async (ParseResult parseResult, CancellationToken cancellationToken) =>
             await CliRuntime.RunAsync(async () =>
             {
-                        var __requestBase = await CliRuntime.ReadRequestOrDefaultAsync<global::Gradium.EnhanceRequest>(
+                        var __requestBase = await CliRuntime.ReadRequestOrDefaultAsync<global::Gradium.LocalizeRequest>(
                             parseResult,
                             Input,
                             RequestJson,
@@ -94,12 +116,18 @@ The request is validated before anything is queued. The source needs a `language
                             global::Gradium.SourceGenerationContext.Default,
                             cancellationToken).ConfigureAwait(false);
                         var srcVoice = parseResult.GetRequiredValue(SrcVoice);
+                        var targetLanguage = parseResult.GetRequiredValue(TargetLanguage);
+                        var accent = CliRuntime.WasSpecified(parseResult, Accent) ? parseResult.GetValue(Accent) : (__requestBase is { } __AccentBaseValue ? __AccentBaseValue.Accent : default);
+                        var gender = CliRuntime.WasSpecified(parseResult, Gender) ? parseResult.GetValue(Gender) : (__requestBase is { } __GenderBaseValue ? __GenderBaseValue.Gender : default);
                         var nSamples = CliRuntime.WasSpecified(parseResult, NSamples) ? parseResult.GetValue(NSamples) : (__requestBase is { } __NSamplesBaseValue ? __NSamplesBaseValue.NSamples : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
-                                var response = await client.VoiceEnhance.EnhanceVoiceGeneratorEnhancePostAsync(
+                                var response = await client.VoiceLocalization.LocalizeVoiceVoiceGeneratorLocalizePostAsync(
                                     srcVoice: srcVoice,
+                                    targetLanguage: targetLanguage,
+                                    accent: accent,
+                                    gender: gender,
                                     nSamples: nSamples,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 

@@ -18,6 +18,7 @@ rootCommand.Subcommands.Add(STTApiGroupCommand.Create());
 rootCommand.Subcommands.Add(TTSApiGroupCommand.Create());
 rootCommand.Subcommands.Add(VoiceDesignApiGroupCommand.Create());
 rootCommand.Subcommands.Add(VoiceEnhanceApiGroupCommand.Create());
+rootCommand.Subcommands.Add(VoiceLocalizationApiGroupCommand.Create());
 rootCommand.Subcommands.Add(VoicesApiGroupCommand.Create());
 
 return await rootCommand.Parse(args).InvokeAsync().ConfigureAwait(false);
