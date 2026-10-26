@@ -43,7 +43,7 @@ namespace Gradium
 
         /// <summary>
         /// Create Voice<br/>
-        /// Create a new voice for an organization with audio file upload.
+        /// Create a new voice for an organization with audio file upload. New voice clones are enhanced by default. Set the multipart form field `enhance` to `false` to create a clone without enhancement.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -66,7 +66,7 @@ namespace Gradium
         }
         /// <summary>
         /// Create Voice<br/>
-        /// Create a new voice for an organization with audio file upload.
+        /// Create a new voice for an organization with audio file upload. New voice clones are enhanced by default. Set the multipart form field `enhance` to `false` to create a clone without enhancement.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -211,6 +211,14 @@ namespace Gradium
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(request.StartS, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
                                     name: "\"start_s\"");
+
+                            }
+                            if (request.Enhance != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.Enhance, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"enhance\"");
 
                             }
                             if (request.TimeoutS != default)
@@ -549,7 +557,7 @@ namespace Gradium
         }
         /// <summary>
         /// Create Voice<br/>
-        /// Create a new voice for an organization with audio file upload.
+        /// Create a new voice for an organization with audio file upload. New voice clones are enhanced by default. Set the multipart form field `enhance` to `false` to create a clone without enhancement.
         /// </summary>
         /// <param name="audioFile"></param>
         /// <param name="audioFilename"></param>
@@ -563,6 +571,10 @@ namespace Gradium
         /// </param>
         /// <param name="startS">
         /// Default Value: 0
+        /// </param>
+        /// <param name="enhance">
+        /// Enhance the new voice clone. Set to false to opt out of enhancement.<br/>
+        /// Default Value: true
         /// </param>
         /// <param name="timeoutS">
         /// Default Value: 10
@@ -578,6 +590,7 @@ namespace Gradium
             string? inputFormat = default,
             string? description = default,
             double? startS = default,
+            bool? enhance = default,
             double? timeoutS = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -591,6 +604,7 @@ namespace Gradium
                 Description = description,
                 Language = language,
                 StartS = startS,
+                Enhance = enhance,
                 TimeoutS = timeoutS,
             };
 
@@ -602,7 +616,7 @@ namespace Gradium
 
         /// <summary>
         /// Create Voice<br/>
-        /// Create a new voice for an organization with audio file upload.
+        /// Create a new voice for an organization with audio file upload. New voice clones are enhanced by default. Set the multipart form field `enhance` to `false` to create a clone without enhancement.
         /// </summary>
         /// <param name="audioFile">
         /// The stream to send as the multipart 'audio_file' file part.
@@ -619,6 +633,10 @@ namespace Gradium
         /// <param name="startS">
         /// Default Value: 0
         /// </param>
+        /// <param name="enhance">
+        /// Enhance the new voice clone. Set to false to opt out of enhancement.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="timeoutS">
         /// Default Value: 10
         /// </param>
@@ -633,6 +651,7 @@ namespace Gradium
             string? inputFormat = default,
             string? description = default,
             double? startS = default,
+            bool? enhance = default,
             double? timeoutS = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -648,6 +667,7 @@ namespace Gradium
                 Description = description,
                 Language = language,
                 StartS = startS,
+                Enhance = enhance,
                 TimeoutS = timeoutS,
             };
             PrepareArguments(
@@ -781,6 +801,14 @@ namespace Gradium
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(request.StartS, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
                                     name: "\"start_s\"");
+
+                            }
+                            if (request.Enhance != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.Enhance, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"enhance\"");
 
                             }
                             if (request.TimeoutS != default)
@@ -1111,7 +1139,7 @@ namespace Gradium
         }
         /// <summary>
         /// Create Voice<br/>
-        /// Create a new voice for an organization with audio file upload.
+        /// Create a new voice for an organization with audio file upload. New voice clones are enhanced by default. Set the multipart form field `enhance` to `false` to create a clone without enhancement.
         /// </summary>
         /// <param name="audioFile">
         /// The stream to send as the multipart 'audio_file' file part.
@@ -1128,6 +1156,10 @@ namespace Gradium
         /// <param name="startS">
         /// Default Value: 0
         /// </param>
+        /// <param name="enhance">
+        /// Enhance the new voice clone. Set to false to opt out of enhancement.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="timeoutS">
         /// Default Value: 10
         /// </param>
@@ -1142,6 +1174,7 @@ namespace Gradium
             string? inputFormat = default,
             string? description = default,
             double? startS = default,
+            bool? enhance = default,
             double? timeoutS = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -1157,6 +1190,7 @@ namespace Gradium
                 Description = description,
                 Language = language,
                 StartS = startS,
+                Enhance = enhance,
                 TimeoutS = timeoutS,
             };
             PrepareArguments(
@@ -1290,6 +1324,14 @@ namespace Gradium
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(request.StartS, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
                                     name: "\"start_s\"");
+
+                            }
+                            if (request.Enhance != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.Enhance, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"enhance\"");
 
                             }
                             if (request.TimeoutS != default)

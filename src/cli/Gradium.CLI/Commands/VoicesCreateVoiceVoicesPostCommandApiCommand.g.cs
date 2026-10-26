@@ -52,6 +52,10 @@ internal static partial class VoicesCreateVoiceVoicesPostCommandApiCommand
         Description = @"",
     };
 
+    private static Option<bool?> Enhance { get; } = CliRuntime.CreateNullableBoolOption(
+        name: @"--enhance",
+        description: @"Enhance the new voice clone. Set to false to opt out of enhancement.");
+
     private static Option<double?> TimeoutS { get; } = new(
         name: @"--timeout-s")
     {
@@ -99,7 +103,7 @@ internal static partial class VoicesCreateVoiceVoicesPostCommandApiCommand
     public static Command Create(string? commandName = null)
     {
         var command = new Command(commandName ?? @"create-voice-voices-post", @"Create Voice
-Create a new voice for an organization with audio file upload.");
+Create a new voice for an organization with audio file upload. New voice clones are enhanced by default. Set the multipart form field `enhance` to `false` to create a clone without enhancement.");
                         command.Arguments.Add(NameOption);
                         command.Options.Add(AudioFile);
                         command.Options.Add(AudioFilename);
@@ -107,6 +111,7 @@ Create a new voice for an organization with audio file upload.");
                         command.Options.Add(DescriptionOption);
                         command.Options.Add(Language);
                         command.Options.Add(StartS);
+                        command.Options.Add(Enhance);
                         command.Options.Add(TimeoutS);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
@@ -140,6 +145,7 @@ Create a new voice for an organization with audio file upload.");
                         var description = CliRuntime.WasSpecified(parseResult, DescriptionOption) ? parseResult.GetValue(DescriptionOption) : (__requestBase is { } __DescriptionBaseValue ? __DescriptionBaseValue.Description : default);
                         var language = parseResult.GetRequiredValue(Language);
                         var startS = CliRuntime.WasSpecified(parseResult, StartS) ? parseResult.GetValue(StartS) : (__requestBase is { } __StartSBaseValue ? __StartSBaseValue.StartS : default);
+                        var enhance = CliRuntime.WasSpecified(parseResult, Enhance) ? parseResult.GetValue(Enhance) : (__requestBase is { } __EnhanceBaseValue ? __EnhanceBaseValue.Enhance : default);
                         var timeoutS = CliRuntime.WasSpecified(parseResult, TimeoutS) ? parseResult.GetValue(TimeoutS) : (__requestBase is { } __TimeoutSBaseValue ? __TimeoutSBaseValue.TimeoutS : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
@@ -152,6 +158,7 @@ Create a new voice for an organization with audio file upload.");
                                     description: description,
                                     language: language,
                                     startS: startS,
+                                    enhance: enhance,
                                     timeoutS: timeoutS,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
