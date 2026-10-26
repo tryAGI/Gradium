@@ -6,7 +6,7 @@ namespace Gradium
     {
         /// <summary>
         /// Create Voice<br/>
-        /// Create a new voice for an organization with audio file upload.
+        /// Create a new voice for an organization with audio file upload. New voice clones are enhanced by default. Set the multipart form field `enhance` to `false` to create a clone without enhancement.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -19,7 +19,7 @@ namespace Gradium
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Voice<br/>
-        /// Create a new voice for an organization with audio file upload.
+        /// Create a new voice for an organization with audio file upload. New voice clones are enhanced by default. Set the multipart form field `enhance` to `false` to create a clone without enhancement.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -32,7 +32,7 @@ namespace Gradium
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Voice<br/>
-        /// Create a new voice for an organization with audio file upload.
+        /// Create a new voice for an organization with audio file upload. New voice clones are enhanced by default. Set the multipart form field `enhance` to `false` to create a clone without enhancement.
         /// </summary>
         /// <param name="audioFile"></param>
         /// <param name="audioFilename"></param>
@@ -46,6 +46,10 @@ namespace Gradium
         /// </param>
         /// <param name="startS">
         /// Default Value: 0
+        /// </param>
+        /// <param name="enhance">
+        /// Enhance the new voice clone. Set to false to opt out of enhancement.<br/>
+        /// Default Value: true
         /// </param>
         /// <param name="timeoutS">
         /// Default Value: 10
@@ -61,13 +65,14 @@ namespace Gradium
             string? inputFormat = default,
             string? description = default,
             double? startS = default,
+            bool? enhance = default,
             double? timeoutS = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Voice<br/>
-        /// Create a new voice for an organization with audio file upload.
+        /// Create a new voice for an organization with audio file upload. New voice clones are enhanced by default. Set the multipart form field `enhance` to `false` to create a clone without enhancement.
         /// </summary>
         /// <param name="audioFile">
         /// The stream to send as the multipart 'audio_file' file part.
@@ -83,6 +88,10 @@ namespace Gradium
         /// </param>
         /// <param name="startS">
         /// Default Value: 0
+        /// </param>
+        /// <param name="enhance">
+        /// Enhance the new voice clone. Set to false to opt out of enhancement.<br/>
+        /// Default Value: true
         /// </param>
         /// <param name="timeoutS">
         /// Default Value: 10
@@ -98,12 +107,13 @@ namespace Gradium
             string? inputFormat = default,
             string? description = default,
             double? startS = default,
+            bool? enhance = default,
             double? timeoutS = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Voice<br/>
-        /// Create a new voice for an organization with audio file upload.
+        /// Create a new voice for an organization with audio file upload. New voice clones are enhanced by default. Set the multipart form field `enhance` to `false` to create a clone without enhancement.
         /// </summary>
         /// <param name="audioFile">
         /// The stream to send as the multipart 'audio_file' file part.
@@ -120,6 +130,10 @@ namespace Gradium
         /// <param name="startS">
         /// Default Value: 0
         /// </param>
+        /// <param name="enhance">
+        /// Enhance the new voice clone. Set to false to opt out of enhancement.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="timeoutS">
         /// Default Value: 10
         /// </param>
@@ -134,6 +148,7 @@ namespace Gradium
             string? inputFormat = default,
             string? description = default,
             double? startS = default,
+            bool? enhance = default,
             double? timeoutS = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

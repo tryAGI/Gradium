@@ -56,6 +56,13 @@ namespace Gradium
         public double? StartS { get; set; }
 
         /// <summary>
+        /// Enhance the new voice clone. Set to false to opt out of enhancement.<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enhance")]
+        public bool? Enhance { get; set; }
+
+        /// <summary>
         /// Default Value: 10
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("timeout_s")]
@@ -83,6 +90,10 @@ namespace Gradium
         /// <param name="startS">
         /// Default Value: 0
         /// </param>
+        /// <param name="enhance">
+        /// Enhance the new voice clone. Set to false to opt out of enhancement.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="timeoutS">
         /// Default Value: 10
         /// </param>
@@ -97,6 +108,7 @@ namespace Gradium
             string? inputFormat,
             string? description,
             double? startS,
+            bool? enhance,
             double? timeoutS)
         {
             this.AudioFile = audioFile ?? throw new global::System.ArgumentNullException(nameof(audioFile));
@@ -106,6 +118,7 @@ namespace Gradium
             this.Description = description;
             this.Language = language;
             this.StartS = startS;
+            this.Enhance = enhance;
             this.TimeoutS = timeoutS;
         }
 

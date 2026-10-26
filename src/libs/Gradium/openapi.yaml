@@ -23,7 +23,7 @@
           "Voices"
         ],
         "summary": "Create Voice",
-        "description": "Create a new voice for an organization with audio file upload.",
+        "description": "Create a new voice for an organization with audio file upload. New voice clones are enhanced by default. Set the multipart form field `enhance` to `false` to create a clone without enhancement.",
         "operationId": "create_voice_voices__post",
         "requestBody": {
           "required": true,
@@ -1296,6 +1296,12 @@
             "type": "number",
             "title": "Start S",
             "default": 0
+          },
+          "enhance": {
+            "type": "boolean",
+            "title": "Enhance",
+            "description": "Enhance the new voice clone. Set to false to opt out of enhancement.",
+            "default": true
           },
           "timeout_s": {
             "type": "number",
