@@ -29,13 +29,19 @@ namespace Gradium
             global::System.Net.Http.HttpClient httpClient,
             ref int? skip,
             ref int? limit,
-            ref bool? includeCatalog);
+            ref bool? includeCatalog,
+            ref string? locale,
+            ref string? gender,
+            ref string? useCase);
         partial void PrepareGetVoicesVoicesGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? skip,
             int? limit,
-            bool? includeCatalog);
+            bool? includeCatalog,
+            string? locale,
+            string? gender,
+            string? useCase);
         partial void ProcessGetVoicesVoicesGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -58,6 +64,9 @@ namespace Gradium
         /// <param name="includeCatalog">
         /// Default Value: false
         /// </param>
+        /// <param name="locale"></param>
+        /// <param name="gender"></param>
+        /// <param name="useCase"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Gradium.ApiException"></exception>
@@ -65,6 +74,9 @@ namespace Gradium
             int? skip = default,
             int? limit = default,
             bool? includeCatalog = default,
+            string? locale = default,
+            string? gender = default,
+            string? useCase = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -72,6 +84,9 @@ namespace Gradium
                 skip: skip,
                 limit: limit,
                 includeCatalog: includeCatalog,
+                locale: locale,
+                gender: gender,
+                useCase: useCase,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -91,6 +106,9 @@ namespace Gradium
         /// <param name="includeCatalog">
         /// Default Value: false
         /// </param>
+        /// <param name="locale"></param>
+        /// <param name="gender"></param>
+        /// <param name="useCase"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Gradium.ApiException"></exception>
@@ -98,6 +116,9 @@ namespace Gradium
             int? skip = default,
             int? limit = default,
             bool? includeCatalog = default,
+            string? locale = default,
+            string? gender = default,
+            string? useCase = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -107,7 +128,10 @@ namespace Gradium
                 httpClient: HttpClient,
                 skip: ref skip,
                 limit: ref limit,
-                includeCatalog: ref includeCatalog);
+                includeCatalog: ref includeCatalog,
+                locale: ref locale,
+                gender: ref gender,
+                useCase: ref useCase);
 
 
             var __authorizations = global::Gradium.EndPointSecurityResolver.ResolveAuthorizations(
@@ -139,6 +163,9 @@ namespace Gradium
                                 .AddOptionalParameter("skip", skip?.ToString())
                                 .AddOptionalParameter("limit", limit?.ToString())
                                 .AddOptionalParameter("include_catalog", includeCatalog?.ToString().ToLowerInvariant())
+                                .AddOptionalParameter("locale", locale)
+                                .AddOptionalParameter("gender", gender)
+                                .AddOptionalParameter("use_case", useCase)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Gradium.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -182,7 +209,10 @@ namespace Gradium
                     httpRequestMessage: __httpRequest,
                     skip: skip,
                     limit: limit,
-                    includeCatalog: includeCatalog);
+                    includeCatalog: includeCatalog,
+                    locale: locale,
+                    gender: gender,
+                    useCase: useCase);
 
                 return __httpRequest;
             }

@@ -17,6 +17,9 @@ namespace Gradium
         /// <param name="includeCatalog">
         /// Default Value: false
         /// </param>
+        /// <param name="locale"></param>
+        /// <param name="gender"></param>
+        /// <param name="useCase"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Gradium.ApiException"></exception>
@@ -24,6 +27,9 @@ namespace Gradium
             int? skip = default,
             int? limit = default,
             bool? includeCatalog = default,
+            string? locale = default,
+            string? gender = default,
+            string? useCase = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -39,6 +45,9 @@ namespace Gradium
         /// <param name="includeCatalog">
         /// Default Value: false
         /// </param>
+        /// <param name="locale"></param>
+        /// <param name="gender"></param>
+        /// <param name="useCase"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Gradium.ApiException"></exception>
@@ -46,6 +55,9 @@ namespace Gradium
             int? skip = default,
             int? limit = default,
             bool? includeCatalog = default,
+            string? locale = default,
+            string? gender = default,
+            string? useCase = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
