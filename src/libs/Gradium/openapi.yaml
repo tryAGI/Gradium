@@ -96,7 +96,62 @@
               "type": "boolean",
               "default": false,
               "title": "Include Catalog"
-            }
+            },
+            "description": "Also return Gradium catalog voices. Your organization's own voices come first, then catalog voices by `rank`, lowest first, unranked last."
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 16
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Locale"
+            },
+            "description": "Only voices of this locale, e.g. `en-nz` or `fr-fr`."
+          },
+          {
+            "name": "gender",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 16
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Gender"
+            },
+            "description": "Only voices of this gender: `male`, `female` or `neutral`."
+          },
+          {
+            "name": "use_case",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 64
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Use Case"
+            },
+            "description": "Only voices tagged with this use case, e.g. `Customer Service`, `Conversational`, `Narration` or `Ads & Social Media`. URL-encode it (`Ads%20%26%20Social%20Media`)."
           }
         ],
         "responses": {
@@ -1226,6 +1281,18 @@
               }
             ],
             "title": "Language"
+          },
+          "rank": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rank",
+            "description": "Catalog display order, lowest first. `null` for custom voices."
           },
           "tags": {
             "items": {

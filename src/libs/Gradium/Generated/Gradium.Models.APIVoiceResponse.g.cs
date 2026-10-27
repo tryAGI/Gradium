@@ -61,6 +61,12 @@ namespace Gradium
         public string? Language { get; set; }
 
         /// <summary>
+        /// Catalog display order, lowest first. `null` for custom voices.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("rank")]
+        public double? Rank { get; set; }
+
+        /// <summary>
         /// Default Value: []
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tags")]
@@ -83,6 +89,9 @@ namespace Gradium
         /// <param name="filename"></param>
         /// <param name="startS"></param>
         /// <param name="language"></param>
+        /// <param name="rank">
+        /// Catalog display order, lowest first. `null` for custom voices.
+        /// </param>
         /// <param name="tags">
         /// Default Value: []
         /// </param>
@@ -98,6 +107,7 @@ namespace Gradium
             string? filename,
             double? startS,
             string? language,
+            double? rank,
             global::System.Collections.Generic.IList<global::Gradium.ExportedTag>? tags)
         {
             this.Uid = uid ?? throw new global::System.ArgumentNullException(nameof(uid));
@@ -108,6 +118,7 @@ namespace Gradium
             this.IsCatalog = isCatalog;
             this.IsProClone = isProClone;
             this.Language = language;
+            this.Rank = rank;
             this.Tags = tags;
         }
 
