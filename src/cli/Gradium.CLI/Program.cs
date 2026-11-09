@@ -20,5 +20,6 @@ rootCommand.Subcommands.Add(VoiceDesignApiGroupCommand.Create());
 rootCommand.Subcommands.Add(VoiceEnhanceApiGroupCommand.Create());
 rootCommand.Subcommands.Add(VoiceLocalizationApiGroupCommand.Create());
 rootCommand.Subcommands.Add(VoicesApiGroupCommand.Create());
+rootCommand.Subcommands.Add(CliCompletion.CreateCommand(rootCommand, @"gradium"));
 
 return await rootCommand.Parse(args).InvokeAsync().ConfigureAwait(false);
