@@ -18,7 +18,7 @@ namespace Gradium.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::Gradium.PostSpeechToTextContentTypeExtensions.ToEnum(stringValue) ?? default;
+                        return global::Gradium.PostSpeechToTextContentTypeExtensions.ToEnum(stringValue) ?? throw new global::System.Text.Json.JsonException($"Unknown value '{stringValue}' for global::Gradium.PostSpeechToTextContentType.");
                     }
 
                     break;
