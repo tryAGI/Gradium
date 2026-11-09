@@ -15,6 +15,18 @@ gradium --help
 gradium metering --help
 ```
 
+## Shell completion
+
+The `completion` command prints a script built from the live command tree, so
+subcommands, option names and the values of enum-typed options stay correct after the
+spec is refreshed and the CLI regenerated — there is no word list to maintain.
+
+```bash
+gradium completion bash > /usr/local/etc/bash_completion.d/gradium
+gradium completion zsh  > _gradium   # then put it on your zsh fpath
+gradium completion fish > ~/.config/fish/completions/gradium.fish
+```
+
 ## Customization
 
 Generated operation, tag, and API group command classes are partial. Implement
