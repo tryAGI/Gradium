@@ -32,7 +32,7 @@ Include your API key in the WebSocket connection header:
 
 | Direction | Message Type | Example |
 |-----------|-------------|---------|
-| 🔵⬆️ Client→Server | Setup (first) | `{""type"": ""setup"", ""voice_id"": ""YTpq7expH9539ERJ"", ""model_name"": ""default"", ""output_format"": ""wav""}` |
+| 🔵⬆️ Client→Server | Setup (first) | `{""type"": ""setup"", ""voice_id"": ""Bla6SbVMczYnOhfK"", ""model_name"": ""default"", ""output_format"": ""wav""}` |
 | 🟢⬇️ Server→Client | Ready | `{""type"": ""ready"", ""request_id"": ""uuid""}` |
 | 🔵⬆️ Client→Server | Text (stream) | `{""type"": ""text"", ""text"": ""Hello, world!""}` |
 | 🟢⬇️ Server→Client | Audio (stream) | `{""type"": ""audio"", ""audio"": ""base64...""}` |
@@ -54,7 +54,7 @@ Include your API key in the WebSocket connection header:
 {
   ""type"": ""setup"",
   ""model_name"": ""default"",
-  ""voice_id"": ""YTpq7expH9539ERJ"",
+  ""voice_id"": ""Bla6SbVMczYnOhfK"",
   ""output_format"": ""wav""
 }
 ```
@@ -62,7 +62,7 @@ Include your API key in the WebSocket connection header:
 **Fields:**
 - `type` (string, required): Must be ""setup""
 - `model_name` (string, optional): The TTS model to use (default: ""default"")
-- `voice_id` (string, required): Voice ID from the library (e.g., ""YTpq7expH9539ERJ"" for Emma's voice) or custom voice ID
+- `voice_id` (string, required): Voice ID from the library (e.g., ""Bla6SbVMczYnOhfK"" for Marlowe's voice) or custom voice ID
 - `output_format` (string, optional): Audio format (default: ""wav""). One of ""wav"", ""pcm"", ""opus"", ""ulaw_8000"", ""mulaw_8000"", ""alaw_8000"", ""pcm_8000"", ""pcm_16000"", ""pcm_22050"", ""pcm_24000"", ""pcm_44100"", ""pcm_48000"".
 
 **Important:** This must be the very first message sent after connection. The server will close the connection if any other message is sent first.

@@ -74,7 +74,7 @@ Include your API key in the request header:
 curl -L -X POST https://api.gradium.ai/api/post/speech/tts \
   -H ""x-api-key: your_api_key"" \
   -H ""Content-Type: application/json"" \
-  -d '{""text"": ""Hello, this is a test of the text to speech system."", ""voice_id"": ""YTpq7expH9539ERJ"", ""output_format"": ""wav"", ""only_audio"": true}' \
+  -d '{""text"": ""Hello, this is a test of the text to speech system."", ""voice_id"": ""Bla6SbVMczYnOhfK"", ""output_format"": ""wav"", ""only_audio"": true}' \
   &gt; output.wav
 ```
 
@@ -89,7 +89,7 @@ curl -L -X POST https://api.gradium.ai/api/post/speech/tts \
 ```json
 {
   ""text"": ""Hello, this is a test of the text to speech system."",
-  ""voice_id"": ""YTpq7expH9539ERJ"",
+  ""voice_id"": ""Bla6SbVMczYnOhfK"",
   ""output_format"": ""wav"",
   ""json_config"": ""{}"",
   ""only_audio"": true
@@ -99,7 +99,7 @@ curl -L -X POST https://api.gradium.ai/api/post/speech/tts \
 **Fields:**
 - `text` (string, required): The text to be converted to speech
 - `voice_id` (string, required): Voice ID from the library (e.g.,
-  ""YTpq7expH9539ERJ"") or a custom voice ID
+  ""Bla6SbVMczYnOhfK"") or a custom voice ID
 - `output_format` (string, required): Audio format - ""wav"", ""pcm"", or ""opus""
   (ogg wrapped opus data).
 - `json_config` (string, optional): Additional configuration in JSON string format (e.g., `{""padding_bonus"": -1.2}`)
