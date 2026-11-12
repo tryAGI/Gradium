@@ -18,7 +18,7 @@ namespace Gradium
         /// ## Quick Reference<br/>
         /// | Direction | Message Type | Example |<br/>
         /// |-----------|-------------|---------|<br/>
-        /// | 🔵⬆️ Client→Server | Setup (first) | `{"type": "setup", "voice_id": "YTpq7expH9539ERJ", "model_name": "default", "output_format": "wav"}` |<br/>
+        /// | 🔵⬆️ Client→Server | Setup (first) | `{"type": "setup", "voice_id": "Bla6SbVMczYnOhfK", "model_name": "default", "output_format": "wav"}` |<br/>
         /// | 🟢⬇️ Server→Client | Ready | `{"type": "ready", "request_id": "uuid"}` |<br/>
         /// | 🔵⬆️ Client→Server | Text (stream) | `{"type": "text", "text": "Hello, world!"}` |<br/>
         /// | 🟢⬇️ Server→Client | Audio (stream) | `{"type": "audio", "audio": "base64..."}` |<br/>
@@ -35,14 +35,14 @@ namespace Gradium
         /// {<br/>
         ///   "type": "setup",<br/>
         ///   "model_name": "default",<br/>
-        ///   "voice_id": "YTpq7expH9539ERJ",<br/>
+        ///   "voice_id": "Bla6SbVMczYnOhfK",<br/>
         ///   "output_format": "wav"<br/>
         /// }<br/>
         /// ```<br/>
         /// **Fields:**<br/>
         /// - `type` (string, required): Must be "setup"<br/>
         /// - `model_name` (string, optional): The TTS model to use (default: "default")<br/>
-        /// - `voice_id` (string, required): Voice ID from the library (e.g., "YTpq7expH9539ERJ" for Emma's voice) or custom voice ID<br/>
+        /// - `voice_id` (string, required): Voice ID from the library (e.g., "Bla6SbVMczYnOhfK" for Marlowe's voice) or custom voice ID<br/>
         /// - `output_format` (string, optional): Audio format (default: "wav"). One of "wav", "pcm", "opus", "ulaw_8000", "mulaw_8000", "alaw_8000", "pcm_8000", "pcm_16000", "pcm_22050", "pcm_24000", "pcm_44100", "pcm_48000".<br/>
         /// **Important:** This must be the very first message sent after connection. The server will close the connection if any other message is sent first.<br/>
         /// ---<br/>
@@ -166,7 +166,7 @@ namespace Gradium
         /// wscat -c "wss://api.gradium.ai/api/speech/tts" \<br/>
         ///   -H "x-api-key: your_api_key"<br/>
         /// # After connection, paste:<br/>
-        /// # {"type":"setup","voice_id":"YTpq7expH9539ERJ","model_name":"default","output_format":"wav"}<br/>
+        /// # {"type":"setup","voice_id":"Bla6SbVMczYnOhfK","model_name":"default","output_format":"wav"}<br/>
         /// # {"type":"text","text":"Hello, world!"}<br/>
         /// # {"type":"end_of_stream"}
         /// </remarks>
@@ -187,7 +187,7 @@ namespace Gradium
         /// ## Quick Reference<br/>
         /// | Direction | Message Type | Example |<br/>
         /// |-----------|-------------|---------|<br/>
-        /// | 🔵⬆️ Client→Server | Setup (first) | `{"type": "setup", "voice_id": "YTpq7expH9539ERJ", "model_name": "default", "output_format": "wav"}` |<br/>
+        /// | 🔵⬆️ Client→Server | Setup (first) | `{"type": "setup", "voice_id": "Bla6SbVMczYnOhfK", "model_name": "default", "output_format": "wav"}` |<br/>
         /// | 🟢⬇️ Server→Client | Ready | `{"type": "ready", "request_id": "uuid"}` |<br/>
         /// | 🔵⬆️ Client→Server | Text (stream) | `{"type": "text", "text": "Hello, world!"}` |<br/>
         /// | 🟢⬇️ Server→Client | Audio (stream) | `{"type": "audio", "audio": "base64..."}` |<br/>
@@ -204,14 +204,14 @@ namespace Gradium
         /// {<br/>
         ///   "type": "setup",<br/>
         ///   "model_name": "default",<br/>
-        ///   "voice_id": "YTpq7expH9539ERJ",<br/>
+        ///   "voice_id": "Bla6SbVMczYnOhfK",<br/>
         ///   "output_format": "wav"<br/>
         /// }<br/>
         /// ```<br/>
         /// **Fields:**<br/>
         /// - `type` (string, required): Must be "setup"<br/>
         /// - `model_name` (string, optional): The TTS model to use (default: "default")<br/>
-        /// - `voice_id` (string, required): Voice ID from the library (e.g., "YTpq7expH9539ERJ" for Emma's voice) or custom voice ID<br/>
+        /// - `voice_id` (string, required): Voice ID from the library (e.g., "Bla6SbVMczYnOhfK" for Marlowe's voice) or custom voice ID<br/>
         /// - `output_format` (string, optional): Audio format (default: "wav"). One of "wav", "pcm", "opus", "ulaw_8000", "mulaw_8000", "alaw_8000", "pcm_8000", "pcm_16000", "pcm_22050", "pcm_24000", "pcm_44100", "pcm_48000".<br/>
         /// **Important:** This must be the very first message sent after connection. The server will close the connection if any other message is sent first.<br/>
         /// ---<br/>
@@ -335,7 +335,7 @@ namespace Gradium
         /// wscat -c "wss://api.gradium.ai/api/speech/tts" \<br/>
         ///   -H "x-api-key: your_api_key"<br/>
         /// # After connection, paste:<br/>
-        /// # {"type":"setup","voice_id":"YTpq7expH9539ERJ","model_name":"default","output_format":"wav"}<br/>
+        /// # {"type":"setup","voice_id":"Bla6SbVMczYnOhfK","model_name":"default","output_format":"wav"}<br/>
         /// # {"type":"text","text":"Hello, world!"}<br/>
         /// # {"type":"end_of_stream"}
         /// </remarks>

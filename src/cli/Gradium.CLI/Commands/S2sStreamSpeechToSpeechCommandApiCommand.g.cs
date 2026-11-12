@@ -32,7 +32,7 @@ Include your API key in the WebSocket connection header:
 
 | Direction | Message Type | Example |
 |-----------|-------------|---------|
-| 🔵⬆️ Client→Server | Setup (first) | `{""type"": ""setup"", ""model_name"": ""default"", ""input_format"": ""pcm"", ""output_format"": ""pcm"", ""voice_id"": ""YTpq7expH9539ERJ""}` |
+| 🔵⬆️ Client→Server | Setup (first) | `{""type"": ""setup"", ""model_name"": ""default"", ""input_format"": ""pcm"", ""output_format"": ""pcm"", ""voice_id"": ""Bla6SbVMczYnOhfK""}` |
 | 🟢⬇️ Server→Client | Ready | `{""type"": ""ready"", ""request_id"": ""uuid"", ""sample_rate"": 48000}` |
 | 🔵⬆️ Client→Server | Audio | `{""type"": ""audio"", ""audio"": ""base64...""}` |
 | 🟢⬇️ Server→Client | Text (stream) | `{""type"": ""text"", ""text"": ""Hello world"", ""start_s"": 0.5, ""stop_s"": 1.2}` |
@@ -56,7 +56,7 @@ Include your API key in the WebSocket connection header:
   ""model_name"": ""default"",
   ""input_format"": ""pcm"",
   ""output_format"": ""pcm"",
-  ""voice_id"": ""YTpq7expH9539ERJ""
+  ""voice_id"": ""Bla6SbVMczYnOhfK""
 }
 ```
 

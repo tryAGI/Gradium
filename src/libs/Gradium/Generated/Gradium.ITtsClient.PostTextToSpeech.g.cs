@@ -21,7 +21,7 @@ namespace Gradium
         /// curl -L -X POST https://api.gradium.ai/api/post/speech/tts \<br/>
         ///   -H "x-api-key: your_api_key" \<br/>
         ///   -H "Content-Type: application/json" \<br/>
-        ///   -d '{"text": "Hello, this is a test of the text to speech system.", "voice_id": "YTpq7expH9539ERJ", "output_format": "wav", "only_audio": true}' \<br/>
+        ///   -d '{"text": "Hello, this is a test of the text to speech system.", "voice_id": "Bla6SbVMczYnOhfK", "output_format": "wav", "only_audio": true}' \<br/>
         ///   &gt; output.wav<br/>
         /// ```<br/>
         /// ---<br/>
@@ -32,7 +32,7 @@ namespace Gradium
         /// ```json<br/>
         /// {<br/>
         ///   "text": "Hello, this is a test of the text to speech system.",<br/>
-        ///   "voice_id": "YTpq7expH9539ERJ",<br/>
+        ///   "voice_id": "Bla6SbVMczYnOhfK",<br/>
         ///   "output_format": "wav",<br/>
         ///   "json_config": "{}",<br/>
         ///   "only_audio": true<br/>
@@ -41,7 +41,7 @@ namespace Gradium
         /// **Fields:**<br/>
         /// - `text` (string, required): The text to be converted to speech<br/>
         /// - `voice_id` (string, required): Voice ID from the library (e.g.,<br/>
-        ///   "YTpq7expH9539ERJ") or a custom voice ID<br/>
+        ///   "Bla6SbVMczYnOhfK") or a custom voice ID<br/>
         /// - `output_format` (string, required): Audio format - "wav", "pcm", or "opus"<br/>
         ///   (ogg wrapped opus data).<br/>
         /// - `json_config` (string, optional): Additional configuration in JSON string format (e.g., `{"padding_bonus": -1.2}`)<br/>
@@ -101,7 +101,7 @@ namespace Gradium
         /// curl -L -X POST https://api.gradium.ai/api/post/speech/tts \<br/>
         ///   -H "x-api-key: your_api_key" \<br/>
         ///   -H "Content-Type: application/json" \<br/>
-        ///   -d '{"text": "Hello, world!", "voice_id": "YTpq7expH9539ERJ", "output_format": "wav", "only_audio": true}' \<br/>
+        ///   -d '{"text": "Hello, world!", "voice_id": "Bla6SbVMczYnOhfK", "output_format": "wav", "only_audio": true}' \<br/>
         ///   &gt; output.wav
         /// </remarks>
         global::System.Threading.Tasks.Task PostTextToSpeechAsync(
@@ -126,7 +126,7 @@ namespace Gradium
         /// curl -L -X POST https://api.gradium.ai/api/post/speech/tts \<br/>
         ///   -H "x-api-key: your_api_key" \<br/>
         ///   -H "Content-Type: application/json" \<br/>
-        ///   -d '{"text": "Hello, this is a test of the text to speech system.", "voice_id": "YTpq7expH9539ERJ", "output_format": "wav", "only_audio": true}' \<br/>
+        ///   -d '{"text": "Hello, this is a test of the text to speech system.", "voice_id": "Bla6SbVMczYnOhfK", "output_format": "wav", "only_audio": true}' \<br/>
         ///   &gt; output.wav<br/>
         /// ```<br/>
         /// ---<br/>
@@ -137,7 +137,7 @@ namespace Gradium
         /// ```json<br/>
         /// {<br/>
         ///   "text": "Hello, this is a test of the text to speech system.",<br/>
-        ///   "voice_id": "YTpq7expH9539ERJ",<br/>
+        ///   "voice_id": "Bla6SbVMczYnOhfK",<br/>
         ///   "output_format": "wav",<br/>
         ///   "json_config": "{}",<br/>
         ///   "only_audio": true<br/>
@@ -146,7 +146,7 @@ namespace Gradium
         /// **Fields:**<br/>
         /// - `text` (string, required): The text to be converted to speech<br/>
         /// - `voice_id` (string, required): Voice ID from the library (e.g.,<br/>
-        ///   "YTpq7expH9539ERJ") or a custom voice ID<br/>
+        ///   "Bla6SbVMczYnOhfK") or a custom voice ID<br/>
         /// - `output_format` (string, required): Audio format - "wav", "pcm", or "opus"<br/>
         ///   (ogg wrapped opus data).<br/>
         /// - `json_config` (string, optional): Additional configuration in JSON string format (e.g., `{"padding_bonus": -1.2}`)<br/>
@@ -206,7 +206,7 @@ namespace Gradium
         /// curl -L -X POST https://api.gradium.ai/api/post/speech/tts \<br/>
         ///   -H "x-api-key: your_api_key" \<br/>
         ///   -H "Content-Type: application/json" \<br/>
-        ///   -d '{"text": "Hello, world!", "voice_id": "YTpq7expH9539ERJ", "output_format": "wav", "only_audio": true}' \<br/>
+        ///   -d '{"text": "Hello, world!", "voice_id": "Bla6SbVMczYnOhfK", "output_format": "wav", "only_audio": true}' \<br/>
         ///   &gt; output.wav
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Gradium.AutoSDKHttpResponse> PostTextToSpeechAsResponseAsync(
@@ -231,7 +231,7 @@ namespace Gradium
         /// curl -L -X POST https://api.gradium.ai/api/post/speech/tts \<br/>
         ///   -H "x-api-key: your_api_key" \<br/>
         ///   -H "Content-Type: application/json" \<br/>
-        ///   -d '{"text": "Hello, this is a test of the text to speech system.", "voice_id": "YTpq7expH9539ERJ", "output_format": "wav", "only_audio": true}' \<br/>
+        ///   -d '{"text": "Hello, this is a test of the text to speech system.", "voice_id": "Bla6SbVMczYnOhfK", "output_format": "wav", "only_audio": true}' \<br/>
         ///   &gt; output.wav<br/>
         /// ```<br/>
         /// ---<br/>
@@ -242,7 +242,7 @@ namespace Gradium
         /// ```json<br/>
         /// {<br/>
         ///   "text": "Hello, this is a test of the text to speech system.",<br/>
-        ///   "voice_id": "YTpq7expH9539ERJ",<br/>
+        ///   "voice_id": "Bla6SbVMczYnOhfK",<br/>
         ///   "output_format": "wav",<br/>
         ///   "json_config": "{}",<br/>
         ///   "only_audio": true<br/>
@@ -251,7 +251,7 @@ namespace Gradium
         /// **Fields:**<br/>
         /// - `text` (string, required): The text to be converted to speech<br/>
         /// - `voice_id` (string, required): Voice ID from the library (e.g.,<br/>
-        ///   "YTpq7expH9539ERJ") or a custom voice ID<br/>
+        ///   "Bla6SbVMczYnOhfK") or a custom voice ID<br/>
         /// - `output_format` (string, required): Audio format - "wav", "pcm", or "opus"<br/>
         ///   (ogg wrapped opus data).<br/>
         /// - `json_config` (string, optional): Additional configuration in JSON string format (e.g., `{"padding_bonus": -1.2}`)<br/>

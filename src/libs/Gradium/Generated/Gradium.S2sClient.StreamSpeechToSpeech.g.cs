@@ -48,7 +48,7 @@ namespace Gradium
         /// ## Quick Reference<br/>
         /// | Direction | Message Type | Example |<br/>
         /// |-----------|-------------|---------|<br/>
-        /// | 🔵⬆️ Client→Server | Setup (first) | `{"type": "setup", "model_name": "default", "input_format": "pcm", "output_format": "pcm", "voice_id": "YTpq7expH9539ERJ"}` |<br/>
+        /// | 🔵⬆️ Client→Server | Setup (first) | `{"type": "setup", "model_name": "default", "input_format": "pcm", "output_format": "pcm", "voice_id": "Bla6SbVMczYnOhfK"}` |<br/>
         /// | 🟢⬇️ Server→Client | Ready | `{"type": "ready", "request_id": "uuid", "sample_rate": 48000}` |<br/>
         /// | 🔵⬆️ Client→Server | Audio | `{"type": "audio", "audio": "base64..."}` |<br/>
         /// | 🟢⬇️ Server→Client | Text (stream) | `{"type": "text", "text": "Hello world", "start_s": 0.5, "stop_s": 1.2}` |<br/>
@@ -67,7 +67,7 @@ namespace Gradium
         ///   "model_name": "default",<br/>
         ///   "input_format": "pcm",<br/>
         ///   "output_format": "pcm",<br/>
-        ///   "voice_id": "YTpq7expH9539ERJ"<br/>
+        ///   "voice_id": "Bla6SbVMczYnOhfK"<br/>
         /// }<br/>
         /// ```<br/>
         /// **Fields:**<br/>
@@ -188,7 +188,7 @@ namespace Gradium
         /// wscat -c "wss://api.gradium.ai/api/speech/s2s" \<br/>
         ///   -H "x-api-key: your_api_key"<br/>
         /// # After connection, paste:<br/>
-        /// # {"type":"setup","model_name":"default","input_format":"pcm","output_format":"pcm","voice_id":"YTpq7expH9539ERJ","json_config":{"target_language":"en"}}
+        /// # {"type":"setup","model_name":"default","input_format":"pcm","output_format":"pcm","voice_id":"Bla6SbVMczYnOhfK","json_config":{"target_language":"en"}}
         /// </remarks>
         public async global::System.Threading.Tasks.Task StreamSpeechToSpeechAsync(
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
@@ -213,7 +213,7 @@ namespace Gradium
         /// ## Quick Reference<br/>
         /// | Direction | Message Type | Example |<br/>
         /// |-----------|-------------|---------|<br/>
-        /// | 🔵⬆️ Client→Server | Setup (first) | `{"type": "setup", "model_name": "default", "input_format": "pcm", "output_format": "pcm", "voice_id": "YTpq7expH9539ERJ"}` |<br/>
+        /// | 🔵⬆️ Client→Server | Setup (first) | `{"type": "setup", "model_name": "default", "input_format": "pcm", "output_format": "pcm", "voice_id": "Bla6SbVMczYnOhfK"}` |<br/>
         /// | 🟢⬇️ Server→Client | Ready | `{"type": "ready", "request_id": "uuid", "sample_rate": 48000}` |<br/>
         /// | 🔵⬆️ Client→Server | Audio | `{"type": "audio", "audio": "base64..."}` |<br/>
         /// | 🟢⬇️ Server→Client | Text (stream) | `{"type": "text", "text": "Hello world", "start_s": 0.5, "stop_s": 1.2}` |<br/>
@@ -232,7 +232,7 @@ namespace Gradium
         ///   "model_name": "default",<br/>
         ///   "input_format": "pcm",<br/>
         ///   "output_format": "pcm",<br/>
-        ///   "voice_id": "YTpq7expH9539ERJ"<br/>
+        ///   "voice_id": "Bla6SbVMczYnOhfK"<br/>
         /// }<br/>
         /// ```<br/>
         /// **Fields:**<br/>
@@ -353,7 +353,7 @@ namespace Gradium
         /// wscat -c "wss://api.gradium.ai/api/speech/s2s" \<br/>
         ///   -H "x-api-key: your_api_key"<br/>
         /// # After connection, paste:<br/>
-        /// # {"type":"setup","model_name":"default","input_format":"pcm","output_format":"pcm","voice_id":"YTpq7expH9539ERJ","json_config":{"target_language":"en"}}
+        /// # {"type":"setup","model_name":"default","input_format":"pcm","output_format":"pcm","voice_id":"Bla6SbVMczYnOhfK","json_config":{"target_language":"en"}}
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Gradium.AutoSDKHttpResponse> StreamSpeechToSpeechAsResponseAsync(
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
