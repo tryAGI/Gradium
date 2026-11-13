@@ -10,7 +10,7 @@ namespace Gradium
         /// data is sent back in a streaming way.<br/>
         /// **Endpoint URL:**<br/>
         /// ```<br/>
-        /// https://api.gradium.ai/api/post/speech/tts<br/>
+        /// https://api.gradium.ai/api/speech/tts<br/>
         /// ```<br/>
         /// **Authentication:**<br/>
         /// Include your API key in the request header:<br/>
@@ -18,7 +18,7 @@ namespace Gradium
         /// ---<br/>
         /// ## Quick Example<br/>
         /// ```bash<br/>
-        /// curl -L -X POST https://api.gradium.ai/api/post/speech/tts \<br/>
+        /// curl -L -X POST https://api.gradium.ai/api/speech/tts \<br/>
         ///   -H "x-api-key: your_api_key" \<br/>
         ///   -H "Content-Type: application/json" \<br/>
         ///   -d '{"text": "Hello, this is a test of the text to speech system.", "voice_id": "Bla6SbVMczYnOhfK", "output_format": "wav", "only_audio": true}' \<br/>
@@ -98,7 +98,7 @@ namespace Gradium
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Gradium.ApiException"></exception>
         /// <remarks>
-        /// curl -L -X POST https://api.gradium.ai/api/post/speech/tts \<br/>
+        /// curl -L -X POST https://api.gradium.ai/api/speech/tts \<br/>
         ///   -H "x-api-key: your_api_key" \<br/>
         ///   -H "Content-Type: application/json" \<br/>
         ///   -d '{"text": "Hello, world!", "voice_id": "Bla6SbVMczYnOhfK", "output_format": "wav", "only_audio": true}' \<br/>
@@ -115,7 +115,7 @@ namespace Gradium
         /// data is sent back in a streaming way.<br/>
         /// **Endpoint URL:**<br/>
         /// ```<br/>
-        /// https://api.gradium.ai/api/post/speech/tts<br/>
+        /// https://api.gradium.ai/api/speech/tts<br/>
         /// ```<br/>
         /// **Authentication:**<br/>
         /// Include your API key in the request header:<br/>
@@ -123,7 +123,7 @@ namespace Gradium
         /// ---<br/>
         /// ## Quick Example<br/>
         /// ```bash<br/>
-        /// curl -L -X POST https://api.gradium.ai/api/post/speech/tts \<br/>
+        /// curl -L -X POST https://api.gradium.ai/api/speech/tts \<br/>
         ///   -H "x-api-key: your_api_key" \<br/>
         ///   -H "Content-Type: application/json" \<br/>
         ///   -d '{"text": "Hello, this is a test of the text to speech system.", "voice_id": "Bla6SbVMczYnOhfK", "output_format": "wav", "only_audio": true}' \<br/>
@@ -203,7 +203,7 @@ namespace Gradium
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Gradium.ApiException"></exception>
         /// <remarks>
-        /// curl -L -X POST https://api.gradium.ai/api/post/speech/tts \<br/>
+        /// curl -L -X POST https://api.gradium.ai/api/speech/tts \<br/>
         ///   -H "x-api-key: your_api_key" \<br/>
         ///   -H "Content-Type: application/json" \<br/>
         ///   -d '{"text": "Hello, world!", "voice_id": "Bla6SbVMczYnOhfK", "output_format": "wav", "only_audio": true}' \<br/>
@@ -220,7 +220,7 @@ namespace Gradium
         /// data is sent back in a streaming way.<br/>
         /// **Endpoint URL:**<br/>
         /// ```<br/>
-        /// https://api.gradium.ai/api/post/speech/tts<br/>
+        /// https://api.gradium.ai/api/speech/tts<br/>
         /// ```<br/>
         /// **Authentication:**<br/>
         /// Include your API key in the request header:<br/>
@@ -228,7 +228,7 @@ namespace Gradium
         /// ---<br/>
         /// ## Quick Example<br/>
         /// ```bash<br/>
-        /// curl -L -X POST https://api.gradium.ai/api/post/speech/tts \<br/>
+        /// curl -L -X POST https://api.gradium.ai/api/speech/tts \<br/>
         ///   -H "x-api-key: your_api_key" \<br/>
         ///   -H "Content-Type: application/json" \<br/>
         ///   -d '{"text": "Hello, this is a test of the text to speech system.", "voice_id": "Bla6SbVMczYnOhfK", "output_format": "wav", "only_audio": true}' \<br/>

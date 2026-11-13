@@ -61,7 +61,7 @@ results.
 **Endpoint URL:**
 
 ```
-https://api.gradium.ai/api/post/speech/asr
+https://api.gradium.ai/api/speech/asr
 ```
 
 **Authentication:**
@@ -73,7 +73,7 @@ Include your API key in the request header:
 ## Quick Example
 
 ```bash
-curl -L -X POST https://api.gradium.ai/api/post/speech/asr \
+curl -L -X POST https://api.gradium.ai/api/speech/asr \
   --url-query 'json_config={""language"":""en""}' \
   -H ""x-api-key: your_api_key"" \
   -H ""Content-Type: audio/wav"" \
@@ -158,7 +158,7 @@ with open(""input.wav"", ""rb"") as f:
     audio = f.read()
 
 with requests.post(
-    ""https://api.gradium.ai/api/post/speech/asr"",
+    ""https://api.gradium.ai/api/speech/asr"",
     params={""json_config"": json.dumps({""language"": ""en""})},
     data=audio,
     headers={

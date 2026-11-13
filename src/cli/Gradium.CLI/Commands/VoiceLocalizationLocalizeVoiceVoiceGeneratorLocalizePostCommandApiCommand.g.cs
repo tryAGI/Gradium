@@ -82,7 +82,7 @@ internal static partial class VoiceLocalizationLocalizeVoiceVoiceGeneratorLocali
         var command = new Command(commandName ?? @"localize-voice-voice-generator-localize-post", @"Localize Voice
 Make an existing voice speak another language, or another accent of the same language, without changing who is speaking. The source can be a flagship voice, one of your clones, a converted candidate or a `vox_emb_` candidate; it is never modified.
 
-Each request creates `n_samples` new candidates that behave exactly like Voice Design candidates: poll `GET /voice-generator/embeddings` until `ready` (typically two to eight seconds), audition them with `POST /post/speech/tts` using text in the target language, keep one with `POST /voices/from-embedding`.
+Each request creates `n_samples` new candidates that behave exactly like Voice Design candidates: poll `GET /voice-generator/embeddings` until `ready` (typically two to eight seconds), audition them with `POST /speech/tts` using text in the target language, keep one with `POST /voices/from-embedding`.
 
 The request is validated before anything is queued. A source with no `language` set returns `409`; set it with `PUT /voices/{voice_uid}` first. A candidate source must be ready. Pro clones cannot be localized.");
                         command.Options.Add(SrcVoice);

@@ -52,7 +52,7 @@ namespace Gradium
         /// results.<br/>
         /// **Endpoint URL:**<br/>
         /// ```<br/>
-        /// https://api.gradium.ai/api/post/speech/asr<br/>
+        /// https://api.gradium.ai/api/speech/asr<br/>
         /// ```<br/>
         /// **Authentication:**<br/>
         /// Include your API key in the request header:<br/>
@@ -60,7 +60,7 @@ namespace Gradium
         /// ---<br/>
         /// ## Quick Example<br/>
         /// ```bash<br/>
-        /// curl -L -X POST https://api.gradium.ai/api/post/speech/asr \<br/>
+        /// curl -L -X POST https://api.gradium.ai/api/speech/asr \<br/>
         ///   --url-query 'json_config={"language":"en"}' \<br/>
         ///   -H "x-api-key: your_api_key" \<br/>
         ///   -H "Content-Type: audio/wav" \<br/>
@@ -119,7 +119,7 @@ namespace Gradium
         /// with open("input.wav", "rb") as f:<br/>
         ///     audio = f.read()<br/>
         /// with requests.post(<br/>
-        ///     "https://api.gradium.ai/api/post/speech/asr",<br/>
+        ///     "https://api.gradium.ai/api/speech/asr",<br/>
         ///     params={"json_config": json.dumps({"language": "en"})},<br/>
         ///     data=audio,<br/>
         ///     headers={<br/>
@@ -184,7 +184,7 @@ namespace Gradium
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Gradium.ApiException"></exception>
         /// <remarks>
-        /// curl -L -X POST https://api.gradium.ai/api/post/speech/asr \<br/>
+        /// curl -L -X POST https://api.gradium.ai/api/speech/asr \<br/>
         ///   --url-query 'json_config={"language":"en"}' \<br/>
         ///   -H "x-api-key: your_api_key" \<br/>
         ///   -H "Content-Type: audio/wav" \<br/>
@@ -236,7 +236,7 @@ namespace Gradium
             {
 
                             var __pathBuilder = new global::Gradium.PathBuilder(
-                                path: "/post/speech/asr",
+                                path: "/speech/asr",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("model", model)
@@ -316,7 +316,7 @@ namespace Gradium
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "PostSpeechToText",
                                 methodName: "PostSpeechToTextAsync",
-                                pathTemplate: "\"/post/speech/asr\"",
+                                pathTemplate: "\"/speech/asr\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -350,7 +350,7 @@ namespace Gradium
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "PostSpeechToText",
                                 methodName: "PostSpeechToTextAsync",
-                                pathTemplate: "\"/post/speech/asr\"",
+                                pathTemplate: "\"/speech/asr\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -391,7 +391,7 @@ namespace Gradium
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "PostSpeechToText",
                                 methodName: "PostSpeechToTextAsync",
-                                pathTemplate: "\"/post/speech/asr\"",
+                                pathTemplate: "\"/speech/asr\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -439,7 +439,7 @@ namespace Gradium
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "PostSpeechToText",
                                 methodName: "PostSpeechToTextAsync",
-                                pathTemplate: "\"/post/speech/asr\"",
+                                pathTemplate: "\"/speech/asr\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -461,7 +461,7 @@ namespace Gradium
                             context: global::Gradium.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "PostSpeechToText",
                                 methodName: "PostSpeechToTextAsync",
-                                pathTemplate: "\"/post/speech/asr\"",
+                                pathTemplate: "\"/speech/asr\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
