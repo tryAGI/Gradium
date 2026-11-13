@@ -59,7 +59,7 @@ data is sent back in a streaming way.
 **Endpoint URL:**
 
 ```
-https://api.gradium.ai/api/post/speech/tts
+https://api.gradium.ai/api/speech/tts
 ```
 
 **Authentication:**
@@ -71,7 +71,7 @@ Include your API key in the request header:
 ## Quick Example
 
 ```bash
-curl -L -X POST https://api.gradium.ai/api/post/speech/tts \
+curl -L -X POST https://api.gradium.ai/api/speech/tts \
   -H ""x-api-key: your_api_key"" \
   -H ""Content-Type: application/json"" \
   -d '{""text"": ""Hello, this is a test of the text to speech system."", ""voice_id"": ""Bla6SbVMczYnOhfK"", ""output_format"": ""wav"", ""only_audio"": true}' \
