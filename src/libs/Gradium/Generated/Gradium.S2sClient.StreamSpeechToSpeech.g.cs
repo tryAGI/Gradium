@@ -632,7 +632,7 @@ namespace Gradium
 
                                 throw global::Gradium.ApiException.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_101 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_101 is { Length: > 0 } ? __content_101 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_101,
                                     responseBody: __content_101,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -667,7 +667,7 @@ namespace Gradium
                                 {
                                     throw global::Gradium.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -703,7 +703,7 @@ namespace Gradium
 
                                     throw global::Gradium.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
