@@ -41,6 +41,12 @@ internal static partial class VoicesGetVoicesVoicesGetCommandApiCommand
         Description = @"Only voices tagged with this use case, e.g. `Customer Service`, `Conversational`, `Narration` or `Ads & Social Media`. URL-encode it (`Ads%20%26%20Social%20Media`).",
     };
 
+    private static Option<string?> Channel { get; } = new(
+        name: @"--channel")
+    {
+        Description = @"Only catalog voices approved for this channel. `telephony`: voices that hold up on a phone line (8 kHz), chosen by native-speaker listening tests. `on-device`: the catalog voices Phonon, our on-device model, ships with. Use it with `include_catalog=true`; your organization's own voices never match.",
+    };
+
                     private static string FormatResponse(ParseResult parseResult, global::System.Collections.Generic.IList<global::Gradium.APIVoiceResponse> value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
                     {
                         string? text = null;
@@ -73,6 +79,7 @@ List voices for the authenticated organization.");
                         command.Options.Add(Locale);
                         command.Options.Add(Gender);
                         command.Options.Add(UseCase);
+                        command.Options.Add(Channel);
 
 
         command.SetAction(async (ParseResult parseResult, CancellationToken cancellationToken) =>
@@ -84,6 +91,7 @@ List voices for the authenticated organization.");
                         var locale = parseResult.GetValue(Locale);
                         var gender = parseResult.GetValue(Gender);
                         var useCase = parseResult.GetValue(UseCase);
+                        var channel = parseResult.GetValue(Channel);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
@@ -94,6 +102,7 @@ List voices for the authenticated organization.");
                                     locale: locale,
                                     gender: gender,
                                     useCase: useCase,
+                                    channel: channel,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 

@@ -32,7 +32,8 @@ namespace Gradium
             ref bool? includeCatalog,
             ref string? locale,
             ref string? gender,
-            ref string? useCase);
+            ref string? useCase,
+            ref string? channel);
         partial void PrepareGetVoicesVoicesGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -41,7 +42,8 @@ namespace Gradium
             bool? includeCatalog,
             string? locale,
             string? gender,
-            string? useCase);
+            string? useCase,
+            string? channel);
         partial void ProcessGetVoicesVoicesGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -67,6 +69,7 @@ namespace Gradium
         /// <param name="locale"></param>
         /// <param name="gender"></param>
         /// <param name="useCase"></param>
+        /// <param name="channel"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Gradium.ApiException"></exception>
@@ -77,6 +80,7 @@ namespace Gradium
             string? locale = default,
             string? gender = default,
             string? useCase = default,
+            string? channel = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -87,6 +91,7 @@ namespace Gradium
                 locale: locale,
                 gender: gender,
                 useCase: useCase,
+                channel: channel,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -109,6 +114,7 @@ namespace Gradium
         /// <param name="locale"></param>
         /// <param name="gender"></param>
         /// <param name="useCase"></param>
+        /// <param name="channel"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Gradium.ApiException"></exception>
@@ -119,6 +125,7 @@ namespace Gradium
             string? locale = default,
             string? gender = default,
             string? useCase = default,
+            string? channel = default,
             global::Gradium.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -131,7 +138,8 @@ namespace Gradium
                 includeCatalog: ref includeCatalog,
                 locale: ref locale,
                 gender: ref gender,
-                useCase: ref useCase);
+                useCase: ref useCase,
+                channel: ref channel);
 
 
             var __authorizations = global::Gradium.EndPointSecurityResolver.ResolveAuthorizations(
@@ -166,6 +174,7 @@ namespace Gradium
                                 .AddOptionalParameter("locale", locale)
                                 .AddOptionalParameter("gender", gender)
                                 .AddOptionalParameter("use_case", useCase)
+                                .AddOptionalParameter("channel", channel)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Gradium.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -212,7 +221,8 @@ namespace Gradium
                     includeCatalog: includeCatalog,
                     locale: locale,
                     gender: gender,
-                    useCase: useCase);
+                    useCase: useCase,
+                    channel: channel);
 
                 return __httpRequest;
             }
